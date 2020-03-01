@@ -6,6 +6,16 @@ const conexion = mysql.createConnection({
     database: 'toursdb'
 })
 
+const identidad = document.getElementById("txt-identidad")
+const firstname = document.getElementById("txt-name")
+const lastname = document.getElementById("txt-lastname")
+const email = document.getElementById("txt-email")
+const username = document.getElementById("txt-username")
+const password = document.getElementById("txt-password")
+const confirmpassword = document.getElementById("txt-confirm-password")
+const telphone = document.getElementById("txt-telphone")
+
+
 conexion.connect(function(error)
 {
     if (error)
@@ -18,18 +28,25 @@ conexion.connect(function(error)
     console.log ('Conexion Exitosa');
 });
 
+let bool = true
 
-// const txtUsuario = document.getElementById('txt_usuario');
-// const txtContra = document.getElementById('contra');
-// const cb
-const btnResultados = document.getElementById('btn_resultados');
+while (bool === ture) {
+    alert("Ingrese el correo de nuevo")
+
+    if (password.value === confirmpassword.value) {
+        bool = false
+    }
+}
 
 
+const btnResultados = document.getElementById('btn-Login');
 
 btnResultados.addEventListener('click', function(err)
+
 {
     //err.preventDefault()
-    conexion.query("select * from usuarios", 
+    conexion.query("insert into clientes(username,email, contra, primer_nombre,primer_apellido,telefono,tipo_usuario_id) values ?", 
+    [`${username.value},${email.value},${password.value},${firstname.value},${lastname.value},${telphone.value}, 3`],
     function(err, resultados, campos)
     {
         if (err) throw err;
