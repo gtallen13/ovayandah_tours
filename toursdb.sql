@@ -35,9 +35,9 @@ create table posiciones
 
 insert into posiciones (id, nombre)
 values
-(1, 'Administrativo'),
-(2, 'Tour Guide'),
-(3, 'Transportista');
+(1, 'A'),
+(2, 'T'),
+(3, 'D');
 
 create table empleados
 (
