@@ -1,12 +1,17 @@
 create database toursdb;
 use toursdb;
 
-select * from tipo_usuario;
 create table tipo_usuario
 (
 	ID int auto_increment primary key not null,
     nombre_tipo varchar (1) not null
 );
+
+insert into tipo_usuario (id, nombre_tipo) 
+values
+(1, 'A'),
+(2, 'E'),
+(3, 'U');
 
 create table clientes
 (
@@ -27,6 +32,12 @@ create table posiciones
 	id int auto_increment primary key not null,
     nombre varchar(1)
 );
+
+insert into posiciones (id, nombre)
+values
+(1, 'Administrativo'),
+(2, 'Tour Guide'),
+(3, 'Transportista');
 
 create table empleados
 (
