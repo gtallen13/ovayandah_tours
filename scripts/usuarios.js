@@ -41,13 +41,13 @@ let txtUsuario = 'gtallen'
 let txtContra = 'password123'
 btnResultados.addEventListener('click', function(err)
 {
-    let sql = `insert into usuario (username, contra, tipo_usuario_id) values(${txtUsuario}, ${txtContra}, 3)`;
-    conexion.query(sql, function(err, resultados)
+    let sql = `insert into clientes(username, email, contra, primer_nombre, primer_apellido, telefono, tipo_usuario_id) values('${txtUsuario}', 'ejempllo@gmail.com', '${txtContra}', 'Thomas', 'Allen', '9988-1234', 3)`;
+    conexion.query(sql, function(err, resultados,campos)
     {
         if (err) throw err;
         console.log ('1 campo ha sido insertado');
+        console.log (resultados)
     })
-
 });
 
 
