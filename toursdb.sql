@@ -77,7 +77,7 @@ create table reservaciones
     fecha_creacion datetime not null,
     id_cliente int not null,
     ubicacion_id int not null,
-    foreign key (ubicacion_id) references ubicaciones
+    foreign key (ubicacion_id) references ubicaciones(id)
 );
 create table tours
 (
