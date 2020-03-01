@@ -23,24 +23,31 @@ conexion.connect(function(error)
 // const txtContra = document.getElementById('contra');
 // const cb
 const btnResultados = document.getElementById('btn_resultados');
-const btnAgregar = document.getElementById('btn_agregar');
+// const btnAgregar = document.getElementById('btn_agregar');
 
 
+// btnResultados.addEventListener('click', function(err)
+// {
+//     //err.preventDefault()
+//     conexion.query("select * from usuarios", 
+//     function(err, resultados, campos)
+//     {
+//         if (err) throw err;
+//         console.log (resultados);
+//     });
+// });
+
+let txtUsuario = 'gtallen'
+let txtContra = 'password123'
 btnResultados.addEventListener('click', function(err)
 {
-    //err.preventDefault()
-    conexion.query("select * from usuarios", 
-    function(err, resultados, campos)
+    let sql = `insert into usuario (username, contra, tipo_usuario_id) values(${txtUsuario}, ${txtContra}, 3)`;
+    conexion.query(sql, function(err, resultados)
     {
         if (err) throw err;
-        console.log (resultados);
-    });
-});
+        console.log ('1 campo ha sido insertado');
+    })
 
-
-btnAgregar.addEventListener('click', function(err)
-{
-    let sql = `insert into usuario (username, contra, tipo_usuario_id) values`
 });
 
 
