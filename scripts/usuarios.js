@@ -23,7 +23,7 @@ conexion.connect(function(error)
 // const txtContra = document.getElementById('contra');
 // const cb
 const btnResultados = document.getElementById('btn_resultados');
-
+const btnAgregar = document.getElementById('btn_agregar');
 
 
 btnResultados.addEventListener('click', function(err)
@@ -35,6 +35,12 @@ btnResultados.addEventListener('click', function(err)
         if (err) throw err;
         console.log (resultados);
     });
+});
+
+
+btnAgregar.addEventListener('click', function(err)
+{
+    let sql = `insert into usuario (username, contra, tipo_usuario_id) values`
 });
 
 
