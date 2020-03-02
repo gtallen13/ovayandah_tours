@@ -1,0 +1,66 @@
+body{
+    margin:0;
+    padding: 0;
+  
+}
+
+header{
+    
+    background-color:rgb(9,79,174);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.wrapper{
+    overflow: hidden;
+    width: 90%;
+    max-width: 1000px;
+    
+
+}
+
+/*Estilo al encabezado*/
+.encabezado{
+   color: rgb(255, 255, 255);
+    font-size: 30px;
+    line-height:80px;
+    float: left;
+   margin-left: 30px;
+}
+
+.encabezado2{
+    color: rgb(229,161,50);
+    font-size: 30px;
+    line-height:80px;
+    float: left;
+    
+    font-weight: bold;
+}
+
+/*Estilo de los botones de navegacion*/
+header nav{
+    float: right;
+    line-height: 100px;
+    float: right;
+    
+
+}
+
+/*Estilo de los botones de navegacion*/
+header nav a{
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    text-decoration:none;
+    padding: 10px 20px;
+    line-height: normal;
+    font-size:20px;
+    font-weight: bold;
+    -o-webkit-transition:all 500ms eas;  
+    -o-transition: all 500ms eas;
+    transition:all 500ms eas;
+}
+/*Cambio de color al pasar el mouse sobre los nav*/
+header nav a:hover{
+    background-color: RGB(9, 38, 247);
+    border-radius: 50px;
+}
