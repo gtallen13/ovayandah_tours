@@ -4,41 +4,24 @@ use toursdb;
 create table tipo_usuario
 (
 	ID int auto_increment primary key not null,
-    nombre_tipo varchar (1) not null
+    nombre_tipo varchar (15) not null
 );
-
-insert into tipo_usuario (id, nombre_tipo) 
-values
-(1, 'A'),
-(2, 'E'),
-(3, 'U');
 
 create table clientes
 (
-	id int auto_increment not null,
-    username varchar (20) not null,
+	cod_cliente int auto_increment not null,
     email varchar(30) not null,
-    contra varchar (20) not null,
     primer_nombre varchar(20) not null,
     primer_apellido varchar (20) not null,
     telefono varchar (15) not null,
-	tipo_usuario_id int not null,
-    primary key (id, username),
-    foreign key (tipo_usuario_id) references tipo_usuario(ID)
+    primary key (cod_cliente, email)
 );
 
 create table posiciones 
 (
 	id int auto_increment primary key not null,
-    nombre varchar(1)
+    nombre varchar(15) not null
 );
-
-insert into posiciones (id, nombre)
-values
-(1, 'Administrativo'),
-(2, 'Tour Guide'),
-(3, 'Transportista');
-
 create table empleados
 (
 	id int auto_increment not null,
@@ -51,7 +34,8 @@ create table empleados
     id_posicion int not null,
     tipo_usuario_id int not null,
     primary key (id, username),
-    foreign key (tipo_usuario_id) references tipo_usuario(id)
+    foreign key (tipo_usuario_id) references tipo_usuario(id),
+    foreign key (id_posicion) references posiciones (id)
 );
 
 
@@ -79,18 +63,30 @@ create table ubicaciones
     foreign key (id_municipio) references municipio(id)
 );
 
+ create table tours
+ (
+	ID int auto_increment primary key not null,
+	nombre varchar(25) not null,
+	precio int not null,
+    descripcion varchar (100) not null
+ );
+
 create table reservaciones 
 (
 	id int auto_increment primary key not null,
-    fecha_tour datetime	not null,
+    fecha_inicio_tour datetime	not null,
+    fecha_final_tour datetime not null,
     cantidad_turistas int not null,
     precio_total int not null,
     fecha_creacion datetime not null,
-    id_cliente int not null,
+    cod_cliente int not null,
     ubicacion_id int not null,
-    foreign key (ubicacion_id) references ubicaciones
+    tour_id int not null,
+    foreign key (tour_id) references tours (id),
+    foreign key (ubicacion_id) references ubicaciones(id),
+    foreign key (cod_cliente) references clientes(cod_cliente)
 );
-create table tours
+create table empleados_reservaciones
 (
 	id int auto_increment primary key not null,
     reservacion_id int not null,
@@ -98,5 +94,9 @@ create table tours
     foreign key (reservacion_id) references reservaciones(id),
     foreign key (empleados_id) references empleados(id)
 );
+
+
+ 
+ 
 
 

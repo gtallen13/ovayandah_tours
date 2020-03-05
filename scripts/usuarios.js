@@ -23,24 +23,35 @@ conexion.connect(function(error)
 // const txtContra = document.getElementById('contra');
 // const cb
 const btnResultados = document.getElementById('btn_resultados');
-const btnAgregar = document.getElementById('btn_agregar');
+const btnReservar = document.getElementById ('btn_reservar');
+// const btnAgregar = document.getElementById('btn_agregar');
 
 
-btnResultados.addEventListener('click', function(err)
-{
-    //err.preventDefault()
-    conexion.query("select * from usuarios", 
-    function(err, resultados, campos)
-    {
-        if (err) throw err;
-        console.log (resultados);
-    });
-});
+// btnResultados.addEventListener('click', function(err)
+// {
+//     //err.preventDefault()
+//     conexion.query("select * from usuarios", 
+//     function(err, resultados, campos)
+//     {
+//         if (err) throw err;
+//         console.log (resultados);
+//     });
+// });
 
+let txtUsuario = 'gtallen'
+let txtContra = 'password123'
 
-btnAgregar.addEventListener('click', function(err)
-{
-    let sql = `insert into usuario (username, contra, tipo_usuario_id) values`
-});
+//Agregando los usuarios (listo)
+// btnResultados.addEventListener('click', function(err)
+// {
+//     let sql = `insert into clientes(username, email, contra, primer_nombre, primer_apellido, telefono, tipo_usuario_id) values('${txtUsuario}', 'ejempllo@gmail.com', '${txtContra}', 'Thomas', 'Allen', '9988-1234', 3)`;
+//     conexion.query(sql, function(err, resultados,campos)
+//     {
+//         if (err) throw err;
+//         console.log ('1 campo ha sido insertado');
+//         console.log (resultados)
+//     })
+// });
 
-
+//reservar tours
+btnResultados
