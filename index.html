@@ -1,10 +1,60 @@
 <html>
     <head>
-        <title>Ovayanda Tours</title>
+        <title>Ovayandah Tours</title>
+        <link rel="stylesheet" href="./links/modal.css">
     </head>
     <body>
         <h1>Hi</h1>
         <input type="button" id='btn_resultados' value="Ver Datos">
+        <button id="myBtn"><a href="#mymodal">Reservas</a></button>
+        <Form>
+        <!-- The Modal -->
+            <div id="myModal" class="modal" >
+
+            <!-- Modal content -->
+                <div class="modal-content" style="overflow-y: scroll; overflow-x: hidden;max-height:85%;  margin-top: 50px; margin-bottom:50px;" >
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <img src="./Imagenes/logobrr.png" >
+                    </div>
+                    <div class="modal-body">
+                        <div class="contenedor"></div>
+                            <div class="casilla">
+                                <Label id="cal">Días a reservar</Label>
+                                <span>Fecha de inicio</span>
+                                <input type="datetime-local" name="fecha" id="fecha">
+                                <span>Fecha final</span>
+                                <input type="datetime-local" name="fecha" id="fecha2">
+                            </div>
+                            <div class="casilla">
+                                <label>Primer Nombre</label>
+                                <input type="text" id="txt_primer_nombre">
+                            </div>
+                            <div class="casilla">
+                                <label>Primer Apellido</label>
+                                <input type="text" id="txt_primer_apellido">
+                            </div>
+                            <div class="casilla">
+                                <label>Correo</label>
+                                <input type="email" id="txt_correo" placeholder="example123@ovayandah.com">
+                            </div>
+                            <div class="casilla">
+                                <label>Verificacion de correo</label>
+                                <input type="email" id="txt_ver_correo" placeholder="example123@ovayandah.com">
+                            </div>
+                            <div class="casilla">
+                                <label>Cantidad de personas</label>
+                                <input type="number" name="cantidad" id="txt_cantidad_personas">
+                            </div>  
+                            <div class="casilla">
+                                <button id="Guardar">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </Form>    
         <script src="./scripts/usuarios.js" type="text/javascript"></script>
     </body>
 </html>
