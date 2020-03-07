@@ -23,10 +23,7 @@ conexion.connect(function(error)
 // const txtContra = document.getElementById('contra');
 // const cb
 const btnResultados = document.getElementById('btn_resultados');
-<<<<<<< HEAD
-=======
 const btnReservar = document.getElementById ('btn_reservar');
->>>>>>> BE_Thomas
 // const btnAgregar = document.getElementById('btn_agregar');
 
 
@@ -43,7 +40,6 @@ const btnReservar = document.getElementById ('btn_reservar');
 
 let txtUsuario = 'gtallen'
 let txtContra = 'password123'
-<<<<<<< HEAD
 btnResultados.addEventListener('click', function(err)
 {
     let sql = `insert into clientes(username, email, contra, primer_nombre, primer_apellido, telefono, tipo_usuario_id) values('${txtUsuario}', 'ejempllo@gmail.com', '${txtContra}', 'Thomas', 'Allen', '9988-1234', 3)`;
@@ -58,8 +54,6 @@ btnResultados.addEventListener('click', function(err)
 // Get the modal
 var modal = document.getElementById("myModal");
 
-<<<<<<< HEAD
-=======
 
 //Agregando los usuarios (listo)
 // btnResultados.addEventListener('click', function(err)
@@ -74,9 +68,7 @@ var modal = document.getElementById("myModal");
 // });
 
 //reservar tours
-btnResultados
->>>>>>> BE_Thomas
-=======
+
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
@@ -99,4 +91,3 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
->>>>>>> 303a7dc0b08f56db4323b608e6da5a4e89238793
