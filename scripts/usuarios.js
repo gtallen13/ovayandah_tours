@@ -91,7 +91,3 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> FE_carlos
