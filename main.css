@@ -1,66 +1,177 @@
+
 body{
     margin:0;
-    padding: 0;
-  
-}
+    font-family: sans-serif;
+    
+    
+}   
 
 header{
     
     background-color:rgb(9,79,174);
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-.wrapper{
-    overflow: hidden;
-    width: 90%;
-    max-width: 1000px;
+    width: 100%;
     
-
 }
+
+/*Altura y Ancho de los iconos del menú*/
+header li a img{
+    width: 20px;
+    height: 20px;
+    padding-right: 5px;
+    
+}
+
+
 
 /*Estilo al encabezado*/
 .encabezado{
-   color: rgb(255, 255, 255);
-    font-size: 30px;
-    line-height:80px;
-    float: left;
-   margin-left: 30px;
-}
-
-.encabezado2{
-    color: rgb(229,161,50);
-    font-size: 30px;
-    line-height:80px;
-    float: left;
-    
-    font-weight: bold;
-}
-
-/*Estilo de los botones de navegacion*/
-header nav{
-    float: right;
-    line-height: 100px;
-    float: right;
-    
-
-}
-
-/*Estilo de los botones de navegacion*/
-header nav a{
-    display: inline-block;
     color: rgb(255, 255, 255);
-    text-decoration:none;
-    padding: 10px 20px;
+     font-size: 30px;
+    float: right;
+    padding: 20px 0 0 0;
+    
+ }
+
+ .encabezado2{
+     color: rgb(229,161,50);
+     font-size: 30px;
+     float: right;
+     padding: 20px 25px 0 0;
+     
+ }
+ 
+#btn-menu{
+    display: none;
+
+}
+header label{
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-right: 1px solid #ffffff;
+    
+}
+
+header label img{
+    width: 30px;
+    height: 30px;
+}
+header label:hover{
+    cursor:pointer;
+    background: rgb(9,79,174);
+   
+}
+header nav ul li:hover{
+    background-color: RGB(9, 38, 247);
+    border-radius: 50px;
+}
+.navegacion ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
     line-height: normal;
-    font-size:20px;
-    font-weight: bold;
+    
+}
+
+.navegacion li a{
+    display: inline-block;
+    font-size: 20px;
+    padding: 25px 10px;
+    color: #fff;
+    text-decoration: none;
+    
     -o-webkit-transition:all 500ms eas;  
     -o-transition: all 500ms eas;
     transition:all 500ms eas;
+    
 }
-/*Cambio de color al pasar el mouse sobre los nav*/
-header nav a:hover{
-    background-color: RGB(9, 38, 247);
-    border-radius: 50px;
+
+/*Propiedades para el menu al reducir el navegador a 600px*/
+@media(max-width:860px){
+     header label{ 
+        display: block;
+     }
+/*Opciones principales*/
+     .navegacion {
+         position: absolute;
+         background: rgb(9,79,174); 
+         width:50%;
+         margin-left: -70%;
+         transition: all 0.5s;
+         
+             }
+/*Muestra el menú en forma de columna*/
+     .navegacion ul{
+         flex-direction: column;
+         
+     }
+/*Al darle clic al boton del menú se abra*/
+     #btn-menu:checked ~ .navegacion {
+        margin:0;
+     }
+
+    
+}
+/*----------------------------------------------------------------------------------*/
+/*Estilo de interfaz usuario*/
+
+.container {
+    max-width: 450px;
+    height: auto;
+    background-color: #efefef;
+    margin: 5% auto;
+    margin-bottom: 1rem;
+    flex-direction: column;
+}
+.form_top {
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0 1 rem;
+    border-top: solid .4rem #f39b53;
+    margin-bottom: 1rem;
+}
+.form_top h2 {
+    font-weight: bold;
+    color: #cac8c8;
+   font-size: 18px;
+}
+h2 span{
+    color: #f39b53;
+}
+.form__reg {
+	padding: 0 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.btn__form {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1rem;
+}
+.input, .btn__submit, .btn__reset, .option{
+	background-color: #EFEFEF;
+	padding: .5rem;
+	margin: .5rem 0;
+	border: none;
+	border-bottom: solid #C8C8C8 .2rem;
+    transition: all .5s;
+   
+}
+
+.input:focus{
+    border-bottom: solid #f39b53 .2rem;
+}
+
+.btn__submit {
+	width: 40%;
+	border-bottom: none;
+	background-color: #31B1E5;
+	color: white;
+}
+.btn__submit:hover {
+	background-color: #4C9ED9;
 }
