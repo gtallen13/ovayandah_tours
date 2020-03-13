@@ -13,19 +13,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
-    
+       <div id="contenedor">
+        <form div_id="Form-inicio">
+             <header>
+               <div class = "wrapper">
+                 <div class = "encabezado">
+                   Ovayandah
+                 </div>
+                 <div class = "encabezado2">
+                     Tours
+                 </div>
+                 <nav>
+                <a href="#">Inicio</a>
+                <a href="#">Promociones</a>
+                <a href="#">Acerca de</a>
+                <a href="#">Contactanos</a>
 
-    <div class="contenedor">
+                 </nav>
+               </div>
+             </header>
+
+    <div class="input">
 
 
         <label for="">Username</label>
         <input type="text" id="txt-username">
 
-        <label for="">Email</label>
-        <input type="text" id="txt-email">
 
         <label for="">Password</label>
         <input type="text" id="txt-password">
@@ -42,11 +60,24 @@
         <label for="">Telphone</label>
         <input type="text" id="txt-telphone">
 
-        <input type="submit" id="btn-Login" value="Login">
+        <label for="">Email</label>
+        <input type="text" id="txt-email">
+
+        <input type="submit" id="btn-Login">
 
     </div>
 
-    <script src="/scripts/usuarios.js"></script>
+    <input type="button" id="btn-Consultar" value="Consultar">
+
+    
+    <script src="./scripts/administrativo.js"></script>
+
+    <div class="tabla">
+        <table id="mostrar">
+
+        </table>
+        
+    </div>
     
 </body>
 </html>

@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+
 const conexion = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -28,30 +29,19 @@ conexion.connect(function(error)
     console.log ('Conexion Exitosa');
 });
 
-let bool = true
-
-while (bool === ture) {
-    alert("Ingrese el correo de nuevo")
-
-    if (password.value === confirmpassword.value) {
-        bool = false
-    }
-}
 
 
-const btnResultados = document.getElementById('btn-Login');
+const btnResultados = document.getElementById("btn-Login");
 
 btnResultados.addEventListener('click', function(err)
 
 {
-    //err.preventDefault()
-    conexion.query("insert into clientes(username,email, contra, primer_nombre,primer_apellido,telefono,tipo_usuario_id) values ?", 
-    [`${username.value},${email.value},${password.value},${firstname.value},${lastname.value},${telphone.value}, 3`],
+    conexion.query(`insert into clientes(username,email,contra,primer_nombre,primer_apellido,telefono,tipo_usuario_id) values('${username.value}','${email.value}','${password.value}','${firstname.value}','${lastname.value}','${telphone.value}', 3);`,
     function(err, resultados, campos)
     {
         if (err) throw err;
-        console.log (resultados);
     });
+    
 });
 
 
