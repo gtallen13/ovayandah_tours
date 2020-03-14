@@ -6,19 +6,6 @@ const conexion = mysql.createConnection({
     database: 'toursdb'
 })
 
-conexion.connect(function(error)
-{
-    if (error)
-    {
-        console.log ('No se ha podido establecer conexion con la base de datos');
-        console.log (error);
-        alert('Fallo de conexion a la base de datos');
-        return;
-    }
-    console.log ('Conexion Exitosa');
-});
-
-
 // const txtUsuario = document.getElementById('txt_usuario');
 // const txtContra = document.getElementById('contra');
 // const cb
