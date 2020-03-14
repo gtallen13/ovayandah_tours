@@ -68,7 +68,9 @@ create table ubicaciones
 	ID int auto_increment primary key not null,
 	nombre varchar(25) not null,
 	precio decimal(8,2) not null,
-    descripcion varchar (100) not null
+    id_actividades int not null,
+    descripcion varchar (100) not null,
+    foreign key (id_actividades) references actividades(id)
  );
  
  
