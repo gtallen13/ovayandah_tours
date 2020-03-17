@@ -63,6 +63,12 @@ create table ubicaciones
     foreign key (id_municipio) references municipios(id)
 );
 
+create table actividades
+(
+    id int auto_increment primary key not null,
+    nombre varchar (25) not null
+);
+
  create table tours
  (
 	ID int auto_increment primary key not null,
