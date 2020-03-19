@@ -14,28 +14,28 @@ body {
 }
 
 /* Create two equal columns that floats next to each other */
-.column {
+.row .column {
 float: left;
 width: 20%;
 padding: 10px;
 height: 250px;
 /* Should be removed. Only for demonstration */
 }
-.column_1 {
+.row .column_1 {
 float: left;
 width: 80%;
 padding: 10px;
 height: 250px;
 /* Should be removed. Only for demonstration */
 }
-.column_2 {
+.row_1 .column_2 {
 float: left;
 width: 20%;
 padding: 10px;
 height: 250px;
 /* Should be removed. Only for demonstration */
 }
-.column_3 {
+.row_1 .column_3 {
 float: left;
 width: 80%;
 padding: 10px;
@@ -53,7 +53,7 @@ content: "";
 display: table;
 clear: both;
 }
-.caja {
+.row .column_1 .caja {
     height: 200px;
     width: 290px;
     background-color: #ffff;
@@ -66,7 +66,7 @@ clear: both;
     margin-left: 10px;
     padding-right: 5px;
 }
-.caja_1 {
+.row_1 .column_3 .caja_1 {
     height: 200px;
     width: 290px;
     background-color: #ffff;
@@ -87,7 +87,7 @@ background-color: rgb(17, 29, 136);
 margin: 0;
 }
 
-button {
+input[type="button"] {
 background-color: rgb(38, 59, 179);
 color: white;
 padding: 10px;
