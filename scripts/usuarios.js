@@ -6,6 +6,7 @@ const conexion = mysql.createConnection({
     database: 'toursdb'
 })
 
+<<<<<<< HEAD
 
 
 conexion.connect(function(error)
@@ -21,6 +22,8 @@ conexion.connect(function(error)
 });
 
 
+=======
+>>>>>>> 46f8b7621b1b9d7e3672384e42cd27e64c61ca66
 // const txtUsuario = document.getElementById('txt_usuario');
 // const txtContra = document.getElementById('contra');
 // const cb
