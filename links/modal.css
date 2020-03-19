@@ -117,8 +117,8 @@ overflow-x: hidden;
   color: #888;
 }
 body::-webkit-scrollbar {
-  width: 10px;
-  
+  width: 5px;
+  height: 3px;
 }
 
 /* Track */
