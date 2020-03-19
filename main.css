@@ -1,0 +1,187 @@
+body {
+    background-color: rgb(209, 206, 206);
+    margin: 0 ;
+    height: 50%;
+}
+h1 {
+    margin: 0 auto;
+    padding: 50px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(243, 221, 97);
+    height: 40px;
+}
+
+h2 {
+    margin: 0 auto;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    text-align: auto;
+    height: 35px;
+  
+
+}
+
+.titulo {
+color:rgb(255, 255, 255);
+background-color: rgb(37, 165, 148);
+
+}
+form {
+    display: flex ;
+    flex-direction: row;
+
+}
+.principal {
+text-align: center;
+}
+
+.caja {
+    width: 1000px;
+    height: 250px;
+    margin: 10px auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    
+}
+
+.caja1 {
+    width: 1000px;
+    height: 250px;
+    margin: 10px auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    
+
+}
+
+.caja .foto1 {
+    width: 450px;
+    height: 250px;
+    background-image: url("./Imaganes/1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 10px;
+    padding-right: 5px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    transition-delay: 1s;
+    transition: all 1s;
+}
+
+.caja .foto2 {
+    width: 450px;
+    height: 250px;
+    background-image: url("./Imaganes/2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 10px;
+    border-bottom-right-radius:10px;
+    border-top-right-radius: 10px;
+    transition-delay: 1s;
+    transition: all 1s;
+}
+.caja1 .fotos3 {
+    width: 300px;
+    height: 250px;
+    background-image: url("./Imaganes/3.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition-delay: 1s;
+    transition: all 1s;
+
+}
+.caja1 .fotos4 {
+    width: 300px;
+    height: 250px;
+    background-image: url("./Imaganes/4.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 10px;
+    transition-delay: 1s;
+    transition: all 1s;
+
+}
+.caja1 .fotos5 {
+    width: 300px;
+    height: 250px;
+    background-image: url("./Imaganes/5.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 10px;
+    border-bottom-right-radius:10px;
+    border-top-right-radius: 10px;
+    transition-delay: 1s;
+    transition: all 1s;
+
+}
+
+.caja1 .fotos5:hover {
+    background-image: url("./Imaganes/10.jpg");
+    background-size: contain;
+    width: 300px;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.caja1 .fotos4:hover {
+    background-image: url("./Imaganes/12.jpg");
+    background-size: contain;
+    width: 300px;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.caja1 .fotos3:hover {
+    background-image: url("./Imaganes/15.jpg");
+    background-size: contain;
+    width: 300px;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.caja .foto2:hover {
+    background-image: url("./Imaganes/7.jpg");
+    background-size: contain;
+    width: 450px;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.caja .foto1:hover {
+    background-image: url("./Imaganes/9.jpg");
+    background-size: contain;
+    width: 450px;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
