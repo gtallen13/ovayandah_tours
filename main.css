@@ -1,4 +1,10 @@
 
+/* clase para esconder secciones */
+.esconder
+{
+    display: none;
+}
+
 body{
     margin:0;
     font-family: sans-serif;

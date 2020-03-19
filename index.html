@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
         <link href="main.css" rel="stylesheet" type="text/css">
         <link href="Main.css" rel="stylesheet" type="text/css" />
+        <meta charset="UTF-8">
     </head>
     
     <body>
@@ -86,10 +87,8 @@
 
                     <nav class="navegacion">
                       <ul>
-                    <li><a href="#"><img src="carpeta.css/img/inicio.png"></span>Inicio</a></li>
-                    <li><a href="#"><img src="carpeta.css/img/promo.png">Promociones</a></li>
-                    <li><a href="#"><img src="carpeta.css/img/acercade.png"></span>Acerca de</a></li>
-                    <li><a href="#"><img src="carpeta.css/img/contacto.png">Contactanos</a></li>
+                    <li><a href="#" class = "item-menu"  data-elemento = "inicio"><img src="carpeta.css/img/inicio.png"></span>Inicio</a></li>
+                    <li><a href="#" class= "item-menu"  data-elemento = "formulario"><img src="carpeta.css/img/promo.png">Tours</a></li>
                       </ul>
                      </nav>
                    </div>
@@ -97,36 +96,16 @@
                  </header>
         
         </div> 
-        <div class="slider">
-            <ul>
-                <li><img src="carpeta.css/img/1.png" alt=""></li>
-                <li><img src="carpeta.css/img/2.png" alt=""></li>
-                <li><img src="carpeta.css/img/3.jpg" alt=""></li>
-                <li><img src="carpeta.css/img/4.jpg" alt=""></li>
-            </ul>
-        </div>
-  
 
-<!--                             HTML FORMULARIO    -->                              
-        <div class="container">
-            <div class="form__top">
-                <h2>Formulario <span>Cliente</span></h2>
-            </div>		
-            <form class="form__reg" action="">
-                <input class="inputs" type="text" placeholder="&#128100; Username" required>
-                <input class="inputs" type="password" placeholder="&#128272;  Contraseña" required autofocus>
-                <input class="inputs" type="text" placeholder="&#128100;  Nombre" required autofocus>
-                <input class="inputs" type="text" placeholder="&#128222;  Telefono" required>
-                <input class="inputs" type="text" placeholder="&#128100;  Apellido" required>
-                <input class="inputs" type="email" placeholder="&#9993;  Email" required>
-                
-                
-                <div class="btn__form">
-                    <input class="btn__submit" type="submit" value="REGISTRAR">
-                    <input class="btn__reset" type="reset" value="LIMPIAR">	
-                </div>
-            </form>
-        </div>
+        <div id="inicio" class="pagina">
+            <div class="slider">
+                <ul>
+                    <li><img src="carpeta.css/img/1.png" alt=""></li>
+                    <li><img src="carpeta.css/img/2.png" alt=""></li>
+                    <li><img src="carpeta.css/img/3.jpg" alt=""></li>
+                    <li><img src="carpeta.css/img/4.jpg" alt=""></li>
+                </ul>
+            </div>
             <div class="datos">
                 <div class="caja">
                     <div class="foto1">
@@ -151,12 +130,34 @@
                     </div>
                 </div>
             </div>
-        <script src="./scripts/usuarios.js" type="text/javascript"></script>
-<<<<<<< HEAD
+        </div>
+  
+
+<!--                             HTML FORMULARIO    -->                              
+        <div id = "formulario" class = "pagina esconder" >
+            <div class="container">
+                <div class="form__top">
+                    <h2>Formulario <span>Cliente</span></h2>
+                </div>		
+                <form class="form__reg" action="">
+                    <input class="inputs" type="text" placeholder="&#128100; Username" required>
+                    <input class="inputs" type="password" placeholder="&#128272;  Contraseña" required autofocus>
+                    <input class="inputs" type="text" placeholder="&#128100;  Nombre" required autofocus>
+                    <input class="inputs" type="text" placeholder="&#128222;  Telefono" required>
+                    <input class="inputs" type="text" placeholder="&#128100;  Apellido" required>
+                    <input class="inputs" type="email" placeholder="&#9993;  Email" required>
+                    
+                    
+                    <div class="btn__form">
+                        <input class="btn__submit" type="submit" value="REGISTRAR">
+                        <input class="btn__reset" type="reset" value="LIMPIAR">	
+                    </div>
+                </form>
+            </div>
+        </div>
+            
         <script src="./scripts/modal.js" type="text/javascript"></script>
-        <script src="./scripts/usuarios.js" type="text/javascript"></script> 
-=======
-        <script src = "./scripts/reservaciones.js"  type="text/javascript"></script>
->>>>>>> 46f8b7621b1b9d7e3672384e42cd27e64c61ca66
+        
+        <script src = "./scripts/main.js" type="text/javascript"></script>
     </body>
 </html>
