@@ -235,9 +235,9 @@ h2 span{
 h1 {
     margin: 0 auto;
     padding: 50px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-align: center;
-    background-color: rgb(243, 221, 97);
+    background-color: rgb(9,79,174);
     height: 40px;
 }
 
