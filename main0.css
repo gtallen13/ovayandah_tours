@@ -87,7 +87,7 @@ background-color: rgb(17, 29, 136);
 margin: 0;
 }
 
-input[type="button"] {
+.row .column_1 input[type="button"] {
 background-color: rgb(38, 59, 179);
 color: white;
 padding: 10px;
@@ -100,4 +100,17 @@ border: 0;
 position: absolute;
 bottom: auto;
 }
+.row_1 .column_3 input[type="button"] {
+    background-color: rgb(38, 59, 179);
+    color: white;
+    padding: 10px;
+    right: 20px;
+    float: left;
+    float: right;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    position: absolute;
+    bottom: auto;
+    }
 
