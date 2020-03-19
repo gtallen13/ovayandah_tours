@@ -74,11 +74,16 @@ create table actividades
 	ID int auto_increment primary key not null,
 	nombre varchar(25) not null,
 	precio decimal(8,2) not null,
-    id_actividades int not null,
-    descripcion varchar (100) not null,
-    foreign key (id_actividades) references actividades(id)
+    descripcion varchar (100) not null
  );
- 
+ create table tours_actividades
+(
+	id int auto_increment primary key not null,
+    id_actividad int not null,
+    id_tour int not null,
+    foreign key (id_actividad) references actividades(id),
+    foreign key (id_tour) references tours(id)
+);
  
  create table tours_ubicaciones
  (
