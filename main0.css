@@ -1,0 +1,103 @@
+* {
+box-sizing: border-box;
+margin: 0;
+}
+.row {
+    margin: 5px;
+
+}
+.row_1 {
+    margin: 5px;
+}
+body {
+    color: #ffff;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+float: left;
+width: 20%;
+padding: 10px;
+height: 250px;
+/* Should be removed. Only for demonstration */
+}
+.column_1 {
+float: left;
+width: 80%;
+padding: 10px;
+height: 250px;
+/* Should be removed. Only for demonstration */
+}
+.column_2 {
+float: left;
+width: 20%;
+padding: 10px;
+height: 250px;
+/* Should be removed. Only for demonstration */
+}
+.column_3 {
+float: left;
+width: 80%;
+padding: 10px;
+height: 250px;
+/* Should be removed. Only for demonstration */
+}
+/* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+.row_1:after {
+content: "";
+display: table;
+clear: both;
+}
+.caja {
+    height: 200px;
+    width: 290px;
+    background-color: #ffff;
+    float: left;
+    background-image: url(./Imaganes/16.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 10px;
+    padding-right: 5px;
+}
+.caja_1 {
+    height: 200px;
+    width: 290px;
+    background-color: #ffff;
+    float: left;
+    background-image: url(./Imaganes/18.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 10px;
+    padding-right: 5px;
+}
+h1 {
+padding: 50px;
+color: #ffff;
+text-align: center;
+background-color: rgb(17, 29, 136);
+margin: 0;
+}
+
+button {
+background-color: rgb(38, 59, 179);
+color: white;
+padding: 10px;
+right: 20px;
+float: left;
+float: right;
+border-radius: 5px;
+outline: none;
+border: 0;
+position: absolute;
+bottom: auto;
+}
+
