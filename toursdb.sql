@@ -103,10 +103,8 @@ create table reservaciones
     precio_total decimal (8,2) not null,
     fecha_creacion datetime not null,
     id_clientes int not null,
-    ubicaciones_id int not null,
     tours_id int not null,
     foreign key (tours_id) references tours (id),
-    foreign key (ubicaciones_id) references ubicaciones(id),
     foreign key (id_clientes) references clientes(id)
 );
 create table empleados_reservaciones
