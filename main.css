@@ -183,5 +183,9 @@ text-align: center;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
 }
+
+.caja .caja1 {
+    justify-content: stretch;
+}
+
