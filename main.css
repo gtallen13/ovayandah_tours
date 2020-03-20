@@ -26,15 +26,23 @@ header li a img{
     
 }
 
-
-
 /*Estilo al encabezado*/
+.encabezado{
+    color: rgb(255, 255, 255);
+     font-size: 30px;
+    float: right;
+    padding: 20px 0 0 0;
+    
+ }
 
-h1 { color: rgb(229,161,50); }
-span { color:#fff }
-
-/**/
-
+ .encabezado2{
+     color: rgb(229,161,50);
+     font-size: 30px;
+     float: right;
+     padding: 20px 25px 0 0;
+     
+ }
+ 
 #btn-menu{
     display: none;
 
@@ -42,9 +50,8 @@ span { color:#fff }
 header label{
     display: none;
     width: 30px;
-    height: 50px;
+    height: 30px;
     padding: 10px;
-    padding-bottom: 0%;
     border-right: 1px solid #ffffff;
     
 }
@@ -62,7 +69,6 @@ header nav ul li:hover{
     background-color: RGB(9, 38, 247);
     border-radius: 50px;
 }
-
 .navegacion ul{
     margin: 0;
     list-style: none;
@@ -85,8 +91,7 @@ header nav ul li:hover{
     
 }
 
-/*Pr
-opiedades para el menu al reducir el navegador a 600px*/
+/*Propiedades para el menu al reducir el navegador a 600px*/
 @media(max-width:860px){
      header label{ 
         display: block;
@@ -214,7 +219,7 @@ h2 span{
 
 .slider img{
     width: 100%;
-    height: 500px;
+    height: 300px;
 }
 
 @keyframes cambio {
@@ -230,23 +235,23 @@ h2 span{
     75% {margin-left: -300%}
     100% {margin-left: -300%;}
 }
-/**********/
+
 h1 {
     margin: 0 auto;
     padding: 50px;
-    padding-bottom: 0%;
+    color: rgb(0, 0, 0);
     text-align: center;
-    background-color: rgb(9,79,174);
-    height: 30px;
+    background-color: rgb(243, 221, 97);
+    height: 40px;
 }
 
-h2 {
+/* h2 {
     margin: 0 auto;
     padding: 10px;
     color: rgb(255, 255, 255);
     text-align: auto;
     height: 35px;
-
+  
 
 }
 
@@ -287,7 +292,7 @@ text-align: center;
 
 }
 
-.caja .foto1 {
+ .foto1 {
     width: 450px;
     height: 250px;
     background-image: url("./Imaganes/1.jpg");
@@ -303,7 +308,7 @@ text-align: center;
     transition: all 1s;
 }
 
-.caja .foto2 {
+ .foto2 {
     width: 450px;
     height: 250px;
     background-image: url("./Imaganes/2.jpg");
@@ -415,5 +420,5 @@ text-align: center;
 
 .caja .caja1 {
     justify-content: stretch;
-}
+} */
 
