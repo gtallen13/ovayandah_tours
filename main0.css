@@ -79,13 +79,13 @@ clear: both;
     margin-left: 10px;
     padding-right: 5px;
 }
-h1 {
+/* h1 {
 padding: 50px;
 color: #ffff;
 text-align: center;
 background-color: rgb(17, 29, 136);
 margin: 0;
-}
+} */
 
 .row .column_1 button[id="myBtn"] {
 background-color: rgb(38, 59, 179);
