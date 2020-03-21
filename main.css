@@ -1,72 +1,238 @@
+body{
+  margin: 0;
+}
+  .caja1{
+    width: 100vw;
+    height: 99vh;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
 
-    body{
-    margin:0;
-    padding: 0;
+  }
+ 
+  .notificaciones{
+    width: 50vw;
+    height: 99vh;
+    max-width: 400px;
+    background-color:white;
+    border: 1px solid #c0c0c0;
+    overflow: hidden;
+  }
+  
+  .contenido-central{
+    width: 100vw;
+    height: 99vh;
+    max-width: 100%;
+    background-color:white;
+    border: 1px solid #c0c0c0;
+    overflow: hidden;
+  }
+  
+  .contenido-central-top{
+    width: 96%;
+    margin-left: 7px;
+    height: 11vh;
+    margin-top: 5px;
+    max-width: 100%;
+    background-color:white;
+    border-bottom: 1px solid #c0c0c0;
+    overflow: hidden;
+  }
+ 
+
+  .contenido-lateral{
+    width: 100vw;
+    height: 99vh;
+    max-width: 400px;
+    background-color:white;
+    border: 1px solid #c0c0c0;
+    overflow: hidden;
+  }
+
+.info-emp1,.info-emp2,.info-emp3,.info-emp4,.info-emp5{
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.info-emp1 p,.info-emp2 p,.info-emp3 p,.info-emp4 p,.info-emp5 p{
+  margin: 0;
+
+}
+  .logo{
+    width: 100%;
+    height: 16%;
+    background-color: white;
+    border-bottom: 1px solid #c0c0c0;
+    display: flex;
+  }
+
+  .descripcion{
+    width: 100%;
+    height: 16%;
+    background-color: white;
+    border-top: 1px solid #c0c0c0;
+    
+  }
+  .logo img{
+    width: 95px;
+    height: 95px;
+    margin: 0;
+    margin-left: 5%;
+    margin-top: 8px;
+    display: flex;
+  }
+
+
+  .reservas{
+    background-color: white;
+    width: 100%;
+    height: 50%;
+    margin-top: 5px;
+    max-width: 100%;
+  }
+
+
+  .informacion{
+    margin-top: 5px;
+    
+  }
+
+  .informacion input,label{
+    margin-top: 10px;
+    margin-left: 20%;
+  }
+
+  .informacion input{
+    margin-top: 10px;
+    width: 50%;
+    padding: 15px;
+    font-size: 15px;
+  }
+  .ver input[id="btn-ver"]{
+    background:linear-gradient(to right, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
+    color: white;
+    width: 150px;
+    height: 30px;
+    transition: all 0.5s;
+    margin-left: 15px;
+    margin-top: 5px;
+
+  }
+  .ver input[id="btn-ver"]:focus{
+    border: 1px solid blue;
+    
+  }
   
 
-}
- input {
-     display: inline;
-     
+  .info input{
+    background-color: white;
+    outline: none;
+    color: blue;
+    border: 0;
+    margin-top: 5px;
+    margin-left: 25px;
+    font-size: 15px;
+    overflow: hidden;
+  }
+  .Tema{
+    margin: 0;
+    margin-top: 5px;
+    width: 109%;
+    height: 11vh;
+    background-color: red;
+    border-bottom: 1px solid #c0c0c0;
+  }
+
+  .empleado1{
+    width: 100%;
+    height: 40%;
+    margin-top: 50px;
+    background-color: white;
+    border-bottom: 1px solid #c0c0c0;
+    display: flex;
+
+    
+  }
+  .empleado2{
+    width: 100%;
+    height: 40%;
+    margin-top: 20px;
+    background-color: white;
+    border-bottom: 1px solid #c0c0c0;
+    display: flex;
+
+    
+  }
+
+  .empleado3{
+    width: 100%;
+    height: 40%;
+    margin-top: 20px;
+    background-color: white;
+    border-bottom: 1px solid #c0c0c0;
+    display: flex;
+
+    
+  }
+
+  .empleado4{
+    width: 100%;
+    height: 40%;
+    margin-top: 20px;
+    background-color: white;
+    border-bottom: 1px solid #c0c0c0;
+    display: flex;
+
+    
+  }
+
+  .empleado5{
+    width: 100%;
+    height: 40%;
+    margin-top: 20px;
+    background-color: white;
+    border-bottom: 1px solid #c0c0c0;
+    display: flex;
+    
+  }
+
+
+  .mejores{
+      margin: 0;
+      margin-left: 8px;
+      background-color: white;
+      width: 87%;
+      height: 31%;
+
+    
+  }
+
+  .mejores img{
+    margin-top: 4.5px;
+    margin-left: 10px;
+    width: 70px;
+    height: 70px;
+  }
+
+  table {
+    width: 80%;
+    height: 80%;
+    margin-top: 30px;
+    justify-content: center;
+
  }
+ td{
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
 
-header{
-
-    background-color:rgb(9,79,174);
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-.wrapper{
-    overflow: hidden;
-    width: 90%;
-    max-width: 1000px;
-
-
-}
-
-/*Estilo al encabezado*/
-.encabezado{
-   color: rgb(255, 255, 255);
-    font-size: 30px;
-    line-height:80px;
-    float: left;
-   margin-left: 30px;
-}
-
-.encabezado2{
-    color: rgb(229,161,50);
-    font-size: 30px;
-    line-height:80px;
-    float: left;
-
-    font-weight: bold;
-}
-
-/*Estilo de los botones de navegacion*/
-header nav{
-    float: right;
-    line-height: 100px;
-    float: right;
-
-
-}
-
-/*Estilo de los botones de navegacion*/
-header nav a{
-    display: inline-block;
-    color: rgb(255, 255, 255);
-    text-decoration:none;
-    padding: 10px 20px;
-    line-height: normal;
-    font-size:20px;
-    font-weight: bold;
-    -o-webkit-transition:all 500ms eas;  
-    -o-transition: all 500ms eas;
-    transition:all 500ms eas;
-}
-/*Cambio de color al pasar el mouse sobre los nav*/
-header nav a:hover{
-    background-color: RGB(9, 38, 247);
-    border-radius: 50px;
-}
+ }
+ .parte-abajo{
+    width: 96%;
+    margin-left: 5px;
+    height: 80%;
+    background-color: white;
+    border-top: 1px solid #c0c0c0;
+    
+ }
+ 
+ 
