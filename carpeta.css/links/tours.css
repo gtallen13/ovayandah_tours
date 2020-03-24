@@ -16,14 +16,15 @@ margin: 0;
 float: left;
 width: 20%;
 padding: 10px;
-height: 500px;
+height: 350px;
 /* Should be removed. Only for demonstration */
 }
 .row .column_1 {
 float: left;
 width: 80%;
 padding: 10px;
-height: 250px;
+height: 350px;
+position: relative;
 /* Should be removed. Only for demonstration */
 }
 
@@ -35,39 +36,41 @@ display: table;
 clear: both;
 }
 
-.row .column_1 .caja {
+.row .column_1 #caja {
     height: 200px;
     width: 290px;
     background-color: #ffff;
     float: left;
-    background-image: url("../img/16_.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    float: left;
     margin-left: 10px;
     padding-right: 5px;
+
 }
 
 
 .row .column_1 button[id="myBtn"] {
-background-color: rgb(38, 59, 179);
-color: white;
-padding: 10px;
-right: 20px;
-float: left;
-float: right;
-border-radius: 5px;
-outline: none;
-border: 0;
-position: absolute;
-bottom: auto;
+    background-color: rgb(38, 59, 179);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 50px;
+    width: 100px;
+
 }
 .row .column_1 a {
     text-decoration: none;
     color:white;
 }
 
+
+/*Menu de tours*/
 #tours.pagina .row .column #tours_menu ul
 {
     margin-top: 20px;
@@ -84,6 +87,7 @@ bottom: auto;
     margin-bottom: 5px;
 }
 
+
 #tours.pagina .row .column h2
 {
     margin: 0 auto;
@@ -91,5 +95,30 @@ bottom: auto;
     color: rgb(255, 255, 255);
     text-align: auto;
     height: 35px;
+}
+
+/* Informacion del tour */
+#tours.pagina .row .column_1 #tours_info
+{
+    position: relative;
+}
+#tours.pagina .row .column_1 #tours_info h2
+{
+    margin-left: 310px;
     
+}
+
+#tours.pagina .row .column_1 #tours_info p + p
+{
+    margin: 10px 0 0 320px;
+    
+}
+
+#tours.pagina .row .column_1 #tours_info h2 + p
+{
+    color: rgb(229,161,50);;
+    right: 5px;
+    top: 5px;
+    position: absolute;
+    font-size: 30px;
 }
