@@ -114,3 +114,15 @@ bottom: auto;
     color:white;
 }
 
+#tours.pagina .row .column .tours_menu ul
+{
+    padding-left: 5px;
+    
+}
+
+
+#tours.pagina .row .column .tours_menu a
+{
+    text-decoration: none;
+    color: whitesmoke;
+}
