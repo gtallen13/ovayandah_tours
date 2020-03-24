@@ -12,7 +12,7 @@ conexion.connect(function(err)
     console.log ('Conexion Exitosa');
 })
 const toursinfo = document.getElementById('tours_info');
-const toursmenu = document.getElementById ('tours_menu')
+const toursmenu = document.getElementById('tours_menu');
 let html = "<ul>"
 let sql = 'select nombre from tours'
 conexion.query (sql, 
