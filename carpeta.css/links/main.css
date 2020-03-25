@@ -232,17 +232,10 @@ h2 span{
 h1 {
     margin: 0 auto;
     padding: 50px;
-<<<<<<< HEAD:main.css
-    color: rgb(255, 255, 255);
-    text-align: center;
-    background-color: rgb(9,79,174);
-    height: 40px;
-=======
     padding-bottom: 0%;
     text-align: center;
     background-color: rgb(9,79,174);
     height: 30px;
->>>>>>> 0ed3c63cf558209a48ac83c316c036b77c2cecf1:carpeta.css/links/main.css
 }
 
 h2 {
