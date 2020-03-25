@@ -10,8 +10,8 @@ const txtPersonas = document.getElementById('txt_cantidad_personas');
 
 
 //evento para guardar la reservacion
-btnReservar.addEventListener('click', function(e)
-{
-    e.preventDefault();
-    let sql = `insert into reservacion reservacion (fecha_inicio_tour, fecha_final_tour, cantidad_turistas, precio_total )`
-})
+// btnReservar.addEventListener('click', function(e)
+// {
+//     e.preventDefault();
+//     let sql = `insert into reservacion reservacion (fecha_inicio_tour, fecha_final_tour, cantidad_turistas, precio_total )`
+// })
