@@ -14,7 +14,7 @@ conexion.connect(function(err)
 const toursinfo = document.getElementById('tours_info'); //div donde se mostrara la informacion del tour
 const toursmenu = document.getElementById('tours_menu'); //div donde se mostrara el menu de tours
 const tours_imagen = document.getElementById('caja'); //div donde se mostrara la imagen
-let html_menu = "<ul>" //para desplegar menu de tours
+let html_menu = '<div class = "lista"><ul>' //para desplegar menu de tours
 let html_info = ''; //para desplegar titulo del tour e informacion del tour
 
 let sql = 'select nombre, precio, descripcion from tours' 
@@ -34,7 +34,7 @@ conexion.query (sql,
             html_menu += `<button class = "tablinks" onclick = "cambioTours('click', ${i})"  >${fila.nombre}</a>`;
             i++;
         }
-        html_menu += '</ul>';
+        html_menu += '</div></ul>';
         toursmenu.innerHTML = html_menu;
         toursinfo.innerHTML = html_info;
     });
