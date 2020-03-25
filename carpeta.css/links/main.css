@@ -262,31 +262,38 @@ form {
 text-align: center;
 }
 
+.datos {
+   text-align: center;
+   justify-content: center;
+    align-items: center;
+    background-position: center;
+   
+}
 .caja {
-    width: 1000px;
+    width: 60%;
     height: 250px;
     margin: 10px auto;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding-left: 10px;
+    
     
 }
 
 .caja1 {
-    width: 1000px;
+    width: 60%;
     height: 250px;
     margin: 10px auto;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding-left: 10px;
+   
     
 
 }
 
 .caja .foto1 {
-    width: 450px;
+    width: 46%;
     height: 250px;
     background-image: url("../img/1_.jpg");
     background-position: center;
@@ -299,10 +306,12 @@ text-align: center;
     border-top-left-radius: 10px;
     transition-delay: 1s;
     transition: all 1s;
+
+   
 }
 
 .caja .foto2 {
-    width: 450px;
+    width: 45%;
     height: 250px;
     background-image: url("../img/2_.jpg");
     background-position: center;
@@ -316,7 +325,7 @@ text-align: center;
     transition: all 1s;
 }
 .caja1 .fotos3 {
-    width: 300px;
+    width: 30%;
     height: 250px;
     background-image: url("../img/3_.jpg");
     background-position: center;
@@ -329,9 +338,10 @@ text-align: center;
     transition-delay: 1s;
     transition: all 1s;
 
+  
 }
 .caja1 .fotos4 {
-    width: 300px;
+    width: 30%;
     height: 250px;
     background-image: url("../img/4_.jpg");
     background-position: center;
@@ -344,7 +354,7 @@ text-align: center;
 
 }
 .caja1 .fotos5 {
-    width: 300px;
+    width: 30%;
     height: 250px;
     background-image: url("../img/5_.jpg");
     background-position: center;
@@ -362,7 +372,7 @@ text-align: center;
 .caja1 .fotos5:hover {
     background-image: url("../img/10_.jpg");
     background-size: contain;
-    width: 300px;
+    width: 30%;
     height: 250px;
     background-position: center;
     background-size: cover;
@@ -372,7 +382,7 @@ text-align: center;
 .caja1 .fotos4:hover {
     background-image: url("../img/12_.jpg");
     background-size: contain;
-    width: 300px;
+    width: 30%;
     height: 250px;
     background-position: center;
     background-size: cover;
@@ -383,7 +393,7 @@ text-align: center;
 .caja1 .fotos3:hover {
     background-image: url("../img/15_.jpg");
     background-size: contain;
-    width: 300px;
+    width: 30%;
     height: 250px;
     background-position: center;
     background-size: cover;
@@ -393,7 +403,7 @@ text-align: center;
 .caja .foto2:hover {
     background-image: url("../img/7_.jpg");
     background-size: contain;
-    width: 450px;
+    width: 45%;
     height: 250px;
     background-position: center;
     background-size: cover;
@@ -404,7 +414,7 @@ text-align: center;
 .caja .foto1:hover {
     background-image: url("../img/9_.jpg");
     background-size: contain;
-    width: 450px;
+    width: 46%;
     height: 250px;
     background-position: center;
     background-size: cover;
