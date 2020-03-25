@@ -247,4 +247,47 @@ body{
   justify-content: center;
   margin-left: 30%;
 }
- 
+
+.caja{
+  margin: 0;
+  height: 81vh; 
+  margin-left: 5%;
+
+}
+.caja label{
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px ;
+  margin-bottom: 5px;
+}
+
+.caja input{
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px ;
+  width: 30%;
+  margin-bottom: 5px;
+  padding: 8px;
+}
+.caja input,label{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.nombre-completo{
+  display: flex;
+}
+.nombre-correo input[id="txt-telphone"]{
+margin-left:  2.5%;
+}
+.nombre-correo input[id="txt-email"]{
+  margin-left:  0.7%;
+  }
+
+.nombre-correo{
+  display: flex;
+}
+ h1{
+   margin-left: 25%;
+ }
+
