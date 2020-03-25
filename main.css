@@ -4,7 +4,7 @@ body{
   .caja1{
     width: 100vw;
     height: 99vh;
-    background-color: white;
+    background-color: rgb(9,79,174);
     display: flex;
     flex-direction: row;
 
@@ -14,8 +14,8 @@ body{
     width: 50vw;
     height: 99vh;
     max-width: 250px;
-    background-color:white;
-    border: 1px solid #c0c0c0;
+    background-color:rgb(9,79,174);
+    border: 1px solid rgb(229,161,50);
     overflow: hidden;
   }
   
@@ -23,8 +23,8 @@ body{
     width: 100vw;
     height: 99vh;
     max-width: 100%;
-    background-color:white;
-    border: 1px solid #c0c0c0;
+    background-color:rgb(9,79,174);
+    border: 1px solid rgb(229,161,50);
     overflow: hidden;
   }
   
@@ -34,8 +34,8 @@ body{
     height: 11vh;
     margin-top: 5px;
     max-width: 100%;
-    background-color:white;
-    border-bottom: 1px solid #c0c0c0;
+    background-color:rgb(9,79,174);
+    border-bottom: 1px solid rgb(229,161,50);
     overflow: hidden;
   }
  
@@ -44,8 +44,8 @@ body{
     width: 100vw;
     height: 99vh;
     max-width: 400px;
-    background-color:white;
-    border: 1px solid #c0c0c0;
+    background-color:rgb(9,79,174);
+    border: 1px solid rgb(229,161,50);
     overflow: hidden;
   }
 
@@ -64,16 +64,16 @@ body{
   .logo{
     width: 100%;
     height: 16%;
-    background-color: white;
-    border-bottom: 1px solid #c0c0c0;
+    background-color: rgb(9,79,174);
+    border-bottom: 1px solid rgb(229,161,50);
     display: flex;
   }
 
   .descripcion{
     width: 100%;
     height: 16%;
-    background-color: white;
-    border-top: 1px solid #c0c0c0;
+    background-color: rgb(9,79,174);
+    border-top: 1px solid rgb(229,161,50);
     
   }
   .logo img{
@@ -87,7 +87,7 @@ body{
 
 
   .reservas{
-    background-color: white;
+    background-color: rgb(9,79,174);
     width: 100%;
     height: 50%;
     margin-top: 5px;
@@ -117,26 +117,12 @@ body{
     margin-bottom: 10px;
     
   }
-  .ver input[id="btn-ver"]{
-    background:linear-gradient(to right, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
-    color: white;
-    width: 150px;
-    height: 30px;
-    transition: all 0.5s;
-    margin-left: 15px;
-    margin-top: 5px;
-
-  }
-  .ver input[id="btn-ver"]:focus{
-    border: 1px solid blue;
-    
-  }
-  
+ 
 
   .info input{
-    background-color: white;
+    background-color:  rgb(9,79,174);
     outline: none;
-    color: blue;
+    color: #fff;
     border: 0;
     margin-top: 5px;
     margin-left: 12px;
@@ -148,8 +134,8 @@ body{
     margin-top: 7px;
     width: 109%;
     height: 11vh;
-    background-color: white;
-    border-bottom: 1px solid #c0c0c0;
+    background-color: rgb(9,79,174);
+    border-bottom: 1px solid rgb(229,161,50);
     max-height: 50px;
   }
 .Tema h1{
@@ -161,8 +147,8 @@ body{
     width: 100%;
     height: 40%;
     margin-top: 52px;
-    background-color: white;
-    border-bottom: 1px solid #c0c0c0;
+    background-color: rgb(9,79,174);
+    border-bottom: 2px solid rgb(229,161,50);
     display: flex;
 
     
@@ -171,8 +157,8 @@ body{
     width: 100%;
     height: 40%;
     margin-top: 20px;
-    background-color: white;
-    border-bottom: 1px solid #c0c0c0;
+    background-color: rgb(9,79,174);
+    border-bottom: 2px solid rgb(229,161,50);
     display: flex;
   }
 
@@ -180,8 +166,8 @@ body{
     width: 100%;
     height: 40%;
     margin-top: 20px;
-    background-color: white;
-    border-bottom: 1px solid #c0c0c0;
+    background-color: rgb(9,79,174);
+    border-bottom: 2px solid rgb(229,161,50);
     display: flex;
   }
 
@@ -189,8 +175,8 @@ body{
     width: 100%;
     height: 40%;
     margin-top: 20px;
-    background-color: white;
-    border-bottom: 1px solid #c0c0c0;
+    background-color: rgb(9,79,174);
+    border-bottom: 2px solid rgb(229,161,50);
     display: flex;
   }
 
@@ -198,8 +184,8 @@ body{
     width: 100%;
     height: 40%;
     margin-top: 20px;
-    background-color: white;
-    border-bottom: 1px solid #c0c0c0;
+    background-color: rgb(9,79,174);
+    border-bottom: 2px solid rgb(229,161,50);
     display: flex;
   }
 
@@ -207,7 +193,7 @@ body{
   .mejores{
       margin: 0;
       margin-left: 8px;
-      background-color: white;
+      background-color: rgb(9,79,174);
       width: 87%;
       height: 31%; 
   }
@@ -237,8 +223,8 @@ body{
     width: 96%;
     margin-left: 5px;
     height: 80%;
-    background-color: white;
-    border-top: 1px solid #c0c0c0;
+    background-color: rgb(9,79,174);
+    border-top: 1px solid rgb(229,161,50);
     overflow: hidden;
     
  }
