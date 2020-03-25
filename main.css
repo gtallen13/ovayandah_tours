@@ -13,7 +13,7 @@ body{
   .notificaciones{
     width: 50vw;
     height: 99vh;
-    max-width: 400px;
+    max-width: 250px;
     background-color:white;
     border: 1px solid #c0c0c0;
     overflow: hidden;
@@ -49,13 +49,17 @@ body{
     overflow: hidden;
   }
 
-.info-emp1,.info-emp2,.info-emp3,.info-emp4,.info-emp5{
+.info-emp,.info-emp1,.info-emp2,.info-emp3,.info-emp4,.info-emp5{
   margin-top: 5px;
   margin-left: 5px;
 }
-.info-emp1 p,.info-emp2 p,.info-emp3 p,.info-emp4 p,.info-emp5 p{
+.info-emp p,.info-emp1 p,.info-emp2 p,.info-emp3 p,.info-emp4 p,.info-emp5 p{
   margin: 0;
-
+}
+.info-emp{
+  margin: 0;
+  margin-top: 13px;
+  margin-left: 5px;
 }
   .logo{
     width: 100%;
@@ -73,11 +77,11 @@ body{
     
   }
   .logo img{
-    width: 95px;
-    height: 95px;
+    width: 43%;
+    height: 83%;
     margin: 0;
     margin-left: 5%;
-    margin-top: 8px;
+    margin-top: 10px;
     display: flex;
   }
 
@@ -93,6 +97,8 @@ body{
 
   .informacion{
     margin-top: 5px;
+    height: 300px;
+    overflow: hidden;
     
   }
 
@@ -104,8 +110,12 @@ body{
   .informacion input{
     margin-top: 10px;
     width: 50%;
-    padding: 15px;
+    padding: 10px;
     font-size: 15px;
+  }
+  .informacion input:last-child{
+    margin-bottom: 10px;
+    
   }
   .ver input[id="btn-ver"]{
     background:linear-gradient(to right, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
@@ -129,23 +139,28 @@ body{
     color: blue;
     border: 0;
     margin-top: 5px;
-    margin-left: 25px;
-    font-size: 15px;
+    margin-left: 12px;
+    font-size: 16px;
     overflow: hidden;
   }
   .Tema{
     margin: 0;
-    margin-top: 5px;
+    margin-top: 7px;
     width: 109%;
     height: 11vh;
-    background-color: red;
+    background-color: white;
     border-bottom: 1px solid #c0c0c0;
+    max-height: 50px;
   }
-
+.Tema h1{
+  margin:0;
+  margin-top: 30px;
+  margin-left: 37%;
+}
   .empleado1{
     width: 100%;
     height: 40%;
-    margin-top: 50px;
+    margin-top: 52px;
     background-color: white;
     border-bottom: 1px solid #c0c0c0;
     display: flex;
@@ -159,8 +174,6 @@ body{
     background-color: white;
     border-bottom: 1px solid #c0c0c0;
     display: flex;
-
-    
   }
 
   .empleado3{
@@ -170,8 +183,6 @@ body{
     background-color: white;
     border-bottom: 1px solid #c0c0c0;
     display: flex;
-
-    
   }
 
   .empleado4{
@@ -181,8 +192,6 @@ body{
     background-color: white;
     border-bottom: 1px solid #c0c0c0;
     display: flex;
-
-    
   }
 
   .empleado5{
@@ -192,7 +201,6 @@ body{
     background-color: white;
     border-bottom: 1px solid #c0c0c0;
     display: flex;
-    
   }
 
 
@@ -201,11 +209,9 @@ body{
       margin-left: 8px;
       background-color: white;
       width: 87%;
-      height: 31%;
-
-    
+      height: 31%; 
   }
-
+  
   .mejores img{
     margin-top: 4.5px;
     margin-left: 10px;
@@ -216,13 +222,14 @@ body{
   table {
     width: 80%;
     height: 80%;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-left: 7%;
     justify-content: center;
 
  }
- td{
+ td,th{
   text-align: center;
-  margin-top: 50px;
+  margin-top: 100px;
   font-size: 20px;
 
  }
@@ -232,7 +239,12 @@ body{
     height: 80%;
     background-color: white;
     border-top: 1px solid #c0c0c0;
+    overflow: hidden;
     
  }
  
+.titulo h1{
+  justify-content: center;
+  margin-left: 30%;
+}
  
