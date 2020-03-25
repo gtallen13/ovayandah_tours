@@ -16,100 +16,55 @@ margin: 0;
 float: left;
 width: 20%;
 padding: 10px;
-height: 250px;
+height: 350px;
 /* Should be removed. Only for demonstration */
 }
 .row .column_1 {
 float: left;
 width: 80%;
 padding: 10px;
-height: 250px;
+height: 350px;
+position: relative;
 /* Should be removed. Only for demonstration */
 }
-.row_1 .column_2 {
-float: left;
-width: 20%;
-padding: 10px;
-height: 250px;
-/* Should be removed. Only for demonstration */
-}
-.row_1 .column_3 {
-float: left;
-width: 80%;
-padding: 10px;
-height: 250px;
-/* Should be removed. Only for demonstration */
-}
+
+
 /* Clear floats after the columns */
 .row:after {
 content: "";
 display: table;
 clear: both;
 }
-.row_1:after {
-content: "";
-display: table;
-clear: both;
-}
-.row .column_1 .caja {
+
+.row .column_1 #caja {
     height: 200px;
     width: 290px;
     background-color: #ffff;
     float: left;
-    background-image: url("../img/16_.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    float: left;
     margin-left: 10px;
     padding-right: 5px;
-}
-.row_1 .column_3 .caja_1 {
-    height: 200px;
-    width: 290px;
-    background-color: #ffff;
-    float: left;
-    background-image: url("../img/18_.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    float: left;
-    margin-left: 10px;
-    padding-right: 5px;
+
 }
 
+
 .row .column_1 button[id="myBtn"] {
-background-color: rgb(38, 59, 179);
-color: white;
-padding: 10px;
-right: 20px;
-float: left;
-float: right;
-border-radius: 5px;
-outline: none;
-border: 0;
-position: absolute;
-bottom: auto;
-}
-.row .column_1 a {
-    text-decoration: none;
-    color:white;
-}
-.row_1 .column_3 button[id="myBtn"] {
     background-color: rgb(38, 59, 179);
     color: white;
     padding: 10px;
-    right: 20px;
-    float: left;
-    float: right;
     border-radius: 5px;
     outline: none;
     border: 0;
     position: absolute;
-    bottom: auto;
-    }
+    bottom: 20px;
+    right: 20px;
+    height: 50px;
+    width: 100px;
 
-.row_1 .column_3 a {
+}
+.row .column_1 a {
     text-decoration: none;
     color:white;
 }
@@ -120,7 +75,7 @@ bottom: auto;
 /*---Style the lista---*/
 #tours.pagina .row .column #tours_menu .lista {
 float: left;
-border: 1x solid #ccc;
+border: 1px solid #ccc;
 background-color: #d0d8e2;
 width: 30%;
 margin-top: 2%;
@@ -149,4 +104,57 @@ background-color: #b0c9dd;
 /* Create an active/current "tab button" class */
 #tours.pagina .row .column #tours_menu .lista button.active {
 background-color: #9cc0dd;
+}
+
+/*Menu de tours*/
+#tours.pagina .row .column #tours_menu ul
+{
+    margin-top: 20px;
+    padding-left: 5px;
+    display:flex;
+    flex-direction: column;
+}
+
+
+#tours.pagina .row .column #tours_menu a
+{
+    text-decoration: none;
+    color: whitesmoke;
+    margin-bottom: 5px;
+}
+
+
+#tours.pagina .row .column h2
+{
+    margin: 0 auto;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    text-align: auto;
+    height: 35px;
+}
+
+/* Informacion del tour */
+#tours.pagina .row .column_1 #tours_info
+{
+    position: relative;
+}
+#tours.pagina .row .column_1 #tours_info h2
+{
+    margin-left: 310px;
+    
+}
+
+#tours.pagina .row .column_1 #tours_info p + p
+{
+    margin: 10px 0 0 320px;
+    
+}
+
+#tours.pagina .row .column_1 #tours_info h2 + p
+{
+    color: rgb(229,161,50);;
+    right: 5px;
+    top: 5px;
+    position: absolute;
+    font-size: 30px;
 }

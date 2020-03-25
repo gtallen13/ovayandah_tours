@@ -1,8 +1,4 @@
-conexion.connect(function(err)
-{
-    if (err) throw err;
-    console.log ('Conexion Exitosa!');
-})
+
 const btnReservar = document.getElementById('Guardar');
 const txtFechaInicio = document.getElementById('fecha');
 const txtFechaFinal = document.getElementById('fecha2');
