@@ -1,0 +1,336 @@
+body{
+    margin: 0;
+    background-color:  rgb(9,79,174);
+}
+#login.pagina .caja1{
+    width: 100vw;
+    height: 99vh;
+    background-color:#fff;
+    display: flex;
+    flex-direction: row;
+}
+  
+.notificaciones{
+width: 50vw;
+height: 99vh;
+max-width: 250px;
+background-color: rgb(9,79,174);;
+border: 2px solid #efb810;
+overflow: hidden;
+}
+
+.contenido-central{
+width: 100vw;
+height: 99vh;
+max-width: 100%;
+background-color: rgb(9,79,174);
+border: 2px solid #efb810;
+overflow: hidden;
+}
+
+.contenido-central-top{
+width: 96%;
+margin-left: 7px;
+height: 15.2vh;
+margin-top: 5px;
+max-width: 100%;
+background-color: rgb(9,79,174);;
+border-bottom: 2px solid #efb810;
+overflow: hidden;
+}
+
+
+.contenido-lateral{
+width: 100vw;
+height: 99vh;
+max-width: 400px;
+background-color: #fff;
+border: 2px solid #efb810;
+overflow: hidden;
+}
+
+.info-emp,.info-emp1,.info-emp2,.info-emp3,.info-emp4,.info-emp5{
+margin-top: 5px;
+margin-left: 5px;
+}
+.info-emp p,.info-emp1 p,.info-emp2 p,.info-emp3 p,.info-emp4 p,.info-emp5 p{
+margin: 0;
+
+}
+.info-emp{
+margin: 0;
+margin-top: 13px;
+margin-left: 5px;
+color: #fff;
+}
+.info-emp a{
+color: #fff;
+}
+.logo{
+    width: 100%;
+    height: 16%;
+    background-color: rgb(9,79,174);
+    border-bottom: 2px solid #efb810;
+    display: flex;
+}
+
+.descripcion{
+    width: 100%;
+    height: 16%;
+    background-color: rgb(9,79,174);
+    border-top: 2px solid #efb810;
+    
+}
+.logo img{
+    width: 43%;
+    height: 83%;
+    margin: 0;
+    margin-left: 5%;
+    margin-top: 10px;
+    display: flex;
+}
+
+
+.reservas{
+    background-color: rgb(9,79,174);
+    width: 100%;
+    height: 50%;
+    margin-top: 5px;
+    max-width: 100%;
+}
+
+
+.informacion{
+    margin-top: 5px;
+    height: 50%;
+    overflow: hidden;
+    
+}
+
+.informacion input,label{
+    margin-top: 10px;
+    margin-left: 20%;
+}
+
+.informacion input{
+    margin-top: 10px;
+    width: 50%;
+    padding: 10px;
+    font-size: 15px;
+}
+.informacion input:last-child{
+    margin-bottom: 10px;
+    
+}
+
+.info input{
+    background-color:rgb(9,79,174);
+    outline: none;
+    color: #fff;
+    border: 0;
+    margin-top: 5px;
+    margin-left: 12px;
+    font-size: 16px;
+    overflow: hidden;
+}
+.Tema{
+    margin: 0;
+    margin-top: 7px;
+    width: 109%;
+    height: 11.2vh;
+    border-bottom: 2px solid #efb810;
+    background-color: #fff;
+}
+.Tema h1{
+margin:0;
+margin-top: 30px;
+margin-left: 37%;
+
+
+}
+.empleado1{
+    width: 100%;
+    height: 40%;
+    margin-top: 52px;
+    background-color: #fff;
+    border-bottom: 2px solid #efb810;
+    display: flex;
+
+    
+}
+.empleado2{
+    width: 100%;
+    height: 40%;
+    margin-top: 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #efb810;
+    display: flex;
+}
+
+.empleado3{
+    width: 100%;
+    height: 40%;
+    margin-top: 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #efb810;
+    display: flex;
+}
+
+.empleado4{
+    width: 100%;
+    height: 40%;
+    margin-top: 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #efb810;
+    display: flex;
+}
+
+.empleado5{
+    width: 100%;
+    height: 40%;
+    margin-top: 20px;
+    background-color: #fff;
+    display: flex;
+}
+
+
+.mejores{
+    margin: 0;
+    margin-left: 8px;
+    background-color: #fff;
+    width: 87%;
+    height: 31%; 
+}
+
+.mejores img{
+    margin-top: 4.5px;
+    margin-left: 10px;
+    width: 70px;
+    height: 70px;
+}
+
+table {
+    width: 80%;
+    height: 80%;
+    margin-top: 10px;
+    margin-left: 7%;
+    justify-content: center;
+
+}
+td,th{
+text-align: center;
+margin-top: 100px;
+font-size: 20px;
+color: #fff;
+
+}
+.parte-abajo{
+    width: 96%;
+    margin-left: 5px;
+    height: 80%;
+    background-color: rgb(9,79,174);
+    border-top: 2px solid #efb810;
+    overflow: hidden;
+    
+}
+
+.titulo h1{
+justify-content: center;
+margin-left: 30%;
+color: #fff;
+}
+
+.caja{
+margin: 0;
+height: 81vh; 
+margin-left: 5%;
+
+}
+.caja label{
+display: flex;
+flex-direction: row;
+margin-left: 5px ;
+margin-bottom: 5px;
+}
+
+.caja input{
+display: flex;
+flex-direction: row;
+margin-left: 5px ;
+width: 30%;
+margin-bottom: 5px;
+padding: 8px;
+}
+.caja input,label{
+margin-top: 10px;
+margin-bottom: 30px;
+}
+
+.caja label{
+color: #fff;
+}
+
+.caja h1{
+color: #fff;
+}
+
+.nombre-completo{
+display: flex;
+}
+.nombre-correo input[id="txt-telphone"]{
+margin-left:  2.5%;
+}
+.nombre-correo input[id="txt-email"]{
+margin-left:  0.7%;
+}
+
+.nombre-correo{
+display: flex;
+}
+h1{
+    margin-left: 25%;
+}
+
+/*Diseño de login*/
+
+.contenedor{
+margin-top: 50px;
+display: flex;
+flex-direction: column;
+background-color: #fff;
+height: 500px;
+width: 300px;
+margin-left: 37.5%;
+border-radius: 5px;
+
+}
+
+.contenedor input[type="text"]{
+width: 250px;
+border-bottom: 1px solid #c0c0c0;
+border-top: 0;
+border-left: 0;
+border-right: 0;
+outline: none;
+}
+
+.contenedor input{
+margin: auto;
+margin-top: 10px;
+}
+
+.contenedor h2{
+margin: auto;
+margin-top: 40px;
+
+}
+input[type="submit"]{
+margin-top: 0;
+margin-bottom: 70px;
+width: 250px;
+height: 50px;
+background: linear-gradient(to right, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
+color: white;
+font-size: 15px;
+
+}
