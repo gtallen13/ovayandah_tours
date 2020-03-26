@@ -3,19 +3,7 @@ const username = document.getElementById('username')
 const password = document.getElementById('password')
 const btnLogin = document.getElementById('btn-guardar')
 
-const mysql = require ('mysql');
-const conexion = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'toursdb'
-});
 
-conexion.connect(function(err)
-{
-    if (err) throw err;
-    console.log ('Conexion Exitosa');
-})
 let band = 0;
 
 btnLogin.addEventListener('click', function(e){
