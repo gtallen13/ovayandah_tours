@@ -412,7 +412,7 @@ text-align: center;
 }
 
 /*Parte de cano*/
-/* body{
+body{
     margin: 0;
     background-color:  rgb(9,79,174);
   }
@@ -708,7 +708,7 @@ text-align: center;
   
   /*Diseño de login*/
   
-  /* .contenedor{
+  .contenedor{
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -754,5 +754,5 @@ text-align: center;
   
   .esconder {
     display: none;
-  } */
+  } 
    
