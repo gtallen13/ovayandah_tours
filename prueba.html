@@ -8,14 +8,12 @@
    
 </head>
 <body>
-   <div class="caja1">
+   <div id='lolo3'class="caja1 esconder">
         <div class="notificaciones">
             <div class="logo">
                 <img src="./iconos/dummy.jpg" alt="">
-                <div class="info-emp">
-                    <p>Gustavo Cano</p>
-                    <p>Empleado</p>
-                    <p>Ver perfil</p>
+                <div id="usuario-emp" class="info-emp">
+                    
                 </div>
             </div>
         
@@ -76,7 +74,7 @@
         <div class="contenido-lateral">
             <div class="mejores">
                 <div class="Tema">
-                    <h1 for="">Top 5</h1>
+                    <h1>Top 5</h1>
                    </div>
                <div class="empleado1">
                 <img src="./iconos/dummy.jpg" alt="">
@@ -111,11 +109,24 @@
             </div> 
 
         </div>
-        <script src="./scripts/empleado.js"></script>
+        
    </div> 
 
-    
+   <div class="formulario" id="lolo">
+    <form action="">
+        <div class="contenedor">
+            <h2>Login</h2>
+         <input type="text" name="username" id="username" placeholder="Username">
 
+         <input type="text" name="password" id="password" placeholder="Password">
 
+         <input type="button" value="Guardar" id="btn-guardar">
+         
+        </div>
+
+    </form>
+</div> 
+
+<script src="./scripts/empleado.js"></script>
 </body>
 </html>
