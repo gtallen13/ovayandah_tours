@@ -7,12 +7,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
     <link href="./carpeta.css/links/main.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./carpeta.css/links/tours.css" rel="stylesheet" type="text/css" />
+    <link href="./carpeta.css/links/tours.css" rel="stylesheet" type="text/css" >
+    <link href="./carpeta.css/links/empleado.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
 </head>
 
 <body>
-    <h1><span>Ovayandah</span>Tours</h1>
+    <h1 id="titulo_encabezado"><span>Ovayandah</span>Tours</h1>
     <Form>
         <!-- The Modal -->
             <div id="myModal" class="modal" >
@@ -78,7 +79,7 @@
                                     src="carpeta.css/img/inicio.png"></span>Inicio</a></li>
                         <li><a href="#" class="item-menu" data-elemento="tours"><img
                                     src="carpeta.css/img/promo.png">Tours</a></li>
-                        <li><a href="#"><img id="login" src="carpeta.css/img/login.png">Login</a></li>
+                        <li><a href="#" class="item-menu" data-elemento="login"><img src="carpeta.css/img/login.png">Login</a></li>
                     </ul>
                 </nav>
             </div>
@@ -149,11 +150,133 @@
      
             <!--                                        -->
 
+            
+        </div>
+            <!--  Pagina Empleado   -->
+            
+        <div id="login" class="pagina esconder">
+            <div id='lolo3' class="caja3 esconder">
+                <div class="notificaciones">
+                    <div class="logo">
+                        <img src="./iconos/dummy.jpg" alt="">
+                        <div id="usuario-emp" class="info-emp">
+                            
+                        </div>
+                    </div>
+                
+                    <div class="reservas" name="formulario1">
+                      
+                        <div id="boleta1" class="info">
+                        
+                        </div>
+                        
+                    </div>
+                    <div class="descripcion">
+                        <p>Working with a team?</p>
+                        <p>
+                            GitHub is built for collaboration. Set up an organization to improve the way your team works together, and get access to more features.
+                            
+                            </p>
+                        
+                    </div>
+                </div>
+                
+                <div class="contenido-central">
+                    <div class="contenido-central-top">
+                        <div class="titulo">
+                            <h1 for="">Informacion Del Tour</h1>
+                        </div>
+                    </div>
+                    <div id="tabla-info" class="informacion">
+        
+                    </div>
+                    <div class="parte-abajo">
+                        <div class="caja4 pagina">
+                            <h1>Informacion Del Cliente</h1>
+                         <div class="nombre-completo">
+                             
+                            <label for="">First Name: </label>
+                            <input type="text" id="txt-name" disabled >
+                            
+                            <label for="">Last Name: </label>
+                            <input type="text" id="txt-lastname" disabled>
+                         </div>
+        
+                         <div class="nombre-correo">
+                             
+                        <label for="">Telphone:</label>
+                         <input type="text" id="txt-telphone" disabled>
+                 
+                         <label for="" id="correo">User Email: </label>
+                         <input type="text" id="txt-email" disabled>
+                 
+                         </div>
+                 
+                         
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="contenido-lateral">
+                    <div class="mejores">
+                        <div class="Tema">
+                            <h1>Top 5</h1>
+                           </div>
+                       <div class="empleado1">
+                        <img src="./iconos/dummy.jpg" alt="">
+                        <div id="emp1" class="info-emp1">
+                            
+                        </div>
+                       </div>
+                       <div class="empleado2">
+                           <img src="./iconos/dummy.jpg" alt="">
+                           <div id="emp2" class="info-emp2">
+                            
+                        </div>
+                       </div>
+                       <div class="empleado3">
+                        <img src="./iconos/dummy.jpg" alt="">
+                        <div id="emp3" class="info-emp3">
+                            
+                        </div>
+                       </div>
+                       <div class="empleado4">
+                        <img src="./iconos/dummy.jpg" alt="">
+                        <div id="emp4" class="info-emp4">
+                           
+                        </div>
+                       </div>
+                       <div class="empleado5">
+                        <img src="./iconos/dummy.jpg" alt="">
+                        <div  id="emp4" class="info-emp5">
+                            
+                        </div>
+                       </div>
+                    </div> 
+           </div> 
+        
+        </div>
+        <!--        Login       -->
+            <div class="formulario" id="lolo">
+                <form action="">
+                    <div class="contenedor-login">
+                        <h2>Login</h2>
+                        <input type="text" name="username" id="username" placeholder="Username">
+            
+                        <input type="text" name="password" id="password" placeholder="Password">
+                        
+                        <input type="button" value="Guardar" id="btn-guardar">
+                    </div>
+            
+                </form>
+            </div> 
         <script src="./scripts/usuarios.js" type="text/javascript"></script>
         <script src="./scripts/modal.js" type="text/javascript"></script>
         <script src="./scripts/usuarios.js" type="text/javascript"></script> 
         <script src = "./scripts/reservaciones.js"  type="text/javascript"></script>
         <script src="./scripts/main.js" type="text/javascript"></script>
         <script src = "./scripts/menu_tours.js" type="text/javascript"></script>
+        <script src= "scripts/empleado.js" type="text/javascript"></script>
     </body>
 </html>

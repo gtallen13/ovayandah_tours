@@ -1,24 +1,31 @@
-* {
+#tours.pagina *{
 box-sizing: border-box;
 margin: 0;
 }
-.row {
+#tours.pagina .row {
     margin: 5px;
 
 }
-#tours.pagina .row .column h2 + span { color:#fff }
-#tours.pagina .row .column h2 { color: rgb(229,161,50)}
+
+div#tours.pagina div.row div.column h2 {
+    margin: 0 auto;
+    padding-bottom: 0%;
+    text-align: center;
+    color: rgb(229,161,50);
+    height: 30px;
+}
+div#tours.pagina div.row div.column h2 + span { color:#fff }
 
 
 /* Create two equal columns that floats next to each other */
-.row .column {
+div#tours.pagina div.row div.column {
 float: left;
 width: 20%;
 padding: 10px;
 height: 500px;
 /* Should be removed. Only for demonstration */
 }
-.row .column_1 {
+div#tours.pagina div.row div.column_1 {
 float: left;
 width: 80%;
 padding: 10px;
@@ -29,13 +36,13 @@ position: relative;
 
 
 /* Clear floats after the columns */
-.row:after {
+div#tours.pagina div.row:after {
 content: "";
 display: table;
 clear: both;
 }
 
-.row .column_1 #caja {
+div#tours.pagina div.row div.column_1 div#caja {
     height: 300px;
     width: 390px;
     background-color: #ffff;
@@ -49,7 +56,7 @@ clear: both;
 }
 
 
-.row .column_1 button[id="myBtn"] {
+div#tours.pagina div.row div.column_1 button[id="myBtn"] {
     background-color: rgb(38, 59, 179);
     color: white;
     padding: 10px;
@@ -63,7 +70,7 @@ clear: both;
     width: 100px;
 
 }
-.row .column_1 a {
+div#tours.pagina div.row div.column_1 a {
     text-decoration: none;
     color:white;
 }
@@ -103,7 +110,7 @@ background-color: #508ab9;
 }
 
 /*Menu de tours*/
-#tours.pagina .row .column #tours_menu ul
+div#tours.pagina div.row div.column div#tours_menu ul
 {
     margin-top: 20px;
     padding-left: 5px;
@@ -113,30 +120,23 @@ background-color: #508ab9;
 
 
 
-#tours.pagina .row .column h2
-{
-    margin: 0 auto;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    text-align: auto;
-    height: 35px;
-}
-
 /* Informacion del tour */
-#tours.pagina .row .column_1 #tours_info
+
+div#tours.pagina div.row div.column_1 div#tours_info
 {
     position: relative;
 }
-#tours.pagina .row .column_1 #tours_info h2
+div#tours.pagina div.row div.column_1 div#tours_info h2
 {
     margin-left: 0;
     padding:0;
     height: 100px;
     font-size: 40px;
+    color:whitesmoke
     
 }
 /*Descripcion del tour*/
-#tours.pagina .row .column_1 #tours_info p + p
+div#tours.pagina div.row div.column_1 div#tours_info p + p
 {
     margin-left: 42%;
     position: absolute;
@@ -145,7 +145,7 @@ background-color: #508ab9;
     
 }
 /* Precio del Tour */
-#tours.pagina .row .column_1 #tours_info h2 + p
+div#tours.pagina div.row div.column_1 div#tours_info h2 + p
 {
     color: rgb(250, 155, 1);
     right: 30px;

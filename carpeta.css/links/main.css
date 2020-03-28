@@ -10,7 +10,7 @@ body{
     background-color: rgb(9,79,174);
 }   
 
-header{
+#contenedor header{
     
     background-color:rgb(9,79,174);
     width: 100%;
@@ -18,7 +18,7 @@ header{
 }
 
 /*Altura y Ancho de los iconos del menú*/
-header li a img{
+#contenedor header li a img{
     width: 20px;
     height: 20px;
     padding-right: 5px;
@@ -29,14 +29,21 @@ header li a img{
 
 /*Estilo al encabezado*/
 
-h1 { color: rgb(229,161,50); }
+h1#titulo_encabezado {
+    margin: 0 auto;
+    padding: 50px;
+    padding-bottom: 0%;
+    text-align: center;
+    color: rgb(229,161,50);
+    background-color: rgb(9,79,174);
+    height: 30px;
+}
 span { color:#fff }
 
 /**/
 
-#btn-menu{
+#contenedor header .wrapper input#btn-menu[type="checkbox"]{
     display: none;
-
 }
 header label{
     display: none;
@@ -62,7 +69,7 @@ header nav ul li:hover{
     border-radius: 50px;
 }
 
-.navegacion ul{
+#contenedor header .wrapper .navegacion ul{
     margin: 0;
     list-style: none;
     padding: 0;
@@ -71,7 +78,7 @@ header nav ul li:hover{
     
 }
 
-.navegacion li a{
+#contenedor header .wrapper .navegacion li a{
     display: inline-block;
     font-size: 20px;
     padding: 25px 10px;
@@ -116,7 +123,7 @@ opiedades para el menu al reducir el navegador a 600px*/
 /*----------------------------------------------------------------------------------*/
 /*Estilo de interfaz usuario*/
 
-.container {
+/* .container {
     max-width: 450px;
     height: auto;
     background-color: #efefef;
@@ -181,21 +188,21 @@ h2 span{
 .btn__reset:focus {
     outline: none;
     border-bottom:solid rgb(9,79,174) .2rem;
-}
+} */
 
 
 
 
 
 /*Slider automático*/
-.slider{
+#inicio.pagina .slider{
     width: 100%;
     margin:0;
     overflow: hidden;
     padding: 0;
 }
 
-.slider ul {
+#inicio.pagina .slider ul {
     padding: 0;
     display: flex;
     width: 400%;
@@ -205,13 +212,13 @@ h2 span{
     
 }
 
-.slider li{
+#inicio.pagina .slider ul li{
     list-style: none;
     width: 100%;
     transition: all 2s;
 }
 
-.slider img{
+#inicio.pagina .slider ul li img{
     width: 100%;
     height: 500px;
 }
@@ -230,16 +237,9 @@ h2 span{
     100% {margin-left: -300%;}
 }
 /***** Pagina de Inicio *****/
-h1 {
-    margin: 0 auto;
-    padding: 50px;
-    padding-bottom: 0%;
-    text-align: center;
-    background-color: rgb(9,79,174);
-    height: 30px;
-}
 
-h2 {
+
+#inicio.pagina .datos h2 {
     margin: 0 auto;
     padding: 10px;
     color: rgb(255, 255, 255);
@@ -248,19 +248,18 @@ h2 {
 
 }
 
-.titulo {
+/* .titulo {
 color:rgb(255, 255, 255);
 background-color: rgb(37, 165, 148);
-
 }
+
 form {
     display: flex ;
     flex-direction: row;
-
-}
-.principal {
+} */
+/* .principal {
 text-align: center;
-}
+} */
 
 .datos {
    text-align: center;
@@ -269,7 +268,7 @@ text-align: center;
     background-position: center;
    
 }
-.caja {
+#inicio.pagina .datos .caja {
     width: 60%;
     height: 250px;
     margin: 10px auto;
@@ -280,7 +279,7 @@ text-align: center;
     
 }
 
-.caja1 {
+#inicio.pagina .datos .caja1 {
     width: 60%;
     height: 250px;
     margin: 10px auto;
@@ -292,7 +291,7 @@ text-align: center;
 
 }
 
-.caja .foto1 {
+#inicio.pagina .datos .caja .foto1 {
     width: 46%;
     height: 250px;
     background-image: url("../img/1_.jpg");
@@ -310,7 +309,7 @@ text-align: center;
    
 }
 
-.caja .foto2 {
+#inicio.pagina .datos .caja .foto2 {
     width: 45%;
     height: 250px;
     background-image: url("../img/2_.jpg");
@@ -324,7 +323,8 @@ text-align: center;
     transition-delay: 1s;
     transition: all 1s;
 }
-.caja1 .fotos3 {
+
+#inicio.pagina .datos .caja1 .fotos3 {
     width: 30%;
     height: 250px;
     background-image: url("../img/3_.jpg");
@@ -340,7 +340,8 @@ text-align: center;
 
   
 }
-.caja1 .fotos4 {
+
+#inicio.pagina .datos .caja1 .fotos4 {
     width: 30%;
     height: 250px;
     background-image: url("../img/4_.jpg");
@@ -353,7 +354,8 @@ text-align: center;
     transition: all 1s;
 
 }
-.caja1 .fotos5 {
+
+#inicio.pagina .datos .caja1 .fotos5 {
     width: 30%;
     height: 250px;
     background-image: url("../img/5_.jpg");
@@ -369,7 +371,7 @@ text-align: center;
 
 }
 
-.caja1 .fotos5:hover {
+#inicio.pagina .datos .caja1 .fotos5:hover {
     background-image: url("../img/10_.jpg");
     background-size: contain;
     width: 30%;
@@ -379,7 +381,7 @@ text-align: center;
     background-repeat: no-repeat;
 }
 
-.caja1 .fotos4:hover {
+#inicio.pagina .datos .caja1 .fotos4:hover {
     background-image: url("../img/12_.jpg");
     background-size: contain;
     width: 30%;
@@ -390,7 +392,7 @@ text-align: center;
 
 }
 
-.caja1 .fotos3:hover {
+#inicio.pagina .datos .caja1 .fotos3:hover {
     background-image: url("../img/15_.jpg");
     background-size: contain;
     width: 30%;
@@ -400,7 +402,7 @@ text-align: center;
     background-repeat: no-repeat;
 
 }
-.caja .foto2:hover {
+#inicio.pagina .datos .caja .foto2:hover {
     background-image: url("../img/7_.jpg");
     background-size: contain;
     width: 45%;
@@ -411,7 +413,7 @@ text-align: center;
 
 }
 
-.caja .foto1:hover {
+#inicio.pagina .datos .caja .foto1:hover {
     background-image: url("../img/9_.jpg");
     background-size: contain;
     width: 46%;
@@ -419,5 +421,4 @@ text-align: center;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
 }
