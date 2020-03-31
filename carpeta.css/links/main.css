@@ -7,6 +7,7 @@ body{
     margin:0;
     font-family: sans-serif;
     padding:0;
+    background-color: rgb(9,79,174);
 }   
 
 header{
@@ -57,7 +58,7 @@ header label:hover{
    
 }
 header nav ul li:hover{
-    background-color: RGB(9, 38, 247);
+    background-color: rgb(9, 38, 247);
     border-radius: 50px;
 }
 

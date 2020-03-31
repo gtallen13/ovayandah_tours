@@ -1,7 +1,7 @@
 const Chart = require('chart.js');
 let chartUbicaciones = document.getElementById('chart_ubicaciones').getContext('2d');
 let chartTours = document.getElementById('chart_tours').getContext('2d');
-let chartActividaes = document.getElementById('chart_actividades').getContext('2d');
+let chartActividades = document.getElementById('chart_actividades').getContext('2d');
 let arrUbicaciones = []
 let arrCantReservaciones_ubicaciones = []
 let arrTours =  []
@@ -9,10 +9,17 @@ let arrCantReservaciones_tours = []
 let arrActividades = []
 let arrCantReservaciones_actividades = []
 
+//haciendo el background de las barras
+var purple_orange_gradient = chartActividades.createLinearGradient(0, 0,0, 600);
+purple_orange_gradient.addColorStop(0, 'gold');
+purple_orange_gradient.addColorStop(1, 'purple');
 
 
 
-Chart.defaults.global.defaultFontColor = 'orange'
+//opciones globales
+Chart.defaults.global.defaultFontColor = '#fff'
+Chart.defaults.global.defaultFontFamily = 'sans-serif'
+
 
 //ubicaciones con mas reservaciones
 let sql_ubcacionesTop = 
@@ -65,33 +72,37 @@ conexion.query(sql_ubcacionesTop, function(err, resultados, fields)
         data: 
         {
             labels: arrUbicaciones,
-            datasets: 
+            datasets:  
             [{
                 label: '# de Reservaciones',
                 data: arrCantReservaciones_ubicaciones,
                 //to apply different colors to columns just send to color in an array
-                backgroundColor: 'blue',
-                hoverBorderWidth: 3,
-                hoverBorderColor: '#000' 
+                backgroundColor: purple_orange_gradient,
+                hoverBorderWidth: 2.5,
+                hoverBorderColor: '#efb810',
             }]
         },
         options: 
         {
+            scales:
+            {
+                yAxes:[{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
             title:
             {
                 display: true,
                 text: 'Ubicaciones mas Reservadas',
-                fontSize:25,
-                fontFamily: 'Georgia'
+                fontSize:30,
+                fontColor: 'whitesmoke'
+                
             },
             legend:
             {  
-                display: true,
-                position: 'right',
-                labels:
-                {
-                    fontColor:'#000'
-                }   
+                display: false,  
             },
             layout:
             {
@@ -126,28 +137,33 @@ conexion.query(sql_toursTop, function(err, resultados, campos)
                 label: '# de Reservaciones',
                 data: arrCantReservaciones_tours,
                 //to apply different colors to columns just send to color in an array
-                backgroundColor: 'blue',
-                hoverBorderWidth: 3,
-                hoverBorderColor: '#000' 
+                backgroundColor: purple_orange_gradient,
+                hoverBorderWidth: 2.5,
+                hoverBorderColor: '#efb810'
             }]
         },
         options: 
         {
+            scales:
+            {
+                yAxes:[{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
             title:
             {
                 display: true,
                 text: 'Tours mas Reservadas',
-                fontSize:25,
-                fontFamily: 'Georgia'
+                fontSize:30,
+                fontColor: 'whitesmoke'
+
             },
             legend:
             {  
-                display: true,
-                position: 'right',
-                labels:
-                {
-                    fontColor:'#000'
-                }   
+                display: false,
+                   
             },
             layout:
             {
@@ -173,7 +189,7 @@ conexion.query(sql_actividadesTop, function(err, resultados, campos)
         arrActividades.push(resultado.NombreActividad)
         arrCantReservaciones_actividades.push(resultado.CantidadReservaciones)
     }
-        let barChart_actividades = new Chart(chartActividaes, {
+        let barChart_actividades = new Chart(chartActividades, {
         type: 'bar',
         data: 
         {
@@ -183,28 +199,32 @@ conexion.query(sql_actividadesTop, function(err, resultados, campos)
                 label: '# de Reservaciones',
                 data: arrCantReservaciones_actividades,
                 //to apply different colors to columns just send to color in an array
-                backgroundColor: 'blue',
-                hoverBorderWidth: 3,
-                hoverBorderColor: '#000' 
+                backgroundColor: purple_orange_gradient,
+                hoverBorderWidth: 2.5,
+                hoverBorderColor: '#efb810' 
             }]
         },
         options: 
         {
+            scales:
+            {
+                yAxes:[{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
             title:
             {
                 display: true,
                 text: 'Actividades mas Populares',
-                fontSize:25,
-                fontFamily: 'Georgia'
+                fontSize:30,
+                fontColor: 'whitesmoke'
             },
             legend:
             {  
-                display: true,
-                position: 'right',
-                labels:
-                {
-                    fontColor:'#000'
-                }   
+                display: false,
+                
             },
             layout:
             {
