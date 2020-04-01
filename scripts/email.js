@@ -14,12 +14,12 @@ let email = nodemailer.createTransport({
 //Correo que se enviara: destinario y archivos adjuntados
 let mailOptions = {
     from: 'ovayandah.tours2020@gmail.com',
-    to: 'thomas.allen13ta@gmail.com',
-    subject: 'Sup nigga',
-    text: 'WASSUUPPPPPPPPPPPP :P',
+    to: 'davidcolindres030@gmail.com',
+    subject: 'Boleta de Reservacion',
+    text: 'Aqui su boleta que tenga un buen dia Sr. Cara de Nabo :)',
     attachments:[{
-        filename: 'prueba1.pdf',
-        path: './prueba1.pdf'
+        filename: 'ovayandah tours.pdf',
+        path: './ovayandah tours.pdf'
     }]
 };
 
