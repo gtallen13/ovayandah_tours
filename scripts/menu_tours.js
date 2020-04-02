@@ -64,6 +64,7 @@ function cambioTours(evt, id_tour)
         html_info += `<p>${resultados[id_tour - 1].descripcion}</p>`
         arr.push(id_tour)
         toursinfo.innerHTML = html_info;  
+        tours_imagen.style.backgroundImage = `url("./carpeta.css/img/tour${id_tour}.jpg")`;
     });
    
 
