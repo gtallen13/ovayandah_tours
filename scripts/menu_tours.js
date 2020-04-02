@@ -43,7 +43,7 @@ conexion.query (sql,
         
         for (let fila of filas)
         {
-            html_menu += `c<button lass = "tablinks" onclick = "cambioTours('click', ${i})"  >${fila.nombre}</a>`;
+            html_menu += `<button lass = "tablinks" onclick = "cambioTours('click', ${i})"  >${fila.nombre}</a>`;
             i++;
             if (i == 12) {break}
         }
@@ -72,8 +72,12 @@ function cambioTours(evt, id_tour)
 
 btnReservar.addEventListener('click',function(e){
     e.preventDefault()
-    insertarClientes()
-    encontrarIdCliente(arr[arr.length - 1])
+    if (txtCorreo.value === txtVerificacionCorreo.value){
+        insertarClientes()
+        encontrarIdCliente(arr[arr.length - 1])
+    } else {
+        console.log('Revise bien el correo')
+    }
 })
 
 
