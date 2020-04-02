@@ -31,6 +31,7 @@ const txtPersonas = document.getElementById('txt_cantidad_personas');
 
 let sql = 'select id, nombre, precio, descripcion from tours' 
 let i = 1;
+let arr = [1]
 //consulta para mostrar el primer tour
 conexion.query (sql, 
     function(err, filas, fields){
@@ -44,6 +45,7 @@ conexion.query (sql,
         {
             html_menu += `c<button lass = "tablinks" onclick = "cambioTours('click', ${i})"  >${fila.nombre}</a>`;
             i++;
+            if (i == 12) {break}
         }
         html_menu += '</div></ul>';
         toursmenu.innerHTML = html_menu;
@@ -60,13 +62,10 @@ function cambioTours(evt, id_tour)
         html_info += `<h2>${resultados[id_tour - 1].nombre}</h2>`
         html_info += `<p>$ ${resultados[id_tour - 1].precio}</p>`
         html_info += `<p>${resultados[id_tour - 1].descripcion}</p>`
+        arr.push(id_tour)
         toursinfo.innerHTML = html_info;  
     });
-
-    btnReservar.addEventListener('click',function(e){
-        e.preventDefault()
-        encontrarIdCliente(id_tour)
-    })
+   
 
     
 }
@@ -74,6 +73,7 @@ function cambioTours(evt, id_tour)
 btnReservar.addEventListener('click',function(e){
     e.preventDefault()
     insertarClientes()
+    encontrarIdCliente(arr[arr.length - 1])
 })
 
 
