@@ -42,13 +42,6 @@ conexion.query (sql,
 //utilizada para navegar entre los tours disponibles
 function cambioTours(evt, id_tour)
 {
-    // var j, tablink;
-
-    // tablinks = document.getElementsByClassName('tablinks');
-    // for (j = 0; i <tablinks.length; j++)
-    // {
-    //     tablinks[i].className = tablinks[i].className.replace(" active", ""); 
-    // }
     html_info = ''
     let sql = `select * from tours`
     conexion.query (sql, function(err, resultados, campo)
