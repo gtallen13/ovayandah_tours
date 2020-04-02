@@ -43,7 +43,7 @@ conexion.query (sql,
         
         for (let fila of filas)
         {
-            html_menu += `<button lass = "tablinks" onclick = "cambioTours('click', ${i})"  >${fila.nombre}</a>`;
+            html_menu += `<button class = "tablinks" onclick = "cambioTours('click', ${i})"  >${fila.nombre}</a>`;
             i++;
             if (i == 12) {break}
         }
