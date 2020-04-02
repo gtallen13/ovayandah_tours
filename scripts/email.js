@@ -22,10 +22,12 @@ let mailOptions = {
         path: './ovayandah tours.pdf'
     }]
 };
-
-email.sendMail(mailOptions,function(err,info)
+function sendMail()
 {
-    if (err) throw err;
+    email.sendMail(mailOptions,function(err,info)
+    {
+        if (err) throw err;
+        console.log('Email sent:' + info.response);
+    })
+}
 
-    console.log('Email sent:' + info.response);
-})
