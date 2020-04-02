@@ -1,9 +1,19 @@
 const mysql = require ('mysql');
+const nodemailer = require('nodemailer');
 const conexion = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
     password: '',
     database: 'toursdb'
+});
+
+// correo de donde se enviara
+let email = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'ovayandah.tours2020@gmail.com',
+        pass: 'ThomasCarlosGustavoDavidJorge'
+    }
 });
 
 conexion.connect(function(err)
@@ -76,10 +86,38 @@ btnReservar.addEventListener('click',function(e){
     if (txtCorreo.value === txtVerificacionCorreo.value){
         insertarClientes()
         encontrarIdCliente(arr[arr.length - 1])
+        
     } else {
         console.log('Revise bien el correo')
     }
 })
+
+
+
+function sendMail()
+{
+    //Correo que se enviara: destinario y archivos adjuntados
+    let mailOptions = {
+    from: 'ovayandah.tours2020@gmail.com',
+    to: `${txtCorreo.value}`,
+    subject: 'Boleta de Reservacion',
+    text: 'Disfrute de su tour y gracias por elegir Ovayandah Tours por nosotros te llevamos ovayandah :)',
+    attachments:[{
+        filename: 'ovayandah tours.pdf',
+        path: './ovayandah tours.pdf'
+    }]
+};
+    email.sendMail(mailOptions,function(err,info)
+    {
+
+        if (err) 
+        {
+            console.log (err);
+        }
+        console.log(txtCorreo.value);
+        console.log('Email sent:');
+    })
+}
 
 
 
