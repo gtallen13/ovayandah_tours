@@ -26,15 +26,7 @@
 
 /*Estilo al encabezado*/
 
-h1#titulo_encabezado {
-    margin: 0 auto;
-    padding: 50px;
-    padding-bottom: 0%;
-    text-align: center;
-    color: rgb(229,161,50);
-    background-color: rgb(9,79,174);
-    height: 30px;
-}
+
 span { color:#fff }
 
 /**/
