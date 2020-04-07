@@ -1,0 +1,377 @@
+/*MENÚ Administrativo*/
+
+/*Clase para esconder paginas*/
+
+.esconder
+{
+    display: none;
+}
+
+#cajamenu header{
+    
+    background-color:rgb(9,79,174);
+    width: 100%;
+    
+}
+
+/*Altura y Ancho de los iconos del menú*/
+#cajamenu header li a img{
+    width: 20px;
+    height: 20px;
+    padding-right: 5px;
+    
+}
+
+
+
+/*Estilo al encabezado*/
+
+h1#titulo_encabezado {
+    margin: 0 auto;
+    padding: 50px;
+    padding-bottom: 0%;
+    text-align: center;
+    color: rgb(229,161,50);
+    background-color: rgb(9,79,174);
+    height: 30px;
+}
+span { color:#fff }
+
+/**/
+
+#cajamenu header .wrapper input#btn-menu[type="checkbox"]{
+    display: none;
+}
+header label{
+    display: none;
+    width: 30px;
+    height: 50px;
+    padding: 10px;
+    padding-bottom: 0%;
+    border-right: 1px solid #ffffff;
+    
+}
+
+header label img{
+    width: 30px;
+    height: 30px;
+}
+header label:hover{
+    cursor:pointer;
+    background: rgb(9,79,174);
+   
+}
+header nav ul li:hover{
+    background-color: RGB(9, 38, 247);
+    border-radius: 50px;
+}
+
+#cajamenu header .wrapper .navegacion ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    line-height: normal;
+    
+}
+
+#cajamenu header .wrapper .navegacion li a{
+    display: inline-block;
+    font-size: 20px;
+    padding: 25px 10px;
+    color: #fff;
+    text-decoration: none;
+    
+    -o-webkit-transition:all 500ms eas;  
+    -o-transition: all 500ms eas;
+    transition:all 500ms eas;
+    
+}
+
+/*Pr
+opiedades para el menu al reducir el navegador a 600px*/
+@media(max-width:860px){
+     header label{ 
+        display: block;
+        margin:0;
+     }
+/*Opciones principales*/
+     .navegacion {
+         position: absolute;
+         background: rgb(9,79,174); 
+         width:50%;
+         margin-left: -70%;
+         transition: all 0.5s;
+       
+             }
+/*Muestra el menú en forma de columna*/
+     .navegacion ul{
+         flex-direction: column;
+         
+     }
+/*Al darle clic al boton del menú se abra*/
+     #btn-menu:checked ~ .navegacion {
+        margin:0;
+        width: 200px;
+     }
+
+    
+}
+
+/*  */
+
+    .caja4{
+      width: 100vw;
+      height: 99vh;
+      background-color:#fff;
+      display: flex;
+      flex-direction: row;
+  
+    }
+   
+    .notificacion{
+      width: 50vw;
+      height: 99vh;
+      max-width: 250px;
+      background-color: rgb(9,79,174);;
+      border: 2px solid #efb810;
+      overflow: hidden;
+    }
+    
+    .central{
+      width: 100vw;
+      height: 99vh;
+      max-width: 100%;
+      background-color: rgb(9,79,174);;
+      border: 2px solid #efb810;
+      overflow: hidden;
+    }
+    
+    .central-top{
+      width: 100%;
+      
+      height: 16%;
+  
+      background-color: rgb(9,79,174);;
+      border-bottom: 2px solid #efb810;
+      overflow: hidden;
+    }
+   
+  
+    .lateral{
+      width: 100vw;
+      height: 99vh;
+      max-width: 400px;
+      background-color: #fff;
+      border: 2px solid #efb810;
+      overflow: hidden;
+    }
+  
+    .info-admin,.info-empuno,.info-empdos,.info-emptres,.info-empcuatro,.info-empcinco{
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+  .info-admin p,.info-empuno p,.info-empdos p,.info-emptresp p,.info-empcuatro p,.info-empcinco{
+    margin: 0;
+    
+  }
+  .info-admin{
+    margin: 0;
+    margin-top: 25px;
+    margin-left: 5px;
+    color: #fff;
+  }
+  .info-admin a{
+    color: #fff;
+  }
+    .notificacion .logos{
+      width: 100%;
+      height: 16%;
+      background-color: rgb(9,79,174);
+      border-bottom: 2px solid #efb810;
+      display: flex;
+    }
+    
+    .notificacion .descripcion{
+      width: 100%;
+      height: 16%;
+      background-color: rgb(9,79,174);
+      border-top: 2px solid #efb810;
+      
+    }
+    .notificacion .logos img{
+      width: 43%;
+      height: 83%;
+      margin: 0;
+      margin-left: 5%;
+      margin-top: 10px;
+      display: flex;
+    }
+  
+  
+    .notificacion .reservas{
+      background-color: rgb(9,79,174);
+      width: 100%;
+      height: 50%;
+      margin-top: 5px;
+      max-width: 100%;
+    }
+  /*********************************/
+  
+    .central .informaciones{
+      margin-top: 5px;
+      height: 50%;
+      overflow: hidden;
+      
+    }
+  
+    .central .informaciones input,label{
+      margin-top: 10px;
+      margin-left: 20%;
+    }
+  
+    .central .informaciones input{
+      margin-top: 10px;
+      width: 50%;
+      padding: 10px;
+      font-size: 15px;
+    }
+    .central .informaciones input:last-child{
+      margin-bottom: 10px;
+      
+    }
+   
+    .reservas .info input{
+      background-color:rgb(9,79,174);
+      outline: none;
+      color: #fff;
+      border: 0;
+      margin-top: 5px;
+      margin-left: 12px;
+      font-size: 16px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    /*****************/
+    .lateral .mejor .Tema{
+      margin: 0 auto;
+      margin-top: 7px;
+      width: 109%;
+      height: 11.2vh;
+     
+      background-color: #fff;
+    }
+  .lateral .mejor .Tema h1{
+    margin:0;
+    margin-top: 30px;
+    margin-left: 37%;
+  
+  
+  }
+    .lateral .mejor .empleado1{
+      width: 100%;
+      height: 40%;
+      background-color: #fff;
+      border-bottom: 2px solid #efb810;
+      display: flex;
+  
+      
+    }
+    .lateral .mejor .empleado2{
+      width: 100%;
+      height: 40%;
+      margin-top: 10px;
+      background-color: #fff;
+      border-bottom: 2px solid #efb810;
+      display: flex;
+    }
+  
+    .lateral .mejor .empleado3{
+      width: 100%;
+      height: 40%;
+      margin-top: 10px;
+      background-color: #fff;
+      border-bottom: 2px solid #efb810;
+      display: flex;
+    }
+  
+    .lateral .mejor .empleado4{
+      width: 100%;
+      height: 40%;
+      margin-top: 10px;
+      background-color: #fff;
+      border-bottom: 2px solid #efb810;
+      display: flex;
+    }
+  
+    .lateral .mejor .empleado5{
+      width: 100%;
+      height: 40%;
+      margin-top: 10px;
+      background-color: #fff;
+      display: flex;
+    }
+  
+  
+    .lateral .mejor{
+        margin: 0;
+        margin-left: 8px;
+        background-color: #fff;
+        width: 87%;
+        height: 31%; 
+    }
+    
+    .lateral .mejor img{
+      margin-top: 10px;
+      margin-left: 10px;
+      width: 70px;
+      height: 70px;
+    }
+/***************************/
+    div#tabla-infor .informaciones table {
+      width: 80%;
+      height: 80%;
+      margin-top: 10px;
+      margin-left: 7%;
+      justify-content: center;
+  
+   }
+   div#tabla-infor .informaciones td,th{
+    text-align: center;
+    margin-top: 100px;
+    font-size: 20px;
+    color: #fff;
+  
+   }
+
+.central .central-top .busqueda #busqueda_reservaciones {
+ 
+  margin-top: 40px;
+  margin-left: 20px;
+  width: 50%;
+  height: 30px;
+  background-color: rgb(9,79,174);
+
+  border-bottom-right-radius:20px;
+  border-top-right-radius: 20px;
+
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+  border: 3px solid rgb(255,255,255);
+
+  font-size: 15px;
+  color: white
+}
+
+.central .central-top .busqueda #busqueda_reservaciones:focus{
+  outline:none;
+ 
+}
+.central .central-top .busqueda #buscar{
+
+  height: 40px;
+
+  border-bottom-right-radius:5px;
+  border-top-left-radius: 5px;
+}

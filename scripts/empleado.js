@@ -5,31 +5,53 @@ const btnLogin = document.getElementById('btn-guardar')
 
 
 let band = 0;
-
 btnLogin.addEventListener('click', function(e){
     e.preventDefault()
     console.log(username.value)
-    let consultasql = `select username,contra from empleados where username = ? and contra = ?`
+    let consultasql = `select username,contra,tipo_usuario_id as id from empleados where username = ? and contra = ? `
     conexion.query(consultasql,[`${username.value}`,`${password.value}`],function(err,filas,campos){
         if (err){
             console.log('error')
         } else {
-            for (let hilo of filas) {
-                if (username.value === hilo.username & password.value === hilo.contra){
-                    console.log('lo existe')
-                    document.getElementById('lolo').style.display = 'none'
-                    band = 1
-                    document.getElementById('lolo3').classList.remove('esconder')
-                    cargarNombreEmpleado()
-                    nombrar()
-                    cargarClientes()
-                    cargarTop()
-                    cargarPrimerInfo()
-                    
-                }else {
-                    console.log ('no pudiste entrar')
+            if (filas[0].id === 1) {
+                for (let hilo of filas) {
+                    if (username.value === hilo.username & password.value === hilo.contra){
+                        console.log('lo existe')
+                        //Este desasparece el formulario login
+                        document.getElementById('lolo').style.display = 'none'
+                        //Este aparece la pagina de Administrador
+                        document.getElementById('lolo4').classList.remove('esconder')
+                        cargarNombreEmpleado()
+                        nombrar()
+                        cargarClientes()
+                        cargarTop()
+                        cargarPrimerInfo()
+                        
+                    }else {
+                        console.log ('no pudiste entrar')
+                    }
                 }
+            } else {
+                for (let hilo of filas) {
+                    if (username.value === hilo.username & password.value === hilo.contra){
+                        console.log('lo existe')
+                        //Este desasparece el formulario login
+                        document.getElementById('lolo').style.display = 'none'
+                        //Este aparece la pagina el formulario Empleado
+                        document.getElementById('lolo3').classList.remove('esconder')
+                        cargarNombreEmpleado()
+                        nombrar()
+                        cargarClientes()
+                        cargarTop()
+                        cargarPrimerInfo()
+                        
+                    }else {
+                        console.log ('no pudiste entrar')
+                    }
+                }
+                
             }
+            
         }
     })
 })
@@ -37,18 +59,16 @@ btnLogin.addEventListener('click', function(e){
 
 //Encontrar los top 5 mejores empleados del mes dependiendo de la fecha del sistema
 function cargarTop(){
-    let consulta1 = 'SELECT e.id,e.primer_nombre,e.primer_apellido,sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) as horas_trabajadas FROM toursdb.reservaciones as r inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id inner join toursdb.empleados as e on er.empleados_id=e.id where r.fecha_inicio_tour between concat(YEAR(NOW()),?,MONTH(NOW()),?) and curdate() group by e.id order by sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) desc'
-conexion.query(consulta1,['-','-01'],function(err,filas,campos){
-    let cont = 0
-    if (err){
-
-    }else {
-        for (let fila of filas){
-            cont = cont + 1
-            document.getElementById(`emp${cont}`).innerHTML += `<p>${fila.primer_nombre} ${fila.primer_apellido}</p><p>Empleado</p><p>${cont}-Mejor Empleado del mes</p>`
+    let consulta1 = `SELECT e.id,e.primer_nombre,e.primer_apellido,sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) as horas_trabajadas FROM toursdb.reservaciones as r inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id inner join toursdb.empleados as e on er.empleados_id=e.id where r.fecha_inicio_tour between concat(YEAR(Now()),'-',month((NOW() - INTERVAL 1 MONTH)),'-01') and DATE(LAST_DAY(NOW() - INTERVAL 1 MONTH)) group by e.id order by sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) desc limit 5`
+    conexion.query(consulta1,function(err,filas,campos){
+        let cont = 0
+        if (err){console.log('error')}else {
+            for (let fila of filas){
+                cont = cont + 1
+                document.getElementById(`emp${cont}`).innerHTML += `<p>${fila.primer_nombre} ${fila.primer_apellido}</p><p>Empleado</p><p>${cont}-Mejor Empleado del mes</p>`
+            }
         }
-    }
-})
+    })
 }
 
 
@@ -163,17 +183,16 @@ function nombrar () {
 }
 
 function cargarNombreEmpleado(){
-    conexion.query(`select primer_nombre,primer_apellido from empleados where username = ?`,[`${username.value}`],function(err,filas,campos){
+    conexion.query(`select e.primer_nombre,e.primer_apellido,t.nombre_tipo as nombre from empleados as e inner join tipo_usuario as t on e.tipo_usuario_id=t.id where username = ?`,[`${username.value}`],function(err,filas,campos){
         if (err){
             console.log('error')
         } else {
             for (let fila of filas){
-                document.getElementById('usuario-emp').innerHTML = `<p>${fila.primer_nombre} ${fila.primer_apellido}</p><p>Empleado</p><a href="" class="item-menu" data-elemento="inicio">Cerrar Sesion</a>`
-        
+                document.getElementById('usuario-emp').innerHTML = `<p>${fila.primer_nombre} ${fila.primer_apellido}</p><p>${fila.nombre}</p><a href="" class="item-menu" data-elemento="inicio">Cerrar Sesion</a>`
+                document.getElementById('administrativo-emp').innerHTML = `<p>${fila.primer_nombre} ${fila.primer_apellido}</p><p>${fila.nombre}</p><a href="" class="item-menu" data-elemento="inicio">Cerrar Sesion</a>`
             }
     
         }
         
     })
 }
-
