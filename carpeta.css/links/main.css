@@ -7,12 +7,12 @@ body{
     margin:0;
     font-family: sans-serif;
     padding:0;
-    background-color: rgb(9,79,174);
+    
 }   
 
 #contenedor header{
     
-    background-color:rgb(9,79,174);
+   
     width: 100%;
     
 }
@@ -26,100 +26,20 @@ body{
 }
 
 
-
 /*Estilo al encabezado*/
 
 h1#titulo_encabezado {
     margin: 0 auto;
-    padding: 50px;
-    padding-bottom: 0%;
+    margin-top: 50px;
     text-align: center;
     color: rgb(229,161,50);
-    background-color: rgb(9,79,174);
-    height: 30px;
+    
+  
 }
 span { color:#fff }
 
 /**/
 
-#contenedor header .wrapper input#btn-menu[type="checkbox"]{
-    display: none;
-}
-header label{
-    display: none;
-    width: 30px;
-    height: 50px;
-    padding: 10px;
-    padding-bottom: 0%;
-    border-right: 1px solid #ffffff;
-    
-}
-
-header label img{
-    width: 30px;
-    height: 30px;
-}
-header label:hover{
-    cursor:pointer;
-    background: rgb(9,79,174);
-   
-}
-header nav ul li:hover{
-    background-color: RGB(9, 38, 247);
-    border-radius: 50px;
-}
-
-#contenedor header .wrapper .navegacion ul{
-    margin: 0;
-    list-style: none;
-    padding: 0;
-    display: flex;
-    line-height: normal;
-    
-}
-
-#contenedor header .wrapper .navegacion li a{
-    display: inline-block;
-    font-size: 20px;
-    padding: 25px 10px;
-    color: #fff;
-    text-decoration: none;
-    
-    -o-webkit-transition:all 500ms eas;  
-    -o-transition: all 500ms eas;
-    transition:all 500ms eas;
-    
-}
-
-/*Pr
-opiedades para el menu al reducir el navegador a 600px*/
-@media(max-width:860px){
-     header label{ 
-        display: block;
-        margin:0;
-     }
-/*Opciones principales*/
-     .navegacion {
-         position: absolute;
-         background: rgb(9,79,174); 
-         width:50%;
-         margin-left: -70%;
-         transition: all 0.5s;
-       
-             }
-/*Muestra el menú en forma de columna*/
-     .navegacion ul{
-         flex-direction: column;
-         
-     }
-/*Al darle clic al boton del menú se abra*/
-     #btn-menu:checked ~ .navegacion {
-        margin:0;
-        width: 200px;
-     }
-
-    
-}
 /*----------------------------------------------------------------------------------*/
 /*Estilo de interfaz usuario*/
 
@@ -147,23 +67,23 @@ h2 span{
     color: #f39b53;
 }
 .form__reg {
-	padding: 0 2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .btn__form {
-	display: flex;
-	justify-content: space-around;
-	margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
 }
 .inputs, .btn__submit, .btn__reset, .option{
-	background-color: #EFEFEF;
-	padding: .5rem;
-	margin: .5rem 0;
-	border: none;
-	border-bottom: solid #C8C8C8 .2rem;
+    background-color: #EFEFEF;
+    padding: .5rem;
+    margin: .5rem 0;
+    border: none;
+    border-bottom: solid #C8C8C8 .2rem;
     transition: all .5s;
    
 }
@@ -174,22 +94,20 @@ h2 span{
 }
 
 .btn__submit {
-	width: 40%;
-	border-bottom: none;
-	background-color: #31B1E5;
-	color: white;
+    width: 40%;
+    border-bottom: none;
+    background-color: #31B1E5;
+    color: white;
 }
 .btn__submit:hover {
-	background-color: #4C9ED9;
+    background-color: #4C9ED9;
 }
-
 
 
 .btn__reset:focus {
     outline: none;
     border-bottom:solid rgb(9,79,174) .2rem;
 } */
-
 
 
 
@@ -237,7 +155,6 @@ h2 span{
     100% {margin-left: -300%;}
 }
 /***** Pagina de Inicio *****/
-
 
 #inicio.pagina .datos h2 {
     margin: 0 auto;
