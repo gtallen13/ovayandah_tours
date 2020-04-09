@@ -1,5 +1,7 @@
 const mysql = require ('mysql');
 const nodemailer = require('nodemailer');
+const fs = require ('fs');
+const pup = require('puppeteer');
 const conexion = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -18,14 +20,16 @@ let email = nodemailer.createTransport({
 
 conexion.connect(function(err)
 {
-    if (err) throw err;
+    if (err) throw err;    
     console.log ('Conexion Exitosa');
+    
 })
 const toursinfo = document.getElementById('tours_info'); //div donde se mostrara la informacion del tour
 const toursmenu = document.getElementById('tours_menu'); //div donde se mostrara el menu de tours
 const tours_imagen = document.getElementById('caja'); //div donde se mostrara la imagen
 let html_menu = '<div class = "lista"><ul>' //para desplegar menu de tours
 let html_info = ''; //para desplegar titulo del tour e informacion del tour
+let html_pdf = document.getElementById('contenido_pdf');
 
 //Variables del formulario Modal para poder hacer la reservacion dependiendo del tour
 const btnReservar = document.getElementById('Guardar');
@@ -38,10 +42,26 @@ const txtVerificacionCorreo = document.getElementById('txt_ver_correo');
 const telefono = document.getElementById('txt-telefono')
 const txtPersonas = document.getElementById('txt_cantidad_personas');
 
+//variables para controlar estado de radiobuttons (selecTour)
+let cbSnorkelScubba = ``
+let cbParaSki = ``
+let cbSkyswimSnork = ``
+let cbZooDay = ``
+let cbCanoDiving = ``
+let cbSeatreking = ``
+let cbFishingDay = ``
+let cbSurfTurf = ``
+let cbATVDay = ``
+let cbWindsurf = ``
+let cbSwimmingDolphins = ``
+
+
+
 
 let sql = 'select id, nombre, precio, descripcion from tours' 
 let i = 1;
 let arr = [1]
+
 //consulta para mostrar el primer tour
 conexion.query (sql, 
     function(err, filas, fields){
@@ -103,8 +123,8 @@ function sendMail()
     subject: 'Boleta de Reservacion',
     text: 'Disfrute de su tour y gracias por elegir Ovayandah Tours por nosotros te llevamos ovayandah :)',
     attachments:[{
-        filename: 'ovayandah tours.pdf',
-        path: './ovayandah tours.pdf'
+        filename: 'guapeton.pdf',
+        path: './boletas/guapeton.pdf'
     }]
 };
     email.sendMail(mailOptions,function(err,info)
@@ -115,7 +135,7 @@ function sendMail()
             console.log (err);
         }
         console.log(txtCorreo.value);
-        console.log('Email sent:');
+        console.log('Email sent:' + info.repsonse);
     })
 }
 
@@ -145,16 +165,320 @@ function encontrarIdCliente(tour_id){
                     function(err,rows,campos){
                         if (err) {console.log('Error')} else {
                             console.log('se pudo campeon')
+                            pdfGeneracion()
                         }
-                
                     })
                 
                 }
             })
         }
-    })
+    })    
 }
 
 
+// Generacion del PDF
+function pdfGeneracion()
+{
+    let sql_boleta = 
+    `select r.id ID, concat(c.primer_nombre, " ", c.primer_apellido) NombreCompleto, r.cantidad_turistas CantPersonas,
+    r.fecha_inicio_tour FechaInicio, r.fecha_final_tour FechaFinal, r.fecha_creacion FechaCreacion, r.tours_id
+    from clientes c
+    join reservaciones r
+        on c.id = r.id_clientes
+    order by r.id desc
+    limit 1;`
+    let dir_boleta = './boletas/boleta.html'
+    
+    
+
+    conexion.query(sql_boleta, function(err, resultados, campos)
+    {
+        selecTour(resultados[0].tours_id)
+        console.log(resultados)
+        let arhivo_boleta = `
+        
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>Document</title>
+                <style>
+                    body{
+                        position: absolute;
+                    }
+                    div#contenido_total
+                    {
+                        position: relative;
+                        width: 1350px;
+                    }
+                    .sup{
+                        display: flex;
+                        
+                        margin: 0;
+                        width: 1350px;
+                        height: 10%;
+                        justify-content: center;
+                        
+                    }
+                    input{
+                    border: 0px;
+                    border-bottom: 1px solid black;
+                    margin-right: 5px;
+                    }
+                    #touridipt{
+                        width: 50px;
+                    }
+                    #touridipt:hover{
+                        outline: none;
+                    }
+                    #touridipt:focus{
+                        outline: none;
+                    }
+                    .logo{
+                        height: 110px;
+                    width: 110px; 
+                    margin-right: 5px;
+                    }
+                    img{
+                        height: 100px;
+                        width: 100px;
+                    }
+                    .titulo{
+                    font-family: Arial;
+                    font-size: 20px;
+                    }
+                    .contenedor{
+                        display: flex;
+                        justify-content: center;
+                        padding: 5px;
+                    }
+                    .subcon{
+                        border: 1px solid black;
+                        width: 600px;
+                    }
+                    .NCli{
+                        width: 60%;
+                    }
+                    .Ncli{
+                    text-align: center;
+                    margin-left: 3px;
+                    }
+                    .f{
+                        width: 40%;
+                    }
+                    
+                    .fecha{
+                        display: flex;
+                        text-align: center;
+                        justify-content: center;
+                    }
+            
+                    .fecha p 
+                    {
+                        text-decoration: underline;
+                        margin: 0 0 0 10px;
+                    }
+                    .tours{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .ttours{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    dl{
+                        column-count: 2;
+                    }
+                    .lt{
+                        align-content: inherit;
+                    }
+                
+                    .parteinf{
+                        display: flex;
+                        justify-content: space-evenly;
+                    }
+                    .enc{
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                    .ncli{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .ncli p
+                    {
+                        text-decoration: underline;
+                        margin: 0 0 0 10px;
+                    }
+                    .can{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .can p
+                    {
+                        text-decoration: underline;
+                        margin: 0 0 0 10px;
+                    }
+                    .tourid{
+                        margin-left: 5px;
+                        display: flex;
+                    }
+                    .tourid p
+                    {
+                        text-decoration: underline;
+                        margin: 0 0 0 10px
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="sup">
+                    <div class="logo">
+                        <img src="../carpeta.css/img/logot.png" alt="">
+                    </div>
+                    <div class="titulo">
+                        <h1>Ovayandah Tours</h1>
+                    </div>
+                    <div class="tourid">
+                        <label>N° Reservación</label>
+                        <p>${resultados[0].ID}</p>
+                    </div>
+                </div>  
+                <br>
+                <div class="contenedor">
+                    <br>
+                    <div class="subcon">
+                        
+                        <br>
+                        <div class="ncli">
+                            <label>Nombre Completo:</label>
+                            <p>${resultados[0].NombreCompleto} </p>
+                        </div>
+                        <br>
+                        <div class="can">
+                            <label>Cantidad de Clientes:</label>
+                            <p>${resultados[0].CantPersonas}</p>
+                            
+                        </div>
+                        <br>
+                        <div class="fecha">
+                            <label>Fecha de reservación:  </label>
+                            <p>${resultados[0].FechaInicio}</p>
+                        </div>
+                        <br>
+                        <div class="fecha">
+                            <label>Fecha de finalización:  </label>
+                            <p>${resultados[0].FechaFinal}</p>
+                        </div>
+                        <br>
+                        <div class="ttours">
+                            <h2>
+                                Tours 
+                            </h2>
+                        </div>
+                        <div class="tours">
+                                <dl>
+                                    <dt><input type="radio"  ${cbSnorkelScubba}class="lt"> Skorkel-Scubba </li>
+                                    <dt><input type="radio"  ${cbParaSki} class="lt"> Para Sky</li>
+                                    <dt><input type="radio"  ${cbSkyswimSnork} class="lt"> Skyswim & Snorkel</li>
+                                    <dt><input type="radio"  ${cbZooDay} class="lt"> Zoo Day </li>
+                                    <dt><input type="radio"  ${cbCanoDiving} class="lt"> Cano Diving</li>
+                                    <dt><input type="radio"  ${cbSeatreking} class="lt"> Seatreking</li>
+                                    <dt><input type="radio"  ${cbFishingDay} class="lt"> Fishing Day</li>
+                                    <dt><input type="radio"  ${cbSurfTurf} class="lt"> Surf and turf</li>
+                                    <dt><input type="radio"  ${cbATVDay} class="lt"> ATV Day</li>
+                                    <dt><input type="radio"  ${cbWindsurf} class="lt"> Windsurf-up</li>
+                                    <dt><input type="radio"  ${cbSwimmingDolphins} class="lt"> Swimming with Dolphins</li>
+            
+                                </ul>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="parteinf">
+                            <div class="enc">
+                                <input type="text">
+                                <span>Empleado Encargado</span>
+                            </div>
+                            <div class="enc">
+                                <input type="text" value= "${resultados[0].FechaCreacion}">
+                                <span></span>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </body>
+        </html>`
+
+        //guardando la plantilla con la informacion de la reservacion
+        fs.writeFile(dir_boleta, arhivo_boleta,function(err)
+        {
+            if (err) throw err;
+            console.log("Se puedo guardar con exito");
+        })
+        let direccion = __dirname; //obteniendo direccion desde la raiz a la carpeta del programa
+        let file = 'boleta.html' // archivo de la plantilla de la boleta
+
+        const fullpath = direccion + '/boletas/' + file; //direccion completa hasta la plantilla del pdf
+        (async () =>
+        {
+            const url = 'file://' + fullpath ; //url del ubicacion de la plantilla del pdf
+            const browser = await pup.launch({
+                headless:true
+            });
+
+            const page = await browser.newPage();
+            await page.goto(url, {waitUntil:"load"}); //se va carga la plantilla del pdf
+            let boleta_pdf = `RES-${resultados[0].ID}.pdf` //nombre de la boleta
+            await page.pdf({path: "./boletas/"+ boleta_pdf}); //guardando el pdf
+
+            await browser.close(); 
+        })();
+    })
+    sendMail(); //llamando la funcion para mandar el correo
+}
 
 
+//utilizada para seleccionar la opcion en plantilla_pdf
+function selecTour(id)
+{
+    switch (id)
+    {
+        case 1:
+            cbSnorkelScubba += `checked`
+            break
+        case 2:
+            cbParaSki += `checked`
+            break
+        case 3:
+            cbSkyswimSnork += `checked`
+            break
+        case 4: 
+            cbZooDay += `checked`
+            break
+        case 5:
+            cbCanoDiving += `checked`
+            break
+        case 6:
+            cbSeatreking += `checked`
+            break
+        case 7:
+            cbFishingDay += `checked`
+            break
+        case 8:
+            cbSurfTurf += `checked`
+            break
+        case 9:
+            cbATVDay += `checked`
+            break
+        case 10:
+            cbWindsurf += `checked`
+            break
+        case 11:
+            cbSwimmingDolphins += `checked`
+            break
+    }
+}
