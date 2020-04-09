@@ -109,6 +109,8 @@ btnReservar.addEventListener('click',function(e){
         
     } else {
         console.log('Revise bien el correo')
+        //notificacion
+        //correos incorrectos
     }
 })
 
@@ -136,6 +138,8 @@ function sendMail()
         }
         console.log(txtCorreo.value);
         console.log('Email sent:' + info.repsonse);
+        //notificacion
+        //correo enviado con exito
     })
 }
 
@@ -163,8 +167,15 @@ function encontrarIdCliente(tour_id){
                     values(?,?,?,?,NOW(),?,?);`
                     conexion.query(consultaReservacion,[`${txtFechaInicio.value}`,`${txtFechaFinal.value}`,`${txtPersonas.value}`,`${txtPersonas.value * filas[0].precio}`,`${results[0].id}`,`${filas[0].ID}`],
                     function(err,rows,campos){
-                        if (err) {console.log('Error')} else {
+                        if (err) 
+                        {
+                            console.log('Error')
+                            return;
+                            //notificacion
+                            //no se pudieron guardar los datos
+                        } else {
                             console.log('se pudo campeon')
+                            
                             pdfGeneracion()
                         }
                     })
@@ -399,12 +410,16 @@ function pdfGeneracion()
                         <br>
                         <div class="parteinf">
                             <div class="enc">
-                                <input type="text">
-                                <span>Empleado Encargado</span>
+                                <input type="text" value = "">
+                                <span>Tourguide</span>
                             </div>
                             <div class="enc">
-                                <input type="text" value= "${resultados[0].FechaCreacion}">
-                                <span></span>
+                                <input type="text">
+                                <span>Transportista</span>
+                            </div>
+                            <div class="enc">
+                                <input type="text">
+                                <span>Fecha De Creación</span>
                             </div>
                         </div>
                         <br>
@@ -437,6 +452,8 @@ function pdfGeneracion()
 
             await browser.close(); 
         })();
+        //notificacion
+        //boleta creada exitosamente
     })
     sendMail(); //llamando la funcion para mandar el correo
 }

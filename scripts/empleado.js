@@ -8,10 +8,11 @@ let band = 0;
 btnLogin.addEventListener('click', function(e){
     e.preventDefault()
     console.log(username.value)
-    let consultasql = `select username,contra,tipo_usuario_id as id from empleados where username = ? and contra = ? `
+    let consultasql = `select concat(primer_nombre, " ", primer_apellido) NombreEmpleado, username,contra,tipo_usuario_id as id from empleados where username = ? and contra = ? `
     conexion.query(consultasql,[`${username.value}`,`${password.value}`],function(err,filas,campos){
         if (err){
             console.log('error')
+            return;
         } else {
             if (filas[0].id === 1) {
                 for (let hilo of filas) {
@@ -26,9 +27,13 @@ btnLogin.addEventListener('click', function(e){
                         cargarClientes()
                         cargarTop()
                         cargarPrimerInfo()
+                        //notificaion
+                        //bienvenido [nombre del empleado]
                         
                     }else {
                         console.log ('no pudiste entrar')
+                        //notificaion
+                        //usuario o contrasenia malas
                     }
                 }
             } else {
@@ -44,9 +49,13 @@ btnLogin.addEventListener('click', function(e){
                         cargarClientes()
                         cargarTop()
                         cargarPrimerInfo()
+                        //notificaion
+                        //bienvenido [nombre del empleado]
                         
                     }else {
                         console.log ('no pudiste entrar')
+                        //notificaion
+                        //usuario o contrasenia malas
                     }
                 }
                 
