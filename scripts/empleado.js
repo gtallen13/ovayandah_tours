@@ -23,7 +23,7 @@ btnLogin.addEventListener('click', function(e){
                         document.getElementById('lolo4').classList.remove('esconder')
                         cargarNombreEmpleado()
                         nombrar()
-                        cargarClientes()
+                        // cargarClientes()
                         cargarTop()
                         cargarPrimerInfo()
                         
@@ -41,7 +41,7 @@ btnLogin.addEventListener('click', function(e){
                         document.getElementById('lolo3').classList.remove('esconder')
                         cargarNombreEmpleado()
                         nombrar()
-                        cargarClientes()
+                        // cargarClientes()
                         cargarTop()
                         cargarPrimerInfo()
                         
@@ -102,32 +102,32 @@ conexion.query(consulta2,[`${username.value}`],function(err,filas,campoes){
 })
 }
 
-function cargarClientes(){
-    //Cargar la informacion del cliente
-let sql = `SELECT c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,c.email,c.telefono FROM toursdb.reservaciones as r
-inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-inner join toursdb.empleados as e on er.empleados_id=e.id
-inner join tours as t on r.tours_id=t.id
-inner join clientes as c on r.id_clientes = c.id
-inner join tours_ubicaciones as tu on t.id=tu.id_tours
-inner join ubicaciones  as u on tu.id_ubicaciones=u.id
-where e.username = ? and r.fecha_inicio_tour >= CURDATE()
-group by r.id order by r.fecha_inicio_tour asc limit 1
-`
-conexion.query(sql,[`${username.value}`],function(err,filas,campos){
-    if (err){
-        console.log('error')
-    } else {
-        for (let fila of filas){
-            document.getElementById('txt-name').value = fila.Nombre_Cliente
-            document.getElementById('txt-lastname').value = fila.Apellido_Cliente
-            document.getElementById('txt-telphone').value = fila.telefono
-            document.getElementById('txt-email').value = fila.email
-        }
-    }
-})
+// function cargarClientes(){
+//     //Cargar la informacion del cliente
+// let sql = `SELECT c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,c.email,c.telefono FROM toursdb.reservaciones as r
+// inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
+// inner join toursdb.empleados as e on er.empleados_id=e.id
+// inner join tours as t on r.tours_id=t.id
+// inner join clientes as c on r.id_clientes = c.id
+// inner join tours_ubicaciones as tu on t.id=tu.id_tours
+// inner join ubicaciones  as u on tu.id_ubicaciones=u.id
+// where e.username = ? and r.fecha_inicio_tour >= CURDATE()
+// group by r.id order by r.fecha_inicio_tour asc limit 1
+// `
+// conexion.query(sql,[`${username.value}`],function(err,filas,campos){
+//     if (err){
+//         console.log('error')
+//     } else {
+//         for (let fila of filas){
+//             document.getElementById('txt-name').value = fila.Nombre_Cliente
+//             document.getElementById('txt-lastname').value = fila.Apellido_Cliente
+//             document.getElementById('txt-telphone').value = fila.telefono
+//             document.getElementById('txt-email').value = fila.email
+//         }
+//     }
+// })
 
-}
+// }
 
 
 function nombrar () {
@@ -165,13 +165,13 @@ function nombrar () {
                     html += `<tr><th>Fecha final</th></tr><tr><td>${row.fecha_final_tour}</td></tr>`
                     html += `<tr><th>Cantidad de personas</th></tr><tr><td>${row.cantidad_turistas}</td></tr>`
                     html += `<tr><th>Ubicaciones</th></tr><tr><td>${row.Ubicaciones}</td></tr>`
-                    document.getElementById('txt-name').value = row.Nombre_Cliente
-                    document.getElementById('txt-lastname').value = row.Apellido_Cliente
-                    document.getElementById('txt-telphone').value = row.telefono
-                    document.getElementById('txt-email').value = row.email
+                    // document.getElementById('txt-name').value = row.Nombre_Cliente
+                    // document.getElementById('txt-lastname').value = row.Apellido_Cliente
+                    // document.getElementById('txt-telphone').value = row.telefono
+                    // document.getElementById('txt-email').value = row.email
                 }
                 html += '</table>'
-                document.getElementById('tabla-info').innerHTML = html
+                document.getElementById('tabla-reservacion').innerHTML = html
             }
             
         })

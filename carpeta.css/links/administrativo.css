@@ -367,3 +367,14 @@ opiedades para el menu al reducir el navegador a 600px*/
   border-bottom-right-radius:5px;
   border-top-left-radius: 5px;
 }
+
+/*Busqueda de Empleado*/
+.notificacion .info-buscar-empleado{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-buscar-empleado input {
+ margin-top: 5px;
+}
