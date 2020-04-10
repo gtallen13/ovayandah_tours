@@ -139,15 +139,48 @@
                 </div>
             </div>
             <div class="column_1" style="background-color:#508ab9;">
-                <div id="caja"></div>
+                <!--<div id="caja"></div>-->
 
                 <div id="tours_info">
 
                 </div>
                 <button id="myBtn"><a href="#mymodal">Reservar</a></button>
+
+                <!--Elegir Personal de los Tours-->
+                <button class="personal_tours" onclick="myFunction()">Elegir Personal</button>
+                <div id="principal_cuadro" style="display: none;">
+                    <div class="tours_personal">
+                        <div class="cuadro_guia">
+                            <h1>Tour Guide</h1>
+                            <input type="radio" name="Tour Guide">Roger Hernandez
+                            <br>
+                            <input type="radio" name="Tour Guide">Javier Cooper
+                            <br>
+                            <input type="radio" name="Tour Guide">Pedro Navarro
+                        </div>
+                        <div class="cuadro_transporte">
+                            <h1>Transportista</h1>
+                            <input type="radio" name="transportista">Fernando Salinas
+                            <br>
+                            <input type="radio" name="transportista">Mario Torres
+                            <br>
+                            <input type="radio" name="transportista">Daniel Rojas
+                        </div>
+                    </div>
+
+                </div>
+                <script>
+                    function myFunction() {
+                        var x = document.getElementById("principal_cuadro");
+                        if (x.style.display === "block") {
+                            x.style.display = "none";
+                        } else {
+                            x.style.display = "block";
+                        }
+                    }
+                </script>
             </div>
         </div>
-
 
         <!--                                        -->
 

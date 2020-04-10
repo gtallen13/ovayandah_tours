@@ -7,6 +7,11 @@ const conexion = mysql.createConnection({
     database: 'ovayandah'
 });
 
+conexion.connect(function (err) {
+    if (err) throw err;
+    console.log('Conexion Exitosa');
+})
+
 // correo de donde se enviara
 let email = nodemailer.createTransport({
     service: 'gmail',
