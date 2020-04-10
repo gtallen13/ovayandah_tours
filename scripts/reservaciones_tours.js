@@ -142,7 +142,21 @@ function sendMail()
         //correo enviado con exito
     })
 }
-
+ /*Cambiar de graficos*/
+const enlaces3 = document.getElementsByClassName('item3')
+for (let i = 0; i < enlaces3.length; i++) {
+    enlaces3[i].addEventListener('click', function(e) {
+        e.preventDefault()
+        const idElemento = e.currentTarget.getAttribute('data-elemento')
+        const paginas = document.getElementsByClassName('container');
+        console.log(idElemento)
+        for (let j = 0; j < paginas.length; j ++)
+        {
+            paginas[j].classList.add('esconder');
+        }
+        document.getElementById(idElemento).classList.remove('esconder')
+    })   
+}
 
 
 
