@@ -2,6 +2,7 @@ const mysql = require ('mysql');
 const nodemailer = require('nodemailer');
 const fs = require ('fs');
 const pup = require('puppeteer');
+
 const conexion = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -103,6 +104,7 @@ function cambioTours(evt, id_tour)
 
 btnReservar.addEventListener('click',function(e){
     e.preventDefault()
+    //validando el modal
     if (txtCorreo.value === txtVerificacionCorreo.value){
         insertarClientes()
         encontrarIdCliente(arr[arr.length - 1])
