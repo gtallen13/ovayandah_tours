@@ -105,14 +105,17 @@ function cambioTours(evt, id_tour)
 btnReservar.addEventListener('click',function(e){
     e.preventDefault()
     //validando el modal
-    if (txtCorreo.value === txtVerificacionCorreo.value){
+    if (validacionModal(txtFechaInicio.value, txtFechaFinal.value, txtPrimerNombre.value,
+        txtPrimerApellido.value, txtCorreo.value,txtVerificacionCorreo.value, 
+        txtPersonas.value, telefono.value))
+    {
         insertarClientes()
         encontrarIdCliente(arr[arr.length - 1])
         
-    } else {
-        console.log('Revise bien el correo')
-        //notificacion
-        //correos incorrectos
+    }
+    else
+    {
+        console.log ("Mal ingreso de datos");
     }
 })
 
@@ -139,7 +142,7 @@ function sendMail()
             console.log (err);
         }
         console.log(txtCorreo.value);
-        console.log('Email sent:' + info.repsonse);
+        console.log('Email sent:' + info.response);
         //notificacion
         //correo enviado con exito
     })
@@ -500,4 +503,71 @@ function selecTour(id)
             cbSwimmingDolphins += `checked`
             break
     }
+}
+
+function validacionModal(fechaInicio, fechaFinal, primer_nombre, primer_apellido, correo, verificacion_correo,
+    cantidad_personas, telefono)
+{
+    const regex_fecha = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/;
+    const hasNumber = /\d/;
+    const regex_correo = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const regex_telefono = /^\(?([0-9]{4})\)?[-. ]?([0-9]{4})$/;
+    //validando campos en el modal
+    if (fechaInicio === "" && !fechaInicio.match(regex_fecha))
+    {
+        console.log("Fecha de inicio no valido");
+        return false;
+    }
+    else if (fechaFinal === "" && !fechaFinal.match(regex_fecha))
+    {
+        console.log("Fecha de finalizacion no valida");
+        return false;
+    }
+    else if (primer_nombre === "")
+    {
+        console.log('Primer nombre no valido');
+        return false;
+    }
+    else if (hasNumber.test(primer_nombre))
+    {
+        console.log("primer nombre no valido");
+        return false;
+    }
+
+    else if (primer_apellido === "")
+    {
+        console.log('Primer apellido no valido');
+        return false;
+    }
+    else if (hasNumber.test(primer_apellido))
+    {
+        console.log ("Primer apellido no valido");
+        return false;
+    }
+    else if (correo === "" && !correo.match(regex_correo))
+    {
+        console.log ("Correo no valido");
+        return false;
+    }
+    else if (verificacion_correo === "" && !verificacion_correo.match(regex_correo))
+    {
+        console.log("Verificacion de Correo no valido");
+        return false;
+    }
+    else if (correo !== verificacion_correo)
+    {
+        console.log ("Los correos no son los mismos");
+        return false;
+    }
+    else if (cantidad_personas === "")
+    {
+        console.log("No ha especificado la cantidad de personas");
+        return false;
+    }
+    else if (telefono === "" && telefono.match(regex_telefono))
+    {
+        console.log("Telefono no valido");
+        return false;
+    }
+    return true;
 }
