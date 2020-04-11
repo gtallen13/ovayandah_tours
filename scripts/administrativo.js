@@ -1,6 +1,8 @@
 /*Esta parte del codigo sirve para controlar el cambio de pagina de Reservacion,Empleado,Estadisticas */
 const enlaces1= document.getElementsByClassName('item5');
 const txtBusqueda = document.getElementById("busqueda_reservaciones")
+const btnBuscar = document.getElementById('buscar')
+
 for (let x = 0; x < enlaces1.length; x++)
 {
     enlaces1[x].addEventListener('click', function(e)
@@ -83,57 +85,71 @@ la fecha del sistema */
 mostrarReservaciones()
 
 function mostrarReservaciones(){
-    let consulta1 = 'SELECT r.id As id_reserva,r.fecha_inicio_tour,e.primer_nombre,e.primer_apellido,t.nombre FROM reservaciones as r inner join empleados_reservaciones AS er ON r.id=er.reservacion_id inner join empleados as e on er.empleados_id=e.id inner join tours as t on r.tours_id=t.id where r.fecha_inicio_tour >= CURDATE() order by r.fecha_inicio_tour asc limit 10'
+    let consulta1 = `SELECT r.id As id_reserva,r.fecha_inicio_tour,e.primer_nombre,e.primer_apellido,t.nombre FROM reservaciones as r 
+    inner join empleados_reservaciones AS er ON r.id=er.reservacion_id 
+    inner join empleados as e on er.empleados_id=e.id 
+    inner join tours as t on r.tours_id=t.id 
+    where r.fecha_inicio_tour >= CURDATE() 
+    group by r.id order by r.fecha_inicio_tour asc limit 20`
     conexion.query(consulta1,function(err,filas,campos){
         for (let fila of filas){
 
             document.getElementById('info-busqueda-reserva').innerHTML += `<input type="button" value="Reservacion#${fila.id_reserva}/${fila.nombre}" id=${fila.id_reserva} class="item">`
         }
         const enlaces = document.getElementsByClassName('item')
-    for (let i = 0; i < enlaces.length; i++) {
-        enlaces[i].addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log('hola')
-        const idElemento = e.currentTarget.getAttribute('id');
-        let sql = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones,c.email,c.telefono FROM toursdb.reservaciones as r
-        inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-        inner join toursdb.empleados as e on er.empleados_id=e.id
-        inner join tours as t on r.tours_id=t.id
-        inner join clientes as c on r.id_clientes = c.id
-        inner join tours_ubicaciones as tu on t.id=tu.id_tours
-        inner join ubicaciones  as u on tu.id_ubicaciones=u.id
-        where r.id =${idElemento} and r.fecha_inicio_tour >= CURDATE()
-        group by r.id order by r.fecha_inicio_tour asc limit 10 `
-        conexion.query(sql,function(err,filas,campoes){
-            if (err){
-                console.log('error')
-            } else {
-                let html = '<table>'
-                for(let row of filas){
-                    html += `<tr><th>Fecha de Inicio</th></tr><tr><td>${row.fecha_inicio_tour}</td></tr>`
-                    html += `<tr><th>Fecha final</th></tr><tr><td>${row.fecha_final_tour}</td></tr>`
-                    html += `<tr><th>Cantidad de personas</th></tr><tr><td>${row.cantidad_turistas}</td></tr>`
-                    html += `<tr><th>Ubicaciones</th></tr><tr><td>${row.Ubicaciones}</td></tr>`
-                }
-                html += '</table>'
-                document.getElementById('tabla-reservacion').innerHTML = html
-            }
-            
-        })
-        console.log(idElemento);
-        })
-    }
-        
+        for (let i = 0; i < enlaces.length; i++) {
+            enlaces[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('hola')
+                const idElemento = e.currentTarget.getAttribute('id');
+                let consulta4 = `SELECT group_concat(e.primer_nombre," ",e.primer_apellido) as empleados FROM toursdb.reservaciones as r
+                inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
+                inner join toursdb.empleados as e on er.empleados_id=e.id
+                where r.id = ${idElemento} and r.fecha_inicio_tour >= CURDATE()`
+                conexion.query(consulta4,function(err,filaEmpleado,campos){
+                    if (err) {console.log('Error al cargar los empleados')} else {
+                        let consulta5 = `SELECT distinct group_concat(u.nombre) as nombres FROM toursdb.reservaciones as r
+                        inner join tours as t on r.tours_id=t.id
+                        inner join tours_ubicaciones as tu on t.id=tu.id_tours
+                        inner join ubicaciones  as u on tu.id_ubicaciones=u.id
+                        where r.id = ${idElemento} and r.fecha_inicio_tour >= CURDATE()`
+                        conexion.query(consulta5,function(err,filaUbicacion,campos){
+                            if (err) {console.log('Error al cargar las ubicaciones')} else {
+                                let consulta6 = `SELECT r.fecha_inicio_tour,r.fecha_final_tour,r.cantidad_turistas FROM toursdb.reservaciones as r
+                                inner join tours as t on r.tours_id=t.id
+                                inner join clientes as c on r.id_clientes = c.id
+                                where r.id = ${idElemento} and r.fecha_inicio_tour >= CURDATE()`
+                                conexion.query(consulta6,function(err,filas,campos){
+                                    if (err) {console.log('Error al cargar la reservacion')} else {
+                                        let html = '<table>'
+                                        for(let row of filas){
+                                            html += `<tr><th>Fecha de Inicio</th></tr><tr><td>${row.fecha_inicio_tour}</td></tr>`
+                                            html += `<tr><th>Fecha final</th></tr><tr><td>${row.fecha_final_tour}</td></tr>`
+                                            html += `<tr><th>Cantidad de personas</th></tr><tr><td>${row.cantidad_turistas}</td></tr>`
+                                            html += `<tr><th>Ubicaciones</th></tr><tr><td>${filaUbicacion[0].nombres}</td></tr>`
+                                            html += `<tr><th>Empleados Encargados</th></tr><tr><td>${filaEmpleado[0].empleados}</td></tr>`
+                                        }
+                                        html += '</table>'
+                                        document.getElementById('tabla-reservacion').innerHTML = html
+                        
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            })
+        }
     })
 
-    }
+}
 
 //Con esta vamos a buscar por primer nombre, primer apellido o por numero de empleado
 function buscarEmpleado(){
-    txtBusqueda.addEventListener('keyup',function(evt){
+    btnBuscar.addEventListener('click',function(evt){
         evt.preventDefault()
         console.log(evt.code)
-        if (evt.code === 'Enter'){
+        
             let sql = `select * from empleados where (primer_nombre like ? or primer_apellido like ? or id = ? ) and tipo_usuario_id=2`
             conexion.query(sql,[`${txtBusqueda.value}%`,`${txtBusqueda.value}%`, `${txtBusqueda.value}`],function(err,fields,campos){
                 if (err) {console.log('Error')} else{
@@ -160,41 +176,51 @@ function buscarEmpleado(){
                     }
                 }
             })
-        }
+        
     
     }) 
 }
 
 // Con esta funcion vamos a poder buscar las boletas dependiendo el numero de reservacion
 function buscarReservacion(){
-    txtBusqueda.addEventListener('keyup',function(e){
+    btnBuscar.addEventListener('click',function(e){
         e.preventDefault()
-        console.log(e.code)
-        if (e.code === 'Enter'){
-            let sql = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones,c.email,c.telefono FROM toursdb.reservaciones as r
-            inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-            inner join toursdb.empleados as e on er.empleados_id=e.id
-            inner join tours as t on r.tours_id=t.id
-            inner join clientes as c on r.id_clientes = c.id
-            inner join tours_ubicaciones as tu on t.id=tu.id_tours
-            inner join ubicaciones  as u on tu.id_ubicaciones=u.id where (r.id = ? or t.nombre like ? ) and r.fecha_inicio_tour >= CURDATE() `
-            conexion.query(sql,[`${txtBusqueda.value}`,`%${txtBusqueda.value}%`],function(err,filas,campos){
-                if (err) {console.log('Error')} else {
-                    let html = '<table>'
-                    for (let row of filas){
-                       
-                        html += `<tr><th>Fecha de Inicio</th></tr><tr><td>${row.fecha_inicio_tour}</td></tr>`
-                        html += `<tr><th>Fecha final</th></tr><tr><td>${row.fecha_final_tour}</td></tr>`
-                        html += `<tr><th>Cantidad de personas</th></tr><tr><td>${row.cantidad_turistas}</td></tr>`
-                        html += `<tr><th>Ubicaciones</th></tr><tr><td>${row.Ubicaciones}</td></tr>`
-
-                    }      
-                    html += '</table>'
-                    document.getElementById('tabla-reservacion').innerHTML = html      
-
-                }
-            })
-        }
+        let consulta4 = `SELECT group_concat(e.primer_nombre," ",e.primer_apellido) as empleados FROM toursdb.reservaciones as r
+        inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
+        inner join toursdb.empleados as e on er.empleados_id=e.id
+        where  r.id= ? and r.fecha_inicio_tour >= CURDATE()`
+        conexion.query(consulta4,[`${txtBusqueda.value}`],function(err,filaEmpleado,campos){
+            if (err) {console.log('Error al cargar los empleados')} else {
+                let consulta5 = `SELECT distinct group_concat(u.nombre) as nombres FROM toursdb.reservaciones as r
+                inner join tours as t on r.tours_id=t.id
+                inner join tours_ubicaciones as tu on t.id=tu.id_tours
+                inner join ubicaciones  as u on tu.id_ubicaciones=u.id
+                where r.id= ? and r.fecha_inicio_tour >= CURDATE()`
+                conexion.query(consulta5,[`${txtBusqueda.value}`],function(err,filaUbicacion,campos){
+                    if (err) {console.log('Error al cargar las ubicaciones')} else {
+                        let consulta6 = `SELECT r.fecha_inicio_tour,r.fecha_final_tour,r.cantidad_turistas FROM toursdb.reservaciones as r
+                        inner join tours as t on r.tours_id=t.id
+                        inner join clientes as c on r.id_clientes = c.id
+                        where r.id= ? and r.fecha_inicio_tour >= CURDATE()`
+                        conexion.query(consulta6,[`${txtBusqueda.value}`],function(err,filas,campos){
+                            if (err) {console.log('Error al cargar la reservacion')} else {
+                                let html = '<table>'
+                                for(let row of filas){
+                                    html += `<tr><th>Fecha de Inicio</th></tr><tr><td>${row.fecha_inicio_tour}</td></tr>`
+                                    html += `<tr><th>Fecha final</th></tr><tr><td>${row.fecha_final_tour}</td></tr>`
+                                    html += `<tr><th>Cantidad de personas</th></tr><tr><td>${row.cantidad_turistas}</td></tr>`
+                                    html += `<tr><th>Ubicaciones</th></tr><tr><td>${filaUbicacion[0].nombres}</td></tr>`
+                                    html += `<tr><th>Empleados Encargados</th></tr><tr><td>${filaEmpleado[0].empleados}</td></tr>`
+                                }
+                                html += '</table>'
+                                document.getElementById('tabla-reservacion').innerHTML = html
+                
+                            }
+                        })
+                    }
+                })
+            }
+        })
     })
     
 }
@@ -214,7 +240,7 @@ conexion.query(consultaTop,function(err,filas,campos){
 
 // Esta parte del codigo controla para restablecer la informacion principal de la aplicacion
 
-const btnRestablecer = document.getElementById('buscar')
+const btnRestablecer = document.getElementById('restablecer')
 
 btnRestablecer.addEventListener('click',function(e){
     e.preventDefault()
