@@ -155,3 +155,14 @@ div#tours.pagina div.row div.column_1 div#tours_info h2 + p
     font-weight: 800px;
     font-style: italic;
 }
+
+
+/*    Seccion de Consulta y Cancelacion de Tours     */
+div#consultar_cancelar div#form_consulta_cancelacion 
+{
+    height: 40%;
+    width: 40%;
+    margin:0 auto;
+    
+    background-color:#508ab9
+}
