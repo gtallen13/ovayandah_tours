@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "chart.js": "^2.9.3",
+    "chartjs": "^0.3.24",
     "mysql": "^2.18.1",
     "nodemailer": "^6.4.6",
     "puppeteer": "^2.1.1"
