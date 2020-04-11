@@ -168,7 +168,7 @@ function sendMail()
 
         if (err) 
         {
-            console.log (err);
+            console.log (err);  
         }
         console.log(txtCorreo.value);
         console.log('Email sent');
