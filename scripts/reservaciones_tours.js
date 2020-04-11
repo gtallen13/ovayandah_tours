@@ -8,7 +8,7 @@ const conexion = mysql.createConnection({
     password: '',
     database: 'toursdb'
 });
-
+const toastr = require('toastr')
 // correo de donde se enviara
 let email = nodemailer.createTransport({
     service: 'gmail',
@@ -22,7 +22,23 @@ conexion.connect(function(err)
 {
     if (err) throw err;    
     console.log ('Conexion Exitosa');
-    
+    toastr.success('Conexion exitosa',{
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    });
 })
 const toursinfo = document.getElementById('tours_info'); //div donde se mostrara la informacion del tour
 const toursmenu = document.getElementById('tours_menu'); //div donde se mostrara el menu de tours
@@ -111,6 +127,24 @@ btnReservar.addEventListener('click',function(e){
         console.log('Revise bien el correo')
         //notificacion
         //correos incorrectos
+        toastr.error('El correo no cumple con los datos necesarios', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
+        console.log('Revise bien el correo');
     }
 })
 
@@ -137,9 +171,24 @@ function sendMail()
             console.log (err);
         }
         console.log(txtCorreo.value);
-        console.log('Email sent:' + info.repsonse);
-        //notificacion
-        //correo enviado con exito
+        console.log('Email sent');
+        toastr.success('Correo Enviado Exitosamente',{
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        });
     })
 }
 
@@ -150,7 +199,44 @@ function insertarClientes(){
     let sql = 'insert into clientes(email,primer_nombre,primer_apellido,telefono)values(?,?,?,?)'
     conexion.query(sql,[`${txtCorreo.value}`,`${txtPrimerNombre.value}`,`${txtPrimerApellido.value}`,`${telefono.value}`],
     function(err,filas,campos){
-        if (err) {console.log('error')} else {
+        if (err) {
+            toastr.error('El llenado ha fallado por favor reviselo', {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+              });
+            console.log('error')
+        } 
+        else {
+            toastr.success('Los datos se guardaron correctamente',{
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            });
             console.log('Se almacenaron los clientes correctamente')
         }
     })
