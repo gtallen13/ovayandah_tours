@@ -3,6 +3,18 @@ const enlaces1= document.getElementsByClassName('item5');
 const txtBusqueda = document.getElementById("busqueda_reservaciones")
 const btnBuscar = document.getElementById('buscar')
 
+
+/*         Variables del formulario para agregar empleados  */
+let fe_txtUsuario = document.getElementById('fe_usuario');
+let fe_txtContrasenia = document.getElementById('fe_contrasenia');
+let fe_VerificarContrasenia = document.getElementById ('fe_verificar_contrasenia');
+let fe_txtPrimerNombre = document.getElementById('fe_primer_nombre');
+let fe_txtPrimerApellido = document.getElementById('fe_primer_apellido');
+let fe_txtTelefono = document.getElementById('fe_telefono');
+let fe_txtCorreo = document.getElementById('fe_correo');
+let fe_cbPosicion = document.getElementById('cb_posiciones');
+let fe_cbTipoUsuario = document.getElementById('cb_tipo_usuario');
+const btnAgregarEmplado = document.getElementById('fe_btn_agregar');
 for (let x = 0; x < enlaces1.length; x++)
 {
     enlaces1[x].addEventListener('click', function(e)
@@ -11,6 +23,8 @@ for (let x = 0; x < enlaces1.length; x++)
         const paginas = document.getElementsByClassName('pagina-admin');
         console.log (idElemento)
         if (idElemento === "info-busqueda-reserva"){
+            limpiarFormEmpleados();
+            document.getElementById('form_empleados').style.display = 'none';
             document.getElementById("esconder-reservacion").classList.remove('esconder')
             document.getElementById("esconder-empleado").classList.add('esconder')
             document.getElementById("esconder-graficos").classList.add('esconder')
@@ -25,6 +39,8 @@ for (let x = 0; x < enlaces1.length; x++)
             buscarEmpleado()
 
         } else {
+            limpiarFormEmpleados();
+            document.getElementById('form_empleados').style.display = 'none';
             document.getElementById("esconder-reservacion").classList.add('esconder')
             document.getElementById("esconder-empleado").classList.add('esconder')
             document.getElementById("esconder-graficos").classList.remove('esconder')
@@ -257,16 +273,7 @@ function agregarEmpleados()
     document.getElementById("esconder-empleado").classList.add('esconder');
     document.getElementById('form_empleados').style.display = 'block';
 
-    let fe_txtUsuario = document.getElementById('fe_usuario');
-    let fe_txtContrasenia = document.getElementById('fe_contrasenia');
-    let fe_VerificarContrasenia = document.getElementById ('fe_verificar_contrasenia');
-    let fe_txtPrimerNombre = document.getElementById('fe_primer_nombre');
-    let fe_txtPrimerApellido = document.getElementById('fe_primer_apellido');
-    let fe_txtTelefono = document.getElementById('fe_telefono');
-    let fe_txtCorreo = document.getElementById('fe_correo');
-    let fe_cbPosicion = document.getElementById('cb_posiciones');
-    let fe_cbTipoUsuario = document.getElementById('cb_tipo_usuario');
-    const btnAgregarEmplado = document.getElementById('fe_btn_agregar');
+    
     btnAgregarEmplado.addEventListener('click', function(evt)
     {
         evt.preventDefault();
@@ -378,4 +385,17 @@ function validacionEmpleados(usuario, contresenia, verif_contrasenia, primer_nom
         return false;
     }
     return true;
+}
+
+function limpiarFormEmpleados()
+{
+    fe_txtContrasenia.value = ""
+    fe_txtUsuario.value = ""
+    fe_VerificarContrasenia.value = ""
+    fe_txtPrimerApellido.value = ""
+    fe_txtPrimerNombre.value = ""
+    fe_txtTelefono.value = ""
+    fe_txtCorreo.value = ""
+    fe_cbPosicion.value = ""
+    fe_cbTipoUsuario.value = ""
 }
