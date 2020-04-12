@@ -158,11 +158,138 @@ div#tours.pagina div.row div.column_1 div#tours_info h2 + p
 
 
 /*    Seccion de Consulta y Cancelacion de Tours     */
-div#consultar_cancelar div#form_consulta_cancelacion 
+
+div#consultar_cancelar.pagina .cc_busqueda
 {
-    height: 40%;
-    width: 40%;
-    margin:0 auto;
+    font-family: sans-serif;
+    padding-top: 20px;
+    background-color:#508ab9;
+    margin: 0 auto;
+    width: 55%;
+    padding: 10px 0 20px 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+div#consultar_cancelar.pagina .cc_busqueda button#cc_btn_buscar
+{
+    background-color: rgb(38, 59, 179);
+    transition: 1s all;
+    border: none;
+    width: 25%;
+    height: 25px;
+    padding: 0 3px 0 3px;
+    color: oldlace;
+    margin-top: 10px;
+    border-radius: 3px;
+    border-bottom: 2.5px solid whitesmoke;
+
+}
+div#consultar_cancelar.pagina .cc_busqueda input,label
+{
+    margin-bottom: 10px;
+}
+
+div#consultar_cancelar.pagina .cc_busqueda button#cc_btn_buscar:hover
+{
+    border-bottom: 3px solid black;
+    width: 30%;
+}
+div#consultar_cancelar.pagina .formulario
+{
+    font-family: sans-serif;
+    padding-top: 20px;
+    background-color:#508ab9;
+    margin: 0 auto;
+    width: 55%;
+    text-align: center;
+}
+div#consultar_cancelar.pagina .formulario  h2
+{
+    color: whitesmoke;
+    text-align: center;
+    margin-bottom: 10px;
+}
+div#consultar_cancelar.pagina .formulario label
+{
+    margin-left: 20px;
+}
+div#consultar_cancelar.pagina .formulario input
+{
+    padding: 5px;
+    margin: 0 0 10px 10px;
+    width: 45%;
+
+}
+div#consultar_cancelar.pagina .formulario input#cc_fecha_inicio
+{
+    width: 60%;
+}
+div#consultar_cancelar.pagina .formulario input#cc_fecha_final
+{
+    width: 60%;
+}
+
+div#consultar_cancelar.pagina .formulario .seccion_empleados
+{
+    width: 100%;
+    background-color: whitesmoke;
+    padding-top: 20px;
+    text-align: center;
     
-    background-color:#508ab9
+}
+div#consultar_cancelar.pagina .formulario .seccion_empleados h2
+{
+    text-align: center;
+    color: sandybrown;
+}
+
+div#consultar_cancelar.pagina .formulario .seccion_botones
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: whitesmoke;
+    text-align: center;
+}
+div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar
+{
+    background-color: #318dda;
+    width: 40%;
+    height: 30px;
+    border: none;
+    color: oldlace; 
+    cursor: pointer;
+    transition: 1s all;
+    border-radius: 3px;
+}
+div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:hover
+{   
+    background-color: #1860d4;
+    /* background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);} */
+}
+div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:focus
+{
+    border: 2.5px solid #1e80cf;
+    outline: none;
+    
+}
+div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancelar
+{
+    color: oldlace;
+    width: 40%;
+    height: 30px;
+    background-color: rgb(240, 165, 45);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 1s all;
+}
+div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancelar:hover
+{
+    background-color: #ff4e00;
+}
+
+div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancelar:focus
+{
+    border: 2.5px solid rgb(240, 165, 45);
+    outline: none;
 }
