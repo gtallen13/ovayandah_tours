@@ -93,12 +93,14 @@ function reservacionActualizar()
     `select t.precio PrecioTour
     from tours t 
     join reservaciones r
-        on t.id = r.id
-    where t.id = ${busqueda_int};`;
+        on t.id = r.tours_id
+    where r.id = ${busqueda_int};`;
 
     conexion.query(sql_precio_tour, function(err, resultados, campos)
     {
+        console.log(resultados);
         if (err) throw err;
+        console.log(resultados);
         let precio_total = cc_CantPersonas.value * resultados[0].PrecioTour;
         let precio_total_int = parseInt(precio_total)
         console.log(precio_total_int);
