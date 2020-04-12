@@ -205,7 +205,7 @@ div#consultar_cancelar.pagina .formulario
 }
 div#consultar_cancelar.pagina .formulario  h2
 {
-    color: whitesmoke;
+    color: sandybrown;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -232,9 +232,9 @@ div#consultar_cancelar.pagina .formulario input#cc_fecha_final
 div#consultar_cancelar.pagina .formulario .seccion_empleados
 {
     width: 100%;
-    background-color: whitesmoke;
+    background-color: #508ab9;
     padding-top: 20px;
-    text-align: center;
+    text-align: left;
     
 }
 div#consultar_cancelar.pagina .formulario .seccion_empleados h2
@@ -247,7 +247,7 @@ div#consultar_cancelar.pagina .formulario .seccion_botones
 {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: whitesmoke;
+    background-color: #508ab9;
     text-align: center;
 }
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar

@@ -378,3 +378,99 @@ opiedades para el menu al reducir el navegador a 600px*/
 .info-buscar-empleado input {
  margin-top: 5px;
 }
+
+
+/*Formulario para ingresar Empleados*/
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados
+{
+    color: whitesmoke;
+    font-family: sans-serif;
+    width: 100%;
+    flex-direction: column;
+    background-color: #508ab9;
+    padding-top: 30px;
+    justify-content: center;
+}
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados h2
+{
+    text-align: center;
+
+}
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados input
+{
+    margin: 10px 0 0 20px;
+    padding: 0 10px 0 10px;
+    height: 25px;
+    width: 38%;
+    border: none;
+    border-bottom: 3px solid #000000;
+    transition: .5s all ;
+}
+
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados input:focus
+{
+    border-bottom: 3px solid rgb(240, 165, 45);
+    outline: none;
+}
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados input[type="email"]
+{
+    width: 80%;
+}
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .seccion_cb
+{
+    color: whitesmoke;
+    padding: 20px 0 10px 10px;
+}
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .seccion_cb label,select
+{
+    margin-left: 15px;
+}
+
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .seccion_cb select
+{
+    border-radius: 3px;
+    transition: .5s all;
+    cursor: pointer;
+}
+
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .seccion_cb select:focus
+{
+    background-color: #508ab9;
+    color: whitesmoke;
+}
+
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones
+{
+    background-color: #295dac;
+    width: 100%;
+    height: 50px;
+    padding-top: 10px;
+
+    text-align: center;
+}
+
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones button#fe_btn_agregar
+{
+    background-color: #009ffd;
+    border: none;
+    margin-left: 10px;
+    width: 30%;
+    height: 30px;
+    color: whitesmoke;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones button#fe_btn_actualizar
+{
+    background-color: #009ffd;
+    border: none;
+    width: 30%;
+    height: 30px;
+    font-size: 15px;
+    margin-left: 35px;
+    color:whitesmoke;
+    cursor: pointer;
+
+}
+

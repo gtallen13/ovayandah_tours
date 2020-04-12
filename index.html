@@ -298,7 +298,7 @@
         </div>
       
         <!--Página de Administrador-->
-        <div id='lolo4' class=" esconder">
+        <div id='lolo4' class="esconder">
         <div id="cajamenu">
             <header>
                 <div class="wrapper">
@@ -329,7 +329,9 @@
                         <input type="button" value="Chart3"  class="item3" data-elemento="chartA">
                     </div>
                     <div id="info-busqueda-emp" class="pagina-admin esconder .info-buscar-empleado">
-                        
+                        <!--    Boton para agregar empleados    -->
+                        <input type ="button" value = "Agregar Empleado" id="btn_agregar_empleados" onclick="agregarEmpleados()">
+
                     </div>
                     <div id="info-busqueda-reserva" class="pagina-admin esconder ">
                         
@@ -376,6 +378,40 @@
                                 <div id="esconder-reservacion" class="esconder">
                                     <div id="tabla-reservacion">
     
+                                    </div>
+                                </div>
+                                <!---       Formulario para registro y actualizacion de Empleados   -->
+                                <div class="form_empleados esconder" id="form_empleados" style="display: none;">
+                                    <form>
+                                      <h2>Registro de Empleado</h2>
+                                      <input type="text" id="fe_usuario" placeholder="Nombre de Usuario">
+                                      <input type="text" id = "fe_contrasenia" placeholder="Contreseña"><br>
+                                      <input type="text" id="fe_verificar_contrasenia" placeholder="Verifique Contraseña">
+                                      <input type="text" id = "fe_primer_nombre" placeholder="Primer Nombre"><br>
+                                      <input type="text" id = "fe_primer_apellido" placeholder="Primer Apellido">
+                                      <input type="text" id = "fe_telefono" placeholder="9988-7766"><br>
+                                      <input type="email" id = "fe_correo" placeholder="ejemplo@lorem.com"><br>
+                                      <div class = "seccion_cb">
+                                        <label for="cb_posiciones">Posicion</label>
+                                        <select id = "cb_posiciones">
+                                            <option value=""> </option>
+                                            <option value = "1">Administrativo</option>
+                                            <option value = "2">Tour Guide</option>
+                                            <option value="3">Transportista</option>
+                                        </select>
+                                
+                                        <label for= "cb_tipo_usuario">Tipo de Usuario</label>
+                                        <select id="cb_tipo_usuario">
+                                            <option value = " ">  </option>
+                                            <option value= "1">Administrativo</option>
+                                            <option value="2">Empleado</option>
+                                        </select>
+                                      </div>
+                                    </form>
+
+                                    <div class="fe_botones">
+                                      <button  id="fe_btn_agregar"> Agregar Empleado</button>
+                                      <button id= "fe_btn_actualizar">Actualizar Informacion</button>
                                     </div>
                                 </div>
                     </div>    
@@ -467,6 +503,6 @@
         <script src= "./scripts/administrativo.js" type="text/javascript"></script>
         <script src= "./scripts/menu_tours.js" type="text/javascript"></script>
 
-       
+        
     </body>
 </html>

@@ -17,6 +17,7 @@ for (let x = 0; x < enlaces1.length; x++)
             //Aqui  se llama la funcion de buscar de reservacion.
             buscarReservacion()
         } else if (idElemento === "info-busqueda-emp") {
+            document.getElementById('btn_agregar_empleados').style.display = 'block'
             document.getElementById("esconder-reservacion").classList.add('esconder')
             document.getElementById("esconder-empleado").classList.remove('esconder')
             document.getElementById("esconder-graficos").classList.add('esconder')
@@ -248,3 +249,38 @@ btnRestablecer.addEventListener('click',function(e){
     mostrarEmpleado()
     
 })
+
+
+/* Funcion para agregar Empleados  */
+function agregarEmpleados()
+{
+    document.getElementById("esconder-empleado").classList.add('esconder');
+    document.getElementById('form_empleados').style.display = 'block';
+
+    let fe_txtUsuario = document.getElementById('fe_usuario');
+    let fe_txtContrasenia = document.getElementById('fe_contrasenia');
+    let fe_VerificarContrasenia = document.getElementById ('fe_verificar_contrasenia');
+    let fe_txtPrimerNombre = document.getElementById('fe_primer_nombre');
+    let fe_txtPrimerApellido = document.getElementById('fe_primer_apellido');
+    let fe_txtTelefono = document.getElementById('fe_telefono');
+    let fe_txtCorreo = document.getElementById('fe_correo');
+    let fe_cbPosicion = document.getElementById('cb_posiciones');
+    let fe_cbTipoUsuario = document.getElementById('cb_tipo_usuario');
+    const btnAgregarEmplado = document.getElementById('fe_btn_agregar');
+
+    btnAgregarEmplado.addEventListener('click', function(evt)
+    {
+        let sql_agregar_empleado =
+        `insert into empleados (username, contra, primer_nombre, primer_apellido, telefono, email, id_posicion, tipo_usuario_id)
+        values
+        ('${fe_txtUsuario.value}', '${fe_txtContrasenia.value}', '${fe_txtPrimerNombre.value}', '${fe_txtPrimerApellido.value}', '${fe_txtTelefono.value}', '${fe_txtCorreo.value}', ${fe_cbPosicion.value}, ${fe_cbTipoUsuario.value});`
+    
+        conexion.query (sql_agregar_empleado, function(err, resultado, campos)
+        {
+            if (err) throw err;
+            console.log ("Guardado exitosamente")
+            console.log(resultado);
+        })
+    })
+
+} 
