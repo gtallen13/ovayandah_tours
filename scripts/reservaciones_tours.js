@@ -168,7 +168,24 @@ function sendMail()
 
         if (err) 
         {
-            console.log (err);  
+            toastr.error('No se pudo enviar el correo', {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+              });
+            console.log (err);
         }
         console.log(txtCorreo.value);
         console.log('Email sent');
@@ -248,18 +265,48 @@ function encontrarIdCliente(tour_id){
         if (err) {console.log('Error')} else {
                 let consultaId = `select ID,precio from tours where ID = ${tour_id} limit 1`
                 conexion.query(consultaId,function(err,filas,campos){
-                if (err) {console.log('Error')} else {
+                if (err) {
+                    toastr.error('No se encontro en la base de datos', {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                      });
+                    console.log('Error')} else {
                     let consultaReservacion = `insert into reservaciones(fecha_inicio_tour,fecha_final_tour,cantidad_turistas,precio_total,fecha_creacion,id_clientes,tours_id) 
                     values(?,?,?,?,NOW(),?,?);`
                     conexion.query(consultaReservacion,[`${txtFechaInicio.value}`,`${txtFechaFinal.value}`,`${txtPersonas.value}`,`${txtPersonas.value * filas[0].precio}`,`${results[0].id}`,`${filas[0].ID}`],
                     function(err,rows,campos){
-                        if (err) 
-                        {
-                            console.log('Error')
-                            return;
-                            //notificacion
-                            //no se pudieron guardar los datos
-                        } else {
+                        if (err) {
+                            toastr.error('No se encontro en la base de datos', {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                              });
+                            console.log('Error')} else {
                             console.log('se pudo campeon')
                             
                             pdfGeneracion()
