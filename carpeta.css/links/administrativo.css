@@ -449,7 +449,7 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
     text-align: center;
 }
 
-div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones button#fe_btn_agregar
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones button.fe_btn
 {
     background-color: #009ffd;
     border: none;
@@ -461,7 +461,7 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
     cursor: pointer;
 }
 
-div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones button#fe_btn_actualizar
+/* div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones button#fe_btn_actualizar
 {
     background-color: #009ffd;
     border: none;
@@ -471,6 +471,5 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
     margin-left: 35px;
     color:whitesmoke;
     cursor: pointer;
-
-}
+} */
 

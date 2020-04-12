@@ -24,7 +24,6 @@ for (let x = 0; x < enlaces1.length; x++)
         console.log (idElemento)
         if (idElemento === "info-busqueda-reserva"){
             limpiarFormEmpleados();
-            document.getElementById('form_empleados').style.display = 'none';
             document.getElementById("esconder-reservacion").classList.remove('esconder')
             document.getElementById("esconder-empleado").classList.add('esconder')
             document.getElementById("esconder-graficos").classList.add('esconder')
@@ -40,7 +39,6 @@ for (let x = 0; x < enlaces1.length; x++)
 
         } else {
             limpiarFormEmpleados();
-            document.getElementById('form_empleados').style.display = 'none';
             document.getElementById("esconder-reservacion").classList.add('esconder')
             document.getElementById("esconder-empleado").classList.add('esconder')
             document.getElementById("esconder-graficos").classList.remove('esconder')
@@ -66,7 +64,7 @@ function mostrarEmpleado(){
     conexion.query(consulta,function(err,filas,campos){
         for (let fila of filas){
             cont = cont + 1
-            document.getElementById('info-busqueda-emp').innerHTML += `<input type="button" value="${fila.primer_nombre} ${fila.primer_apellido}"  class="item4" id=${fila.id}>`
+            document.getElementById('info-busqueda-emp').innerHTML += `<input type="button" value="${fila.primer_nombre} ${fila.primer_apellido}"  class="item4" id=${fila.id} onclick = "limpiarFormEmpleados()">`
         }
         const enlaces = document.getElementsByClassName('item4')
         for (let i = 0; i < enlaces.length; i++) {
@@ -387,8 +385,11 @@ function validacionEmpleados(usuario, contresenia, verif_contrasenia, primer_nom
     return true;
 }
 
+//Limpia y esconde el formEmpleados
 function limpiarFormEmpleados()
 {
+    document.getElementById('form_empleados').style.display = 'none';
+    document.getElementById("esconder-empleado").classList.remove('esconder')
     fe_txtContrasenia.value = ""
     fe_txtUsuario.value = ""
     fe_VerificarContrasenia.value = ""
