@@ -1,4 +1,4 @@
-const mysql = require ('mysql');
+const mysql = require('mysql');
 const nodemailer = require('nodemailer');
 const fs = require ('fs');
 const pup = require('puppeteer');
@@ -7,9 +7,18 @@ const conexion = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
     password: '',
-    database: 'toursdb'
+    database: 'ovayandah'
 });
+<<<<<<< HEAD
 const toastr = require('toastr')
+=======
+
+conexion.connect(function (err) {
+    if (err) throw err;
+    console.log('Conexion Exitosa');
+})
+
+>>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714
 // correo de donde se enviara
 let email = nodemailer.createTransport({
     service: 'gmail',
@@ -19,6 +28,7 @@ let email = nodemailer.createTransport({
     }
 });
 
+<<<<<<< HEAD
 conexion.connect(function(err)
 {
     if (err) throw err;    
@@ -40,6 +50,11 @@ conexion.connect(function(err)
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     });
+=======
+conexion.connect(function (err) {
+    if (err) throw err;
+    console.log('Conexion Exitosa');
+>>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714
 })
 const toursinfo = document.getElementById('tours_info'); //div donde se mostrara la informacion del tour
 const toursmenu = document.getElementById('tours_menu'); //div donde se mostrara el menu de tours
@@ -75,24 +90,23 @@ let cbSwimmingDolphins = ``
 
 
 
-let sql = 'select id, nombre, precio, descripcion from tours' 
+let sql = 'select id, nombre, precio, descripcion from tours'
 let i = 1;
 let arr = [1]
 
 //consulta para mostrar el primer tour
-conexion.query (sql, 
-    function(err, filas, fields){
+conexion.query(sql,
+    function (err, filas, fields) {
         if (err) throw err;
         tours_imagen.style.backgroundImage = 'url("./carpeta.css/img/tour1.jpg")';
         html_info += `<h2>${filas[0].nombre}</h2>`
         html_info += `<p>$ ${filas[0].precio}</p>`
         html_info += `<p>${filas[0].descripcion}</p>`
-        
-        for (let fila of filas)
-        {
+
+        for (let fila of filas) {
             html_menu += `<button class = "tablinks" onclick = "cambioTours('click', ${i})"  >${fila.nombre}</a>`;
             i++;
-            if (i == 12) {break}
+            if (i == 12) { break }
         }
         html_menu += '</div></ul>';
         toursmenu.innerHTML = html_menu;
@@ -100,34 +114,36 @@ conexion.query (sql,
     });
 
 //utilizada para navegar entre los tours disponibles
-function cambioTours(evt, id_tour)
-{
+function cambioTours(evt, id_tour) {
     html_info = ''
     let sql = `select * from tours`
-    conexion.query (sql, function(err, resultados, campo)
-    {
+    conexion.query(sql, function (err, resultados, campo) {
         html_info += `<h2>${resultados[id_tour - 1].nombre}</h2>`
         html_info += `<p>$ ${resultados[id_tour - 1].precio}</p>`
         html_info += `<p>${resultados[id_tour - 1].descripcion}</p>`
         arr.push(id_tour)
-        toursinfo.innerHTML = html_info;  
+        toursinfo.innerHTML = html_info;
         tours_imagen.style.backgroundImage = `url("./carpeta.css/img/tour${id_tour}.jpg")`;
     });
-   
 
-    
+
+
 }
 
-btnReservar.addEventListener('click',function(e){
+btnReservar.addEventListener('click', function (e) {
     e.preventDefault()
+<<<<<<< HEAD
     //validando el modal
     if (validacionModal(txtFechaInicio.value, txtFechaFinal.value, txtPrimerNombre.value,
         txtPrimerApellido.value, txtCorreo.value,txtVerificacionCorreo.value, 
         txtPersonas.value, telefono.value))
     {
+=======
+    if (txtCorreo.value === txtVerificacionCorreo.value) {
+>>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714
         insertarClientes()
         encontrarIdCliente(arr[arr.length - 1])
-        
+
     } else {
         console.log('Revise bien el correo')
         //notificacion
@@ -155,10 +171,10 @@ btnReservar.addEventListener('click',function(e){
 
 
 
-function sendMail()
-{
+function sendMail() {
     //Correo que se enviara: destinario y archivos adjuntados
     let mailOptions = {
+<<<<<<< HEAD
     from: 'ovayandah.tours2020@gmail.com',
     to: `${txtCorreo.value}`,
     subject: 'Boleta de Reservacion',
@@ -191,6 +207,21 @@ function sendMail()
                 "hideMethod": "fadeOut"
               });
             console.log (err);
+=======
+        from: 'ovayandah.tours2020@gmail.com',
+        to: `${txtCorreo.value}`,
+        subject: 'Boleta de Reservacion',
+        text: 'Disfrute de su tour y gracias por elegir Ovayandah Tours por nosotros te llevamos ovayandah :)',
+        attachments: [{
+            filename: 'ovayandah tours.pdf',
+            path: './ovayandah tours.pdf'
+        }]
+    };
+    email.sendMail(mailOptions, function (err, info) {
+
+        if (err) {
+            console.log(err);
+>>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714
         }
         console.log(txtCorreo.value);
         console.log('Email sent');
@@ -231,8 +262,9 @@ for (let i = 0; i < enlaces3.length; i++) {
 
 
 
-function insertarClientes(){
+function insertarClientes() {
     let sql = 'insert into clientes(email,primer_nombre,primer_apellido,telefono)values(?,?,?,?)'
+<<<<<<< HEAD
     conexion.query(sql,[`${txtCorreo.value}`,`${txtPrimerNombre.value}`,`${txtPrimerApellido.value}`,`${telefono.value}`],
     function(err,filas,campos){
         if (err) {
@@ -276,10 +308,19 @@ function insertarClientes(){
             console.log('Se almacenaron los clientes correctamente')
         }
     })
+=======
+    conexion.query(sql, [`${txtCorreo.value}`, `${txtPrimerNombre.value}`, `${txtPrimerApellido.value}`, `${telefono.value}`],
+        function (err, filas, campos) {
+            if (err) { console.log('error') } else {
+                console.log('Se almacenaron los clientes correctamente')
+            }
+        })
+>>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714
 }
 
-function encontrarIdCliente(tour_id){
+function encontrarIdCliente(tour_id) {
     let consultaCliente = 'select id from clientes order by id desc limit 1'
+<<<<<<< HEAD
     conexion.query(consultaCliente,function(err,results,campoes){
         if (err) {console.log('Error')} else {
                 let consultaId = `select ID,precio from tours where ID = ${tour_id} limit 1`
@@ -332,6 +373,23 @@ function encontrarIdCliente(tour_id){
                         }
                     })
                 
+=======
+    conexion.query(consultaCliente, function (err, results, campoes) {
+        if (err) { console.log('Error') } else {
+            let consultaId = `select ID,precio from tours where ID = ${tour_id} limit 1`
+            conexion.query(consultaId, function (err, filas, campos) {
+                if (err) { console.log('Error') } else {
+                    let consultaReservacion = `insert into reservaciones(fecha_inicio_tour,fecha_final_tour,cantidad_turistas,precio_total,fecha_creacion,id_clientes,tours_id) 
+                    values(?,?,?,?,NOW(),?,?);`
+                    conexion.query(consultaReservacion, [`${txtFechaInicio.value}`, `${txtFechaFinal.value}`, `${txtPersonas.value}`, `${txtPersonas.value * filas[0].precio}`, `${results[0].id}`, `${filas[0].ID}`],
+                        function (err, rows, campos) {
+                            if (err) { console.log('Error') } else {
+                                console.log('se pudo campeon')
+                            }
+
+                        })
+
+>>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714
                 }
             })
         }

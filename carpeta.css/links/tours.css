@@ -1,9 +1,9 @@
-#tours.pagina *{
+#tours.pagina  * {
 box-sizing: border-box;
 margin: 0;
 }
-#tours.pagina .row {
-    margin: 5px;
+#tours.pagina .row input {
+    margin: 7px;
 
 }
 
@@ -36,7 +36,7 @@ position: relative;
 
 
 /* Clear floats after the columns */
-div#tours.pagina div.row:after {
+div#tours.pagina div.row .tours_personal:after {
 content: "";
 display: table;
 clear: both;
@@ -55,7 +55,6 @@ div#tours.pagina div.row div.column_1 div#caja {
     margin-top: 100px;
 }
 
-
 div#tours.pagina div.row div.column_1 button[id="myBtn"] {
     background-color: rgb(38, 59, 179);
     color: white;
@@ -68,8 +67,44 @@ div#tours.pagina div.row div.column_1 button[id="myBtn"] {
     right: 20px;
     height: 50px;
     width: 100px;
-
 }
+
+/* Personal para Elegir*/
+div#tours.pagina div.row div.column_1 button[class="personal_tours"] {
+    background-color: rgb(38, 59, 179);
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    left: 20px;
+    bottom: 20px;
+    height: 50px;
+    width: 105px;
+}
+
+div#tours.pagina div.row div.column_1 div#principal_cuadro {
+    color: #fff;
+    width: 500px;
+    padding-bottom: 20px;
+    text-align-last: unset;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+/* El cuadro de texto del guia*/
+div#tours.pagina div.row div.column_1 div.cuadro_guia  {
+    float: left;
+    width: 250px;
+    padding: 10px;
+    height: 250px;
+}
+/* El cuadro de texto de transportista*/
+div#tours.pagina div.row div.column_1 .cuadro_transporte {
+    float: left;
+    width: 250px;
+    padding: 10px;
+    height: 250px;
+}
+
 div#tours.pagina div.row div.column_1 a {
     text-decoration: none;
     color:white;
@@ -79,7 +114,7 @@ div#tours.pagina div.row div.column_1 a {
 
 
 /*---Style the lista---*/
-#tours.pagina .row .column #tours_menu .lista{
+#tours.pagina .row .column #tours_menu .lista {
 float: left;
 
 width: 90%;
@@ -119,7 +154,6 @@ div#tours.pagina div.row div.column div#tours_menu ul
 }
 
 
-
 /* Informacion del tour */
 
 div#tours.pagina div.row div.column_1 div#tours_info
@@ -154,6 +188,7 @@ div#tours.pagina div.row div.column_1 div#tours_info h2 + p
     font-size: 30px;
     font-weight: 800px;
     font-style: italic;
+<<<<<<< HEAD
 }
 
 
@@ -293,3 +328,6 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancela
     border: 2.5px solid rgb(240, 165, 45);
     outline: none;
 }
+=======
+}
+>>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714
