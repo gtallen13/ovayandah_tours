@@ -9,7 +9,7 @@ const conexion = mysql.createConnection({
     password: '',
     database: 'toursdb'
 });
-
+const toastr = require('toastr')
 // correo de donde se enviara
 let email = nodemailer.createTransport({
     service: 'gmail',
@@ -23,7 +23,23 @@ conexion.connect(function(err)
 {
     if (err) throw err;    
     console.log ('Conexion Exitosa');
-    
+    toastr.success('Conexion exitosa',{
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    });
 })
 const toursinfo = document.getElementById('tours_info'); //div donde se mostrara la informacion del tour
 const toursmenu = document.getElementById('tours_menu'); //div donde se mostrara el menu de tours
@@ -112,10 +128,28 @@ btnReservar.addEventListener('click',function(e){
         insertarClientes()
         encontrarIdCliente(arr[arr.length - 1])
         
-    }
-    else
-    {
-        console.log ("Mal ingreso de datos");
+    } else {
+        console.log('Revise bien el correo')
+        //notificacion
+        //correos incorrectos
+        toastr.error('El correo no cumple con los datos necesarios', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
+        console.log('Revise bien el correo');
     }
 })
 
@@ -139,12 +173,44 @@ function sendMail()
 
         if (err) 
         {
+            toastr.error('No se pudo enviar el correo', {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+              });
             console.log (err);
         }
         console.log(txtCorreo.value);
-        console.log('Email sent:' + info.response);
-        //notificacion
-        //correo enviado con exito
+        console.log('Email sent');
+        toastr.success('Correo Enviado Exitosamente',{
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        });
     })
 }
  /*Cambiar de graficos*/
@@ -169,7 +235,44 @@ function insertarClientes(){
     let sql = 'insert into clientes(email,primer_nombre,primer_apellido,telefono)values(?,?,?,?)'
     conexion.query(sql,[`${txtCorreo.value}`,`${txtPrimerNombre.value}`,`${txtPrimerApellido.value}`,`${telefono.value}`],
     function(err,filas,campos){
-        if (err) {console.log('error')} else {
+        if (err) {
+            toastr.error('El llenado ha fallado por favor reviselo', {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+              });
+            console.log('error')
+        } 
+        else {
+            toastr.success('Los datos se guardaron correctamente',{
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            });
             console.log('Se almacenaron los clientes correctamente')
         }
     })
@@ -181,18 +284,48 @@ function encontrarIdCliente(tour_id){
         if (err) {console.log('Error')} else {
                 let consultaId = `select ID,precio from tours where ID = ${tour_id} limit 1`
                 conexion.query(consultaId,function(err,filas,campos){
-                if (err) {console.log('Error')} else {
+                if (err) {
+                    toastr.error('No se encontro en la base de datos', {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                      });
+                    console.log('Error')} else {
                     let consultaReservacion = `insert into reservaciones(fecha_inicio_tour,fecha_final_tour,cantidad_turistas,precio_total,fecha_creacion,id_clientes,tours_id) 
                     values(?,?,?,?,NOW(),?,?);`
                     conexion.query(consultaReservacion,[`${txtFechaInicio.value}`,`${txtFechaFinal.value}`,`${txtPersonas.value}`,`${txtPersonas.value * filas[0].precio}`,`${results[0].id}`,`${filas[0].ID}`],
                     function(err,rows,campos){
-                        if (err) 
-                        {
-                            console.log('Error')
-                            return;
-                            //notificacion
-                            //no se pudieron guardar los datos
-                        } else {
+                        if (err) {
+                            toastr.error('No se encontro en la base de datos', {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                              });
+                            console.log('Error')} else {
                             console.log('se pudo campeon')
                             
                             pdfGeneracion()

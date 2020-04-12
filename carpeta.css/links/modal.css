@@ -86,7 +86,8 @@ overflow-x: hidden;
 .casilla {
   display: flex;
   flex-direction: column;
-  align-self: auto;
+  align-self: center;
+  text-align: center;
   padding: 10px;
 }
 
@@ -156,4 +157,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .modal-content{
   border-radius: 10px;
+}
+label{
+  text-align: center;
 }
