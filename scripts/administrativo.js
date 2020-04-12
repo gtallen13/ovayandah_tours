@@ -267,20 +267,115 @@ function agregarEmpleados()
     let fe_cbPosicion = document.getElementById('cb_posiciones');
     let fe_cbTipoUsuario = document.getElementById('cb_tipo_usuario');
     const btnAgregarEmplado = document.getElementById('fe_btn_agregar');
-
     btnAgregarEmplado.addEventListener('click', function(evt)
     {
-        let sql_agregar_empleado =
-        `insert into empleados (username, contra, primer_nombre, primer_apellido, telefono, email, id_posicion, tipo_usuario_id)
-        values
-        ('${fe_txtUsuario.value}', '${fe_txtContrasenia.value}', '${fe_txtPrimerNombre.value}', '${fe_txtPrimerApellido.value}', '${fe_txtTelefono.value}', '${fe_txtCorreo.value}', ${fe_cbPosicion.value}, ${fe_cbTipoUsuario.value});`
-    
-        conexion.query (sql_agregar_empleado, function(err, resultado, campos)
-        {
-            if (err) throw err;
-            console.log ("Guardado exitosamente")
-            console.log(resultado);
-        })
+        evt.preventDefault();
+        conexion.query('select username,email from empleados;', function(err, resultados, campos)
+        {   
+            let validado = false
+            if(err) throw err;
+            for (let r of resultados)
+            {
+                if (r.username === fe_txtUsuario.value && r.email === fe_txtCorreo.value)
+                {
+                    console.log("El usuario o correo ya estan tomados");
+                    return;
+                }
+                else
+                {
+                    validado = true;
+                }
+            }
+            if (validacionEmpleados(fe_txtUsuario.value, fe_txtContrasenia.value, fe_VerificarContrasenia.value, fe_txtPrimerNombre.value,
+                fe_txtPrimerApellido.value, fe_txtTelefono.value, fe_txtCorreo, fe_cbPosicion.value, fe_cbTipoUsuario.value) && validado)
+            {
+                let sql_agregar_empleado =`insert into empleados (username, contra, primer_nombre, primer_apellido, telefono, email, id_posicion, tipo_usuario_id)
+                values
+                ('${fe_txtUsuario.value}', '${fe_txtContrasenia.value}','${fe_txtPrimerNombre.value}', '${fe_txtPrimerApellido.value}', '${fe_txtTelefono.value}', '${fe_txtCorreo.value}', ${fe_cbPosicion.value}, ${fe_cbTipoUsuario.value});`
+                conexion.query(sql_agregar_empleado, function(err, resultados, campos)
+                {
+                if (err) throw err;
+                console.log ("Guardado exitosamente");                
+                })
+            }
+            else
+            {
+                console.log("Algo salio mal");
+            }
+        });
     })
 
 } 
+
+
+function validacionEmpleados(usuario, contresenia, verif_contrasenia, primer_nombre, primer_apellido, telefono, correo,
+    posicion, tipo_usuario)
+{
+    const hasNumber = /\d/;
+    const regex_correo = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const regex_telefono = /^\(?([0-9]{4})\)?[-. ]?([0-9]{4})$/;
+    if (usuario === "")
+    {
+        console.log("No ha ingresado un usuario");
+        return false;
+    }
+    
+    else if (contresenia === "")
+    {
+        console.log("No ha ingresado una contrasenia");
+        return false;
+    }
+    else if (verif_contrasenia === "")
+    {
+        console.log('No ha ingresado la verificacion de la contresenia');
+        return false;
+    }
+    else if (contresenia !== verif_contrasenia)
+    {
+        console.log("Las contrasenia no son las mismas");
+        return false;
+    }
+
+    else if (primer_apellido === "")
+    {
+        console.log('Primer apellido no valido');
+        return false;
+    }
+    else if (hasNumber.test(primer_nombre))
+    {
+        console.log("Primer nombre no valido");
+        return false;   
+    }
+    else if (primer_apellido === "")
+    {
+        console.log("No ha ingresado el primer apellido");
+        return false;
+    }
+    else if (hasNumber.test(primer_apellido))
+    {
+        console.log ("Primer apellido no valido");
+        return false;
+    }
+    else if (telefono === "" && telefono.match(regex_telefono))
+    {
+        console.log("Telefono no valido");
+        return false;
+    }
+    else if (correo === "" && !correo.match(regex_correo))
+    {
+        console.log ("Correo no valido");
+        return false;
+    }
+    
+    else if (posicion === "")
+    {
+        console.log("No ha elegido la posicion");
+        return false;
+    }
+    else if (tipo_usuario === "")
+    {
+        console.log ("No ha elegido el tipo de usuario");
+        return false;
+    }
+    return true;
+}
