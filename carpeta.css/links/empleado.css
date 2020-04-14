@@ -14,7 +14,7 @@ body{
  
   .notificaciones{
     width: 50vw;
-    height: 99vh;
+    height: 101vh;
     max-width: 250px;
     background-color: rgb(9,79,174);;
     border: 2px solid #efb810;
@@ -23,7 +23,7 @@ body{
   
   .contenido-central{
     width: 100vw;
-    height: 99vh;
+    height: 101vh;
     max-width: 100%;
     background-color: rgb(9,79,174);
     border: 2px solid #efb810;
@@ -31,12 +31,8 @@ body{
   }
   
   .contenido-central-top{
-    width: 96%;
-    margin-left: 7px;
-    height: 15.2vh;
-    margin-top: 5px;
-    max-width: 100%;
-    min-height: 20vh;
+    width: 800px;
+    height: 16.2vh;
     background-color: rgb(9,79,174);;
     border-bottom: 2px solid #efb810;
     overflow: hidden;
@@ -45,7 +41,7 @@ body{
 
   .contenido-lateral{
     width: 100vw;
-    height: 99vh;
+    height: 101vh;
     max-width: 400px;
     background-color: #fff;
     border: 2px solid #efb810;
@@ -70,19 +66,24 @@ body{
   color: #fff;
 }
   .notificaciones .logo{
-    width: 100%;
-    height: 16%;
+    width: 250px;
+    height: 16.2vh;
     background-color: rgb(9,79,174);
     border-bottom: 2px solid #efb810;
     display: flex;
   }
   
   .notificaciones .descripcion{
-    width: 100%;
+    width: 250px;
     height: 16%;
     background-color: rgb(9,79,174);
     border-top: 2px solid #efb810;
     
+  }
+  .notificaciones .descripcion .texto{
+    margin: 16px;
+    font-size: 16px;
+    color: rgb(255,255,255)
   }
   .notificaciones .logo img{
     width: 43%;
@@ -100,6 +101,7 @@ body{
     height: 50%;
     margin-top: 5px;
     max-width: 100%;
+    padding: 5px;
   }
 
 
@@ -127,15 +129,19 @@ body{
   }
  
   .reservas .info input{
-    background-color:rgb(9,79,174);
-    outline: none;
-    color: #fff;
-    border: 0;
-    margin-top: 5px;
-    margin-left: 12px;
-    font-size: 16px;
-    overflow: hidden;
+    background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+    font-size: 12px;
+    text-align: center;
+    color: rgb(255,255,255);
     cursor: pointer;
+  
+    padding: 7px 5px 7px 5px;
+    margin-top: 5px;
+   border-top-right-radius: 10px;
+  
+   border-bottom-left-radius: 10px;
+  
+   width: 100%;
   }
   .contenido-lateral .mejores .Tema{
     margin: 0 auto;
@@ -239,9 +245,11 @@ body{
  }
  
 div.contenido-central-top div.titulo h1{
-  justify-content: center;
-  margin-left: 30%;
+
+ 
   color: #fff;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .contenido-central .parte-abajo .caja4{
