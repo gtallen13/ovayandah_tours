@@ -164,15 +164,17 @@ function sendMail()
     subject: 'Boleta de Reservacion',
     text: 'Disfrute de su tour y gracias por elegir Ovayandah Tours por nosotros te llevamos ovayandah :)',
     attachments:[{
-        filename: 'guapeton.pdf',
-        path: './boletas/guapeton.pdf'
+        filename: boleta_pdf,
+        path: './boletas/'+boleta_pdf
     }]
 };
     email.sendMail(mailOptions,function(err,info)
     {
-
+        console.log(boleta_pdf);
         if (err) 
-        {
+        {  
+            console.log(err);
+            console.log(boleta_pdf);
             toastr.error('No se pudo enviar el correo', {
                 "closeButton": false,
                 "debug": false,
@@ -191,6 +193,7 @@ function sendMail()
                 "hideMethod": "fadeOut"
               });
             console.log (err);
+            return;
         }
         console.log(txtCorreo.value);
         console.log('Email sent');
@@ -254,6 +257,7 @@ function insertarClientes(){
                 "hideMethod": "fadeOut"
               });
             console.log('error')
+            return;
         } 
         else {
             toastr.success('Los datos se guardaron correctamente',{
@@ -302,9 +306,9 @@ function encontrarIdCliente(tour_id){
                         "showMethod": "fadeIn",
                         "hideMethod": "fadeOut"
                       });
-                    console.log('Error')} else {
-                    let consultaReservacion = `insert into reservaciones(fecha_inicio_tour,fecha_final_tour,cantidad_turistas,precio_total,fecha_creacion,id_clientes,tours_id) 
-                    values(?,?,?,?,NOW(),?,?);`
+                    console.log('Error'); return;} else {
+                    let consultaReservacion = `insert into reservaciones(fecha_inicio_tour,fecha_final_tour,cantidad_turistas,precio_total,fecha_creacion,id_clientes,tours_id, cancelado) 
+                    values(?,?,?,?,NOW(),?,?,0);`
                     conexion.query(consultaReservacion,[`${txtFechaInicio.value}`,`${txtFechaFinal.value}`,`${txtPersonas.value}`,`${txtPersonas.value * filas[0].precio}`,`${results[0].id}`,`${filas[0].ID}`],
                     function(err,rows,campos){
                         if (err) {
@@ -325,7 +329,7 @@ function encontrarIdCliente(tour_id){
                                 "showMethod": "fadeIn",
                                 "hideMethod": "fadeOut"
                               });
-                            console.log('Error')} else {
+                            console.log('Error'); return;} else {
                             console.log('se pudo campeon')
                             
                             pdfGeneracion()
