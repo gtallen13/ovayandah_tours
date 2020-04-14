@@ -140,7 +140,7 @@ opiedades para el menu al reducir el navegador a 600px*/
     }
     
     .central-top{
-      width: 100%;
+      width: 850px;
       
       height: 16%;
   
@@ -151,10 +151,10 @@ opiedades para el menu al reducir el navegador a 600px*/
    
   
     .lateral{
-      width: 100vw;
+      width: 700px;
       height: 99vh;
       max-width: 400px;
-      background-color: #fff;
+      background-color:rgb(9,79,174);
       border: 2px solid #efb810;
       overflow: hidden;
     }
@@ -247,69 +247,73 @@ opiedades para el menu al reducir el navegador a 600px*/
     /*****************/
     .lateral .mejor .Tema{
       margin: 0 auto;
-      margin-top: 7px;
-      width: 109%;
+      width: 100%;
       height: 11.2vh;
-     
-      background-color: #fff;
+     border-bottom: 2px solid #efb810;
+      background-color:rgb(9,79,174);
     }
   .lateral .mejor .Tema h1{
     margin:0;
     margin-top: 30px;
     margin-left: 37%;
-  
+    color: rgb(255, 255, 255)
   
   }
     .lateral .mejor .empleado1{
-      width: 100%;
+    
       height: 40%;
       background-color: #fff;
-      border-bottom: 2px solid #efb810;
+      border-bottom: 3px solid #efb810;
       display: flex;
-  
+     
+      margin: 30px 30px 0 20px
       
     }
     .lateral .mejor .empleado2{
-      width: 100%;
+
       height: 40%;
-      margin-top: 10px;
+      
       background-color: #fff;
-      border-bottom: 2px solid #efb810;
+      border-bottom: 3px solid #efb810;
       display: flex;
+      margin: 10px 30px 0 20px
     }
   
     .lateral .mejor .empleado3{
-      width: 100%;
+  
       height: 40%;
-      margin-top: 10px;
+      
       background-color: #fff;
-      border-bottom: 2px solid #efb810;
+      border-bottom: 3px solid #efb810;
       display: flex;
+      margin: 10px 30px 0 20px
     }
   
     .lateral .mejor .empleado4{
-      width: 100%;
+    
       height: 40%;
-      margin-top: 10px;
+     
       background-color: #fff;
-      border-bottom: 2px solid #efb810;
+      border-bottom: 3px solid #efb810;
       display: flex;
+      margin: 10px 30px 0 20px
     }
   
     .lateral .mejor .empleado5{
-      width: 100%;
+    
       height: 40%;
-      margin-top: 10px;
+    
       background-color: #fff;
       display: flex;
+      margin: 10px 30px 0 20px;
+      border-bottom: 3px solid #efb810;
     }
   
   
     .lateral .mejor{
-        margin: 0;
-        margin-left: 8px;
-        background-color: #fff;
-        width: 87%;
+
+        background-color: rgb(9,79,174);
+        width: 100%;
         height: 31%; 
     }
     
@@ -333,24 +337,41 @@ opiedades para el menu al reducir el navegador a 600px*/
     margin-top: 100px;
     font-size: 20px;
     color: #fff;
-  
+      background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+
    }
 
+
+.central .central-medio #esconder-reservacion #tabla-reservacion table {
+  width: 95%;
+ margin: 50px 20px 0 20px;
+  text-align: center;
+}
+
+.central .central-medio #esconder-reservacion #tabla-reservacion table tr td {
+  padding: 15px;
+  color: rgb(255,255,255);
+  font-size: 16px;
+}
+.central .central-medio #esconder-reservacion #tabla-reservacion table tr th {
+  padding: 5px;
+  
+}
 .central .central-top .busqueda #busqueda_reservaciones {
  
   margin-top: 40px;
-  margin-left: 20px;
-  width: 50%;
+  margin-left: 30px;
+  width:  45%;
   height: 30px;
   background-color: rgb(9,79,174);
-
+  padding: 5px;
   border-bottom-right-radius:20px;
   border-top-right-radius: 20px;
 
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 
-  border: 3px solid rgb(255,255,255);
+  border: 3px solid rgb(255, 255, 255);
 
   font-size: 15px;
   color: white
@@ -363,9 +384,18 @@ opiedades para el menu al reducir el navegador a 600px*/
 .central .central-top .busqueda #buscar{
 
   height: 40px;
-
   border-bottom-right-radius:5px;
   border-top-left-radius: 5px;
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+  padding: 5px;
+  color:rgb(255, 255, 255);
+  width: 60px;
+  cursor: pointer;
+}
+.central .central-top .busqueda #restablecer{
+ 
+  cursor: pointer;
+  width: 32px;
 }
 
 /*Busqueda de Empleado*/
@@ -373,8 +403,93 @@ opiedades para el menu al reducir el navegador a 600px*/
   margin-top: 10px;
   display: flex;
   flex-direction: column;
+  
 }
 
 .info-buscar-empleado input {
  margin-top: 5px;
+}
+/*********/
+.notificacion #info-busqueda-reserva{
+  margin: 35px 5px 0 5px;
+}
+
+.notificacion #info-busqueda-reserva input {
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+  font-size: 12px;
+  text-align: center;
+  color: rgb(255,255,255);
+  cursor: pointer;
+
+  padding: 7px 5px 7px 5px;
+  margin-top: 5px;
+ border-top-right-radius: 10px;
+
+ border-bottom-left-radius: 10px;
+
+ width: 100%;
+}
+
+.notificacion #info-busqueda-reserva input:focus{
+  outline: none;
+}
+
+/***/
+
+.caja3 .notificacion #info-busqueda-emp{
+  margin:35px 5px 0 5px;
+}
+
+.caja3 .notificacion #info-busqueda-emp input{
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+  font-size: 12px;
+  text-align: center;
+  color: rgb(255,255,255);
+  cursor: pointer;
+
+  padding: 7px 5px 7px 5px;
+  margin-top: 5px;
+ border-top-right-radius: 10px;
+
+ border-bottom-left-radius: 10px;
+
+ width: 100%;
+}
+
+.central .central-medio #esconder-empleado #tabla-empleado table{
+  width: 95%;
+  margin: 50px 20px 0 20px;
+  text-align: center;
+}
+
+.central .central-medio #esconder-empleado #tabla-empleado table tr th{
+  padding: 5px;
+}
+
+.central .central-medio #esconder-empleado #tabla-empleado table tr td{
+  padding: 15px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+}
+
+/*******/
+
+.caja3 .notificacion #graficos-tours input{
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+  font-size: 12px;
+  text-align: center;
+  color: rgb(255,255,255);
+  cursor: pointer;
+
+  padding: 7px 5px 7px 5px;
+  margin-top: 5px;
+ border-top-right-radius: 10px;
+
+ border-bottom-left-radius: 10px;
+
+ width: 100%;
+}
+
+.caja3 .notificacion #graficos-tours{
+  margin:35px 5px 0 5px;
 }

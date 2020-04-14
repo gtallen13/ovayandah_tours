@@ -1,189 +1,221 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <style>
-        .sup{
-            display: flex;
-            
-            margin: 0;
-            width: 1300px;
-            height: 10%;
-            justify-content: center;
-            
-        }
-        input{
-           border: 0px;
-           border-bottom: 1px solid black;
-           margin-right: 5px;
-        }
-        #touridipt{
-            width: 50px;
-        }
-        #touridipt:hover{
-            outline: none;
-        }
-        #touridipt:focus{
-            outline: none;
-        }
-        .logo{
-            height: 110px;
-           width: 110px; 
-           margin-right: 5px;
-        }
-        img{
-            height: 100px;
-            width: 100px;
-        }
-        .titulo{
-           font-family: Arial;
-           font-size: 20px;
-        }
-        .contenedor{
-            display: flex;
-            justify-content: center;
-            padding: 5px;
-        }
-        .subcon{
-            border: 1px solid black;
-            width: 600px;
-        }
-        .NCli{
-            width: 60%;
-        }
-        .Ncli{
-           text-align: center;
-           margin-left: 3px;
-        }
-        .f{
-            width: 40%;
-        }
-        
-        .fecha{
-            text-align: center;
-        }
-        .tours{
-            display: flex;
-            justify-content: center;
-        }
-        .ttours{
-            display: flex;
-            justify-content: center;
-        }
-        dl{
-            column-count: 2;
-        }
-        .lt{
-            align-content: inherit;
-        }
-    
-        .parteinf{
-            display: flex;
-            justify-content: space-evenly;
-        }
-        .enc{
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-        .ncli{
-            display: flex;
-            justify-content: center;
-        }
-        .can{
-            display: flex;
-            margin-left: 105px;
-        }
-        .tourid{
-            margin-left: 5px;
-        }
-        .cliencan{
-            width: 50px;
-        }
-    </style>
-</head>
-<body>
-    <div class="sup">
-        <div class="logo">
-            <img src="./carpeta.css/img/logot.png" alt="">
-        </div>
-        <div class="titulo">
-            <h1>Ovayandah Tours</h1>
-        </div>
-        <div class="tourid">
-            <label>N° Reservación</label>
-            <input type="text" id="touridipt">
-        </div>
-    </div>  
-    <br>
-    <div class="contenedor">
-        <br>
-        <div class="subcon">
-            
-            <br>
-            <div class="ncli">
-                <label>Nombre Completo:</label>
-                <input type="text" class="NCli">
-            </div>
-            <br>
-            <div class="can">
-                <label>Cantidad de Clientes: <input type="text" class="cliencan"></label>
-                
-            </div>
-            <br>
-            <div class="fecha">
-                <label>Fecha de reservación:  </label>
-                <input type="text" class="f">
-            </div>
-            <br>
-            <div class="fecha">
-                <label>Fecha de finalización:  </label>
-                <input type="text" class="f">
-            </div>
-            <br>
-            <div class="ttours">
-                <h2>
-                    Tours 
-                </h2>
-            </div>
-            <div class="tours">
-                    <dl>
-                        <dt><input type="checkbox" class="lt"> Skorkel-Scubba </li>
-                        <dt><input type="checkbox" class="lt"> Para Sky</li>
-                        <dt><input type="checkbox" class="lt"> Skyswim & Snorkel</li>
-                        <dt><input type="checkbox" class="lt"> Zoo Day </li>
-                        <dt><input type="checkbox" class="lt"> Cano Diving</li>
-                        <dt><input type="checkbox" class="lt"> Seatreking</li>
-                        <dt><input type="checkbox" class="lt"> Fishing Day</li>
-                        <dt><input type="checkbox" class="lt"> Surf and turf</li>
-                        <dt><input type="checkbox" class="lt"> ATV Day</li>
-                        <dt><input type="checkbox" class="lt"> Windsurf-up</li>
-                        <dt><input type="checkbox" class="lt"> Swimming with Dolphins</li>
 
-                    </ul>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="parteinf">
-                <div class="enc">
-                    <input type="text">
-                    <span>Tourguide</span>
+        
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>Document</title>
+                <style>
+                    body{
+                        position: absolute;
+                    }
+                    div#contenido_total
+                    {
+                        position: relative;
+                        width: 1350px;
+                    }
+                    .sup{
+                        display: flex;
+                        
+                        margin: 0;
+                        width: 1350px;
+                        height: 10%;
+                        justify-content: center;
+                        
+                    }
+                    input{
+                    border: 0px;
+                    border-bottom: 1px solid black;
+                    margin-right: 5px;
+                    }
+                    #touridipt{
+                        width: 50px;
+                    }
+                    #touridipt:hover{
+                        outline: none;
+                    }
+                    #touridipt:focus{
+                        outline: none;
+                    }
+                    .logo{
+                        height: 110px;
+                    width: 110px; 
+                    margin-right: 5px;
+                    }
+                    img{
+                        height: 100px;
+                        width: 100px;
+                    }
+                    .titulo{
+                    font-family: Arial;
+                    font-size: 20px;
+                    }
+                    .contenedor{
+                        display: flex;
+                        justify-content: center;
+                        padding: 5px;
+                    }
+                    .subcon{
+                        border: 1px solid black;
+                        width: 600px;
+                    }
+                    .NCli{
+                        width: 60%;
+                    }
+                    .Ncli{
+                    text-align: center;
+                    margin-left: 3px;
+                    }
+                    .f{
+                        width: 40%;
+                    }
+                    
+                    .fecha{
+                        display: flex;
+                        text-align: center;
+                        justify-content: center;
+                    }
+            
+                    .fecha p 
+                    {
+                        text-decoration: underline;
+                        margin: 0 0 0 10px;
+                    }
+                    .tours{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .ttours{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    dl{
+                        column-count: 2;
+                    }
+                    .lt{
+                        align-content: inherit;
+                    }
+                
+                    .parteinf{
+                        display: flex;
+                        justify-content: space-evenly;
+                    }
+                    .enc{
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                    .ncli{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .ncli p
+                    {
+                        text-decoration: underline;
+                        margin: 0 0 0 10px;
+                    }
+                    .can{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .can p
+                    {
+                        text-decoration: underline;
+                        margin: 0 0 0 10px;
+                    }
+                    .tourid{
+                        margin-left: 5px;
+                        display: flex;
+                    }
+                    .tourid p
+                    {
+                        text-decoration: underline;
+                        margin: 0 0 0 10px
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="sup">
+                    <div class="logo">
+                        <img src="../carpeta.css/img/logot.png" alt="">
+                    </div>
+                    <div class="titulo">
+                        <h1>Ovayandah Tours</h1>
+                    </div>
+                    <div class="tourid">
+                        <label>N° Reservación</label>
+                        <p>233</p>
+                    </div>
+                </div>  
+                <br>
+                <div class="contenedor">
+                    <br>
+                    <div class="subcon">
+                        
+                        <br>
+                        <div class="ncli">
+                            <label>Nombre Completo:</label>
+                            <p>  </p>
+                        </div>
+                        <br>
+                        <div class="can">
+                            <label>Cantidad de Clientes:</label>
+                            <p>0</p>
+                            
+                        </div>
+                        <br>
+                        <div class="fecha">
+                            <label>Fecha de reservación:  </label>
+                            <p>0000-00-00 00:00:00</p>
+                        </div>
+                        <br>
+                        <div class="fecha">
+                            <label>Fecha de finalización:  </label>
+                            <p>0000-00-00 00:00:00</p>
+                        </div>
+                        <br>
+                        <div class="ttours">
+                            <h2>
+                                Tours 
+                            </h2>
+                        </div>
+                        <div class="tours">
+                                <dl>
+                                    <dt><input type="radio"  class="lt"> Skorkel-Scubba </li>
+                                    <dt><input type="radio"   class="lt"> Para Sky</li>
+                                    <dt><input type="radio"   class="lt"> Skyswim & Snorkel</li>
+                                    <dt><input type="radio"   class="lt"> Zoo Day </li>
+                                    <dt><input type="radio"   class="lt"> Cano Diving</li>
+                                    <dt><input type="radio"   class="lt"> Seatreking</li>
+                                    <dt><input type="radio"  checkedcheckedcheckedcheckedchecked class="lt"> Fishing Day</li>
+                                    <dt><input type="radio"   class="lt"> Surf and turf</li>
+                                    <dt><input type="radio"   class="lt"> ATV Day</li>
+                                    <dt><input type="radio"   class="lt"> Windsurf-up</li>
+                                    <dt><input type="radio"   class="lt"> Swimming with Dolphins</li>
+            
+                                </ul>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="parteinf">
+                            <div class="enc">
+                                <input type="text" value = "">
+                                <span>Tourguide</span>
+                            </div>
+                            <div class="enc">
+                                <input type="text">
+                                <span>Transportista</span>
+                            </div>
+                            <div class="enc">
+                                <input type="text">
+                                <span>Fecha De Creación</span>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
                 </div>
-                <div class="enc">
-                    <input type="text">
-                    <span>Transportista</span>
-                </div>
-                <div class="enc">
-                    <input type="text">
-                    <span>Fecha De Creación</span>
-                </div>
-            </div>
-            <br>
-        </div>
-    </div>
-</body>
-</html>
+            </body>
+        </html>

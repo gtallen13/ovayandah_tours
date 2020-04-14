@@ -1,10 +1,4 @@
-const mysql = require ('mysql');
-const conexion = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'ovayandah_tours'
-});
+
 
 conexion.connect(function(err)
 {
