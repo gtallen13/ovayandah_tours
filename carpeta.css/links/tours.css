@@ -188,7 +188,6 @@ div#tours.pagina div.row div.column_1 div#tours_info h2 + p
     font-size: 30px;
     font-weight: 800px;
     font-style: italic;
-<<<<<<< HEAD
 }
 
 
@@ -328,6 +327,3 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancela
     border: 2.5px solid rgb(240, 165, 45);
     outline: none;
 }
-=======
-}
->>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714

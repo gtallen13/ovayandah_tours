@@ -51,7 +51,6 @@ for (let x = 0; x < enlaces1.length; x++)
     });
 }
 
-<<<<<<< HEAD
 /*Esta funcion lleva el control de mostrar los empleados para el administrador en la parte
 izquierda de la aplicacion*/ 
 
@@ -253,21 +252,9 @@ conexion.query(consultaTop,function(err,filas,campos){
 })
 
 // Esta parte del codigo controla para restablecer la informacion principal de la aplicacion
-=======
-conexion.connect(function (error) {
-    if (error) {
-        console.log('No se ha podido establecer conexion con la base de datos');
-        console.log(error);
-        alert('Fallo de conexion a la base de datos');
-        return;
-    }
-    console.log('Conexion Exitosa');
-});
->>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714
 
 const btnRestablecer = document.getElementById('restablecer')
 
-<<<<<<< HEAD
 btnRestablecer.addEventListener('click',function(e){
     e.preventDefault()
     document.getElementById('info-busqueda-emp').innerHTML = ''
@@ -319,29 +306,6 @@ function agregarEmpleados()
                 console.log("Algo salio mal");
             }
         });
-=======
-btnResultados.addEventListener('click', function (e) {
-    conexion.query(`insert into empleados(username,contra,primer_nombre,primer_apellido,telefono,email,id_posicion,tipo_usuario_id) values('${username.value}','${password.value}','${firstname.value}','${lastname.value}','${telphone.value}','${email.value}',1, 3);`,
-        function (err, resultados, campos) {
-            if (err) throw err;
-        });
-    console.log("Se agregaron existosamente")
-});
-
-
-btnConsultar.addEventListener('click', function (e) {
-    conexion.query("select * from empleados", function (err, results, campos) {
-        if (err) throw error
-        // let html = '<tbody>'
-        // for (let i of results){
-        //     html += `<tr>${i.username}</tr>`
-        //     html += `<tr>${i.contra}</tr>`
-        //     html += `<tr>${i.primer_nombre}</tr>`
-        //     html += `<tr>${i.primer_apellido}</tr>`
-        // }
-        // html += "</tbody>"
-        // document.getElementById('mostrar').innerHTML = html
->>>>>>> f50408a49ca73ce24beb12a2ce9201d12bd79714
     })
 
 } 
