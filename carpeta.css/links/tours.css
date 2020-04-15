@@ -159,18 +159,23 @@ div#tours.pagina div.row div.column_1 div#tours_info h2 + p
 
 /*    Seccion de Consulta y Cancelacion de Tours     */
 
-div#consultar_cancelar.pagina .cc_busqueda
+
+
+div#consultar_cancelar.pagina div.cc_busqueda
 {
     font-family: sans-serif;
     padding-top: 20px;
     background-color:#508ab9;
+    color: whitesmoke;
     margin: 0 auto;
     width: 55%;
-    padding: 10px 0 20px 10px;
+    padding: 10px 0 20px 90px;
     margin-top: 20px;
-    text-align: center;
+    text-align: left;
+    flex-direction: column;
+
 }
-div#consultar_cancelar.pagina .cc_busqueda button#cc_btn_buscar
+div#consultar_cancelar.pagina div.cc_busqueda button#cc_btn_buscar
 {
     background-color: rgb(38, 59, 179);
     transition: 1s all;
@@ -181,13 +186,21 @@ div#consultar_cancelar.pagina .cc_busqueda button#cc_btn_buscar
     color: oldlace;
     margin-top: 10px;
     border-radius: 3px;
+    margin-left: 135px;
     border-bottom: 2.5px solid whitesmoke;
-
 }
-div#consultar_cancelar.pagina .cc_busqueda input,label
+div#consultar_cancelar.pagina .cc_busqueda label
 {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-left: 0 !important;
 }
+div#consultar_cancelar.pagina .cc_busqueda input
+{
+    margin-bottom: 15px;
+    margin-left: 15px;
+    width: 30%;
+}
+
 
 div#consultar_cancelar.pagina .cc_busqueda button#cc_btn_buscar:hover
 {
@@ -201,7 +214,13 @@ div#consultar_cancelar.pagina .formulario
     background-color:#508ab9;
     margin: 0 auto;
     width: 55%;
-    text-align: center;
+    color:whitesmoke
+    
+}
+div#consultar_cancelar.pagina .formulario input:read-only
+{
+    cursor: auto;
+    color: lightgray;
 }
 div#consultar_cancelar.pagina .formulario  h2
 {
@@ -217,25 +236,42 @@ div#consultar_cancelar.pagina .formulario input
 {
     padding: 5px;
     margin: 0 0 10px 10px;
-    width: 45%;
-
 }
+div#consultar_cancelar.pagina .formulario input#cc_nombre_completo
+{
+    margin-left: 40px;
+    width: 45%;
+}
+
 div#consultar_cancelar.pagina .formulario input#cc_fecha_inicio
 {
-    width: 60%;
+    width: 45%;
+    margin-left: 60px;
 }
 div#consultar_cancelar.pagina .formulario input#cc_fecha_final
 {
-    width: 60%;
+    width: 45%;
+    margin-left: 85px;
 }
-
+div#consultar_cancelar.pagina .formulario input#cc_cant_personas
+{
+    width: 45.2%;
+}
+div#consultar_cancelar.pagina .formulario input#cc_nombre_tour
+{
+    margin-left: 50px;
+    width: 45%;
+}
 div#consultar_cancelar.pagina .formulario .seccion_empleados
 {
     width: 100%;
     background-color: #508ab9;
     padding-top: 20px;
-    text-align: left;
-    
+    text-align: center;
+}
+div#consultar_cancelar.pagina .formulario .seccion_empleados input
+{
+    width: 45%;
 }
 div#consultar_cancelar.pagina .formulario .seccion_empleados h2
 {
@@ -264,7 +300,6 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actuali
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:hover
 {   
     background-color: #1860d4;
-    /* background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);} */
 }
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:focus
 {
@@ -272,7 +307,7 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actuali
     outline: none;
     
 }
-div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancelar
+div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancelar   
 {
     color: oldlace;
     width: 40%;

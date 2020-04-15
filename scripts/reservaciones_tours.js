@@ -579,7 +579,7 @@ function pdfGeneracion()
                             </div>
                             <div class="enc">
                                 <input type="text">
-                                <span>Fecha De Creación</span>
+                                <span>${resultados[0].FechaCreacion}</span>
                             </div>
                         </div>
                         <br>
