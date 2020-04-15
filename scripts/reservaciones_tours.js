@@ -1,17 +1,12 @@
+
 const mysql = require('mysql');
-const nodemailer = require('nodemailer');
-const fs = require ('fs');
 const pup = require('puppeteer');
 
 const conexion = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
     password: '',
-<<<<<<< HEAD
     database: 'toursdb'
-=======
-    database: 'toursbd'
->>>>>>> 3000389542e8301da4dd02c9c4271a23ec41a94b
 });
 const toastr = require('toastr')
 // correo de donde se enviara
