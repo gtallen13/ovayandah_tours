@@ -155,24 +155,27 @@ btnReservar.addEventListener('click',function(e){
 
 
 
-function sendMail()
+function sendMail(boleta_pdf1)
 {
     //Correo que se enviara: destinario y archivos adjuntados
     let mailOptions = {
     from: 'ovayandah.tours2020@gmail.com',
-    to: `${txtCorreo.value}`,
+    // to: `${txtCorreo.value}`,
+    to: 'gtallenpadi13@gmail.com',
     subject: 'Boleta de Reservacion',
     text: 'Disfrute de su tour y gracias por elegir Ovayandah Tours por nosotros te llevamos ovayandah :)',
     attachments:[{
-        filename: 'guapeton.pdf',
-        path: './boletas/guapeton.pdf'
+        filename: boleta_pdf1,
+        path: './boletas/'+boleta_pdf1
     }]
 };
     email.sendMail(mailOptions,function(err,info)
     {
-
+        console.log(boleta_pdf);
         if (err) 
-        {
+        {  
+            console.log(err);
+            console.log(boleta_pdf);
             toastr.error('No se pudo enviar el correo', {
                 "closeButton": false,
                 "debug": false,
@@ -191,6 +194,7 @@ function sendMail()
                 "hideMethod": "fadeOut"
               });
             console.log (err);
+            return;
         }
         console.log(txtCorreo.value);
         console.log('Email sent');
@@ -254,6 +258,7 @@ function insertarClientes(){
                 "hideMethod": "fadeOut"
               });
             console.log('error')
+            return;
         } 
         else {
             toastr.success('Los datos se guardaron correctamente',{
@@ -302,9 +307,9 @@ function encontrarIdCliente(tour_id){
                         "showMethod": "fadeIn",
                         "hideMethod": "fadeOut"
                       });
-                    console.log('Error')} else {
-                    let consultaReservacion = `insert into reservaciones(fecha_inicio_tour,fecha_final_tour,cantidad_turistas,precio_total,fecha_creacion,id_clientes,tours_id) 
-                    values(?,?,?,?,NOW(),?,?);`
+                    console.log('Error'); return;} else {
+                    let consultaReservacion = `insert into reservaciones(fecha_inicio_tour,fecha_final_tour,cantidad_turistas,precio_total,fecha_creacion,id_clientes,tours_id, cancelado) 
+                    values(?,?,?,?,NOW(),?,?,0);`
                     conexion.query(consultaReservacion,[`${txtFechaInicio.value}`,`${txtFechaFinal.value}`,`${txtPersonas.value}`,`${txtPersonas.value * filas[0].precio}`,`${results[0].id}`,`${filas[0].ID}`],
                     function(err,rows,campos){
                         if (err) {
@@ -325,7 +330,7 @@ function encontrarIdCliente(tour_id){
                                 "showMethod": "fadeIn",
                                 "hideMethod": "fadeOut"
                               });
-                            console.log('Error')} else {
+                            console.log('Error'); return;} else {
                             console.log('se pudo campeon')
                             
                             pdfGeneracion()
@@ -356,7 +361,9 @@ function pdfGeneracion()
 
     conexion.query(sql_boleta, function(err, resultados, campos)
     {
-        selecTour(resultados[0].tours_id)
+        
+        selecTour(parseInt(resultados[0].tours_id))
+        console.log(parseInt(resultados[0].tours_id))
         console.log(resultados)
         let arhivo_boleta = `
         
@@ -379,7 +386,7 @@ function pdfGeneracion()
                         
                         margin: 0;
                         width: 1350px;
-                        height: 10%;
+                        height: 100px;
                         justify-content: center;
                         
                     }
@@ -414,6 +421,7 @@ function pdfGeneracion()
                         display: flex;
                         justify-content: center;
                         padding: 5px;
+                        padding-top: 60px;
                     }
                     .subcon{
                         border: 1px solid black;
@@ -541,17 +549,17 @@ function pdfGeneracion()
                         </div>
                         <div class="tours">
                                 <dl>
-                                    <dt><input type="radio"  ${cbSnorkelScubba}class="lt"> Skorkel-Scubba </li>
-                                    <dt><input type="radio"  ${cbParaSki} class="lt"> Para Sky</li>
-                                    <dt><input type="radio"  ${cbSkyswimSnork} class="lt"> Skyswim & Snorkel</li>
-                                    <dt><input type="radio"  ${cbZooDay} class="lt"> Zoo Day </li>
-                                    <dt><input type="radio"  ${cbCanoDiving} class="lt"> Cano Diving</li>
-                                    <dt><input type="radio"  ${cbSeatreking} class="lt"> Seatreking</li>
-                                    <dt><input type="radio"  ${cbFishingDay} class="lt"> Fishing Day</li>
-                                    <dt><input type="radio"  ${cbSurfTurf} class="lt"> Surf and turf</li>
-                                    <dt><input type="radio"  ${cbATVDay} class="lt"> ATV Day</li>
-                                    <dt><input type="radio"  ${cbWindsurf} class="lt"> Windsurf-up</li>
-                                    <dt><input type="radio"  ${cbSwimmingDolphins} class="lt"> Swimming with Dolphins</li>
+                                    <dt><input type="checkbox"  ${cbSnorkelScubba} class="lt"> Skorkel-Scubba </li>
+                                    <dt><input type="checkbox"  ${cbParaSki} class="lt"> Para Sky</li>
+                                    <dt><input type="checkbox"  ${cbSkyswimSnork} class="lt"> Skyswim & Snorkel</li>
+                                    <dt><input type="checkbox"  ${cbZooDay} class="lt"> Zoo Day </li>
+                                    <dt><input type="checkbox"  ${cbCanoDiving} class="lt"> Cano Diving</li>
+                                    <dt><input type="checkbox"  ${cbSeatreking} class="lt"> Seatreking</li>
+                                    <dt><input type="checkbox"  ${cbFishingDay} class="lt"> Fishing Day</li>
+                                    <dt><input type="checkbox"  ${cbSurfTurf} class="lt"> Surf and turf</li>
+                                    <dt><input type="checkbox"  ${cbATVDay} class="lt"> ATV Day</li>
+                                    <dt><input type="checkbox"  ${cbWindsurf} class="lt"> Windsurf-up</li>
+                                    <dt><input type="checkbox"  ${cbSwimmingDolphins} class="lt"> Swimming with Dolphins</li>
             
                                 </ul>
                         </div>
@@ -630,7 +638,8 @@ function pdfGeneracion()
         {
             const url = 'file://' + fullpath ; //url del ubicacion de la plantilla del pdf
             const browser = await pup.launch({
-                headless:true
+                headless:true,
+                defaultViewport: null
             });
 
             const page = await browser.newPage();
@@ -639,11 +648,12 @@ function pdfGeneracion()
             await page.pdf({path: "./boletas/"+ boleta_pdf}); //guardando el pdf
 
             await browser.close(); 
+            sendMail(boleta_pdf);
         })();
         //notificacion
         //boleta creada exitosamente
     })
-    sendMail(); //llamando la funcion para mandar el correo
+     //llamando la funcion para mandar el correo
 },
 
 
