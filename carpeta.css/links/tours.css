@@ -331,3 +331,143 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancela
     border: 2.5px solid rgb(240, 165, 45);
     outline: none;
 }
+
+
+/* ELEGIR PERSONAL */
+
+/*the container must be positioned relative:*/
+.combo-box {
+    position: relative;
+    font-family: Arial;
+    }
+    
+    .principal {
+        display: flex;
+        padding-top: 20px;
+    }
+    
+    .combo-box select {
+    display: none;
+    /*hide original SELECT element:*/
+    }
+    
+    .select-selected {
+    background-color: rgb(38, 59, 179);
+    }
+    
+    /*style the arrow inside the select element:*/
+    .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    }
+    
+    /*point the arrow upwards when the select box is open (active):*/
+    .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+    }
+    
+    /*style the items (options), including the selected item:*/
+    .select-items div,
+    .select-selected {
+    color: #fff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+    }
+    
+    /*style items (options):*/
+    .select-items {
+    background-color: rgb(38, 59, 179);
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    }
+    
+    /*hide the items when the select box is closed:*/
+    .select-hide {
+    display: none;
+    }
+    
+    .select-items div:hover,
+    .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    
+    /*2.0 La Funcionalidad de Transporte Tours-----*/
+    
+    
+    /*the container must be positioned relative:*/
+    .combo-box_1 {
+    position: relative;
+    font-family: Arial;
+    padding-left: 15px;
+    margin-left: 20px;
+    }
+    
+    .combo-box_1 select {
+    display: none;
+    /*hide original SELECT element:*/
+    }
+    
+    .select-selected_1 {
+    background-color: rgb(38, 59, 179);
+    }
+    
+    /*style the arrow inside the select element:*/
+    .select-selected_1:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    }
+    
+    /*point the arrow upwards when the select box is open (active):*/
+    .select-selected_1.select-arrow-active_1:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+    }
+    
+    
+    .select-items_1 div,
+    .select-selected_1 {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+    }
+    
+    /*style items (options):*/
+    .select-items_1 {
+    background-color: rgb(38, 59, 179);
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    }
+    
+    /*hide the items when the select box is closed:*/
+    .select-hide_1 {
+    display: none;
+    }
+    
+    .select-items_1 div:hover,
+    .same-as-selected_1 {
+    background-color: rgba(0, 0, 0, 0.1);
+    }
