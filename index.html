@@ -147,171 +147,158 @@
                 <button id="myBtn"><a href="#mymodal">Reservar</a></button>
 
                 <!--Elegir Personal de los Tours-->
-                <button class="personal_tours" onclick="myFunction()">Elegir Personal</button>
-                <div id="principal_cuadro" style="display: none;">
-                    <div class="tours_personal">
-                        <div class="cuadro_guia">
-                            <h1>Tour Guide</h1>
-                            <input type="radio" name="Tour Guide">Roger Hernandez
-                            <br>
-                            <input type="radio" name="Tour Guide">Javier Cooper
-                            <br>
-                            <input type="radio" name="Tour Guide">Pedro Navarro
-                        </div>
-                        <div class="cuadro_transporte">
-                            <h1>Transportista</h1>
-                            <input type="radio" name="transportista">Fernando Salinas
-                            <br>
-                            <input type="radio" name="transportista">Mario Torres
-                            <br>
-                            <input type="radio" name="transportista">Daniel Rojas
-                        </div>
+                <h2>Elegir Peronal</h2>
+
+                <div class="principal">
+                    <div class="combo-box" style="width:200px;">
+                        <select>
+                            <option value="0">Tours Guide</option>
+                            <option value="1">Roger Colindres</option>
+                            <option value="2">Juan Carlos Mejia</option>
+                            <option value="3">Mario Hernandez</option>
+                        </select>
                     </div>
-
-                </div>
-                <script>
-                    function myFunction() {
-                        var x = document.getElementById("principal_cuadro");
-                        if (x.style.display === "block") {
-                            x.style.display = "none";
-                        } else {
-                            x.style.display = "block";
-                        }
-                    }
-                </script>
-            </div>
-        </div>
-
-        <!--                                        -->
-
-
-    </div>
-    <!--  Pagina Empleado   -->
-
-    <div id="login" class="pagina esconder">
-        <div id='lolo3' class="caja3 esconder">
-            <div class="notificaciones">
-                <div class="logo">
-                    <img src="./iconos/dummy.jpg" alt="">
-                    <div id="usuario-emp" class="info-emp">
-
+                    <div class="combo-box_1" style="width:200px;">
+                        <select>
+                            <option value="0">Transportista</option>
+                            <option value="1">David Colindres</option>
+                            <option value="2">Fernando Martinez</option>
+                            <option value="3">Pedro Salinas</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="reservas" name="formulario1">
+                <!--                                        -->
 
-                    <div id="boleta1" class="info">
-
-                    </div>
-
-                </div>
-                <div class="descripcion">
-                    <p>Working with a team?</p>
-                    <p>
-                        GitHub is built for collaboration. Set up an organization to improve the way your team works
-                        together, and get access to more features.
-
-                    </p>
-
-                </div>
-            </div>
-
-            <div class="contenido-central">
-                <div class="contenido-central-top">
-                    <div class="titulo">
-                        <h1 for="">Informacion Del Tour</h1>
-                    </div>
-                </div>
-                <div id="tabla-info" class="informacion">
-
-                </div>
-                <div class="parte-abajo">
-                    <div class="caja4 pagina">
-                        <h1>Informacion Del Cliente</h1>
-                        <div class="nombre-completo">
-
-                            <label for="">First Name: </label>
-                            <input type="text" id="txt-name" disabled>
-
-                            <label for="">Last Name: </label>
-                            <input type="text" id="txt-lastname" disabled>
-                        </div>
-
-                        <div class="nombre-correo">
-
-                            <label for="">Telphone:</label>
-                            <input type="text" id="txt-telphone" disabled>
-
-                            <label for="" id="correo">User Email: </label>
-                            <input type="text" id="txt-email" disabled>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
 
             </div>
-            <div class="contenido-lateral">
-                <div class="mejores">
-                    <div class="Tema">
-                        <h1>Top 5</h1>
-                    </div>
-                    <div class="empleado1">
-                        <img src="./iconos/dummy.jpg" alt="">
-                        <div id="emp1" class="info-emp1">
+            <!--  Pagina Empleado   -->
+
+            <div id="login" class="pagina esconder">
+                <div id='lolo3' class="caja3 esconder">
+                    <div class="notificaciones">
+                        <div class="logo">
+                            <img src="./iconos/dummy.jpg" alt="">
+                            <div id="usuario-emp" class="info-emp">
+
+                            </div>
+                        </div>
+
+                        <div class="reservas" name="formulario1">
+
+                            <div id="boleta1" class="info">
+
+                            </div>
+
+                        </div>
+                        <div class="descripcion">
+                            <p>Working with a team?</p>
+                            <p>
+                                GitHub is built for collaboration. Set up an organization to improve the way your team
+                                works
+                                together, and get access to more features.
+
+                            </p>
 
                         </div>
                     </div>
-                    <div class="empleado2">
-                        <img src="./iconos/dummy.jpg" alt="">
-                        <div id="emp2" class="info-emp2">
+
+                    <div class="contenido-central">
+                        <div class="contenido-central-top">
+                            <div class="titulo">
+                                <h1 for="">Informacion Del Tour</h1>
+                            </div>
+                        </div>
+                        <div id="tabla-info" class="informacion">
 
                         </div>
-                    </div>
-                    <div class="empleado3">
-                        <img src="./iconos/dummy.jpg" alt="">
-                        <div id="emp3" class="info-emp3">
+                        <div class="parte-abajo">
+                            <div class="caja4 pagina">
+                                <h1>Informacion Del Cliente</h1>
+                                <div class="nombre-completo">
+
+                                    <label for="">First Name: </label>
+                                    <input type="text" id="txt-name" disabled>
+
+                                    <label for="">Last Name: </label>
+                                    <input type="text" id="txt-lastname" disabled>
+                                </div>
+
+                                <div class="nombre-correo">
+
+                                    <label for="">Telphone:</label>
+                                    <input type="text" id="txt-telphone" disabled>
+
+                                    <label for="" id="correo">User Email: </label>
+                                    <input type="text" id="txt-email" disabled>
+
+                                </div>
+
+
+                            </div>
 
                         </div>
-                    </div>
-                    <div class="empleado4">
-                        <img src="./iconos/dummy.jpg" alt="">
-                        <div id="emp4" class="info-emp4">
 
+                    </div>
+                    <div class="contenido-lateral">
+                        <div class="mejores">
+                            <div class="Tema">
+                                <h1>Top 5</h1>
+                            </div>
+                            <div class="empleado1">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp1" class="info-emp1">
+
+                                </div>
+                            </div>
+                            <div class="empleado2">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp2" class="info-emp2">
+
+                                </div>
+                            </div>
+                            <div class="empleado3">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp3" class="info-emp3">
+
+                                </div>
+                            </div>
+                            <div class="empleado4">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp4" class="info-emp4">
+
+                                </div>
+                            </div>
+                            <div class="empleado5">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp4" class="info-emp5">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="empleado5">
-                        <img src="./iconos/dummy.jpg" alt="">
-                        <div id="emp4" class="info-emp5">
 
-                        </div>
-                    </div>
                 </div>
-            </div>
+                <!--        Login       -->
+                <div class="formulario" id="lolo">
+                    <form action="">
+                        <div class="contenedor-login">
+                            <h2>Login</h2>
+                            <input type="text" name="username" id="username" placeholder="Username">
 
-        </div>
-        <!--        Login       -->
-        <div class="formulario" id="lolo">
-            <form action="">
-                <div class="contenedor-login">
-                    <h2>Login</h2>
-                    <input type="text" name="username" id="username" placeholder="Username">
+                            <input type="text" name="password" id="password" placeholder="Password">
 
-                    <input type="text" name="password" id="password" placeholder="Password">
+                            <input type="button" value="Iniciar" id="btn-guardar">
+                        </div>
 
-                    <input type="button" value="Iniciar" id="btn-guardar">
+                    </form>
                 </div>
-
-            </form>
-        </div>
-        <script src="./scripts/usuarios.js" type="text/javascript"></script>
-        <script src="./scripts/modal.js" type="text/javascript"></script>
-        <script src="./scripts/usuarios.js" type="text/javascript"></script>
-        <script src="./scripts/main.js" type="text/javascript"></script>
-        <script src="./scripts/reservaciones_tours.js" type="text/javascript"></script>
-        <script src="scripts/empleado.js" type="text/javascript"></script>
+                <script src="./scripts/usuarios.js" type="text/javascript"></script>
+                <script src="./scripts/modal.js" type="text/javascript"></script>
+                <script src="./scripts/usuarios.js" type="text/javascript"></script>
+                <script src="./scripts/main.js" type="text/javascript"></script>
+                <script src="./scripts/reservaciones_tours.js" type="text/javascript"></script>
+                <script src="./scripts/empleado.js" type="text/javascript"></script>
 </body>
 
 </html>

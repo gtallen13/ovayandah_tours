@@ -1,6 +1,7 @@
 #tours.pagina  * {
 box-sizing: border-box;
 margin: 0;
+color: #fff;
 }
 #tours.pagina .row input {
     margin: 7px;
@@ -69,54 +70,9 @@ div#tours.pagina div.row div.column_1 button[id="myBtn"] {
     width: 100px;
 }
 
-/* Personal para Elegir*/
-div#tours.pagina div.row div.column_1 button[class="personal_tours"] {
-    background-color: rgb(38, 59, 179);
-    color: white;
-    border-radius: 5px;
-    outline: none;
-    border: 0;
-    left: 20px;
-    bottom: 20px;
-    height: 50px;
-    width: 105px;
-}
-
-div#tours.pagina div.row div.column_1 div#principal_cuadro {
-    color: #fff;
-    width: 500px;
-    padding-bottom: 20px;
-    text-align-last: unset;
-    margin-top: 20px;
-    border-radius: 10px;
-}
-/* El cuadro de texto del guia*/
-div#tours.pagina div.row div.column_1 div.cuadro_guia  {
-    float: left;
-    width: 250px;
-    padding: 10px;
-    height: 250px;
-}
-/* El cuadro de texto de transportista*/
-div#tours.pagina div.row div.column_1 .cuadro_transporte {
-    float: left;
-    width: 250px;
-    padding: 10px;
-    height: 250px;
-}
-
-div#tours.pagina div.row div.column_1 a {
-    text-decoration: none;
-    color:white;
-}
-
-/*---Menu de Tours--- */
-
-
-/*---Style the lista---*/
+/*  Style the lista   */
 #tours.pagina .row .column #tours_menu .lista {
 float: left;
-
 width: 90%;
 margin-top: 2%;
 margin-left: 5%;
@@ -189,3 +145,144 @@ div#tours.pagina div.row div.column_1 div#tours_info h2 + p
     font-weight: 800px;
     font-style: italic;
 }
+
+
+/* ELEGIR PERSONAL */
+
+/*the container must be positioned relative:*/
+.combo-box {
+position: relative;
+font-family: Arial;
+}
+
+.principal {
+    display: flex;
+    padding-top: 20px;
+}
+
+.combo-box select {
+display: none;
+/*hide original SELECT element:*/
+}
+
+.select-selected {
+background-color: rgb(38, 59, 179);
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+position: absolute;
+content: "";
+top: 14px;
+right: 10px;
+width: 0;
+height: 0;
+border: 6px solid transparent;
+border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+border-color: transparent transparent #fff transparent;
+top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+color: #fff;
+padding: 8px 16px;
+border: 1px solid transparent;
+border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+cursor: pointer;
+user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+background-color: rgb(38, 59, 179);
+top: 100%;
+left: 0;
+right: 0;
+z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/*2.0 La Funcionalidad de Transporte Tours-----*/
+
+
+/*the container must be positioned relative:*/
+.combo-box_1 {
+position: relative;
+font-family: Arial;
+padding-left: 15px;
+margin-left: 20px;
+}
+
+.combo-box_1 select {
+display: none;
+/*hide original SELECT element:*/
+}
+
+.select-selected_1 {
+background-color: rgb(38, 59, 179);
+}
+
+/*style the arrow inside the select element:*/
+.select-selected_1:after {
+position: absolute;
+content: "";
+top: 14px;
+right: 10px;
+width: 0;
+height: 0;
+border: 6px solid transparent;
+border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected_1.select-arrow-active_1:after {
+border-color: transparent transparent #fff transparent;
+top: 7px;
+}
+
+
+.select-items_1 div,
+.select-selected_1 {
+color: #ffffff;
+padding: 8px 16px;
+border: 1px solid transparent;
+border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+cursor: pointer;
+user-select: none;
+}
+
+/*style items (options):*/
+.select-items_1 {
+background-color: rgb(38, 59, 179);
+top: 100%;
+left: 0;
+right: 0;
+z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide_1 {
+display: none;
+}
+
+.select-items_1 div:hover,
+.same-as-selected_1 {
+background-color: rgba(0, 0, 0, 0.1);
+}
+
