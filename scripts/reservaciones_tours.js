@@ -583,9 +583,45 @@ function pdfGeneracion()
         //guardando la plantilla con la informacion de la reservacion
         fs.writeFile(dir_boleta, arhivo_boleta,function(err)
         {
-            if (err) throw err;
+            if (err) {
+                toastr.error('No se pudo generar la boleta', {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                });
+                return
+            }
             console.log("Se puedo guardar con exito");
-        })
+            toastr.success('La boleta ha sido enviada con exito!!', {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+              }
+        )
         let direccion = __dirname; //obteniendo direccion desde la raiz a la carpeta del programa
         let file = 'boleta.html' // archivo de la plantilla de la boleta
 
@@ -608,7 +644,7 @@ function pdfGeneracion()
         //boleta creada exitosamente
     })
     sendMail(); //llamando la funcion para mandar el correo
-}
+},
 
 
 //utilizada para seleccionar la opcion en plantilla_pdf
@@ -650,7 +686,7 @@ function selecTour(id)
             cbSwimmingDolphins += `checked`
             break
     }
-}
+},
 
 function validacionModal(fechaInicio, fechaFinal, primer_nombre, primer_apellido, correo, verificacion_correo,
     cantidad_personas, telefono)
@@ -717,4 +753,4 @@ function validacionModal(fechaInicio, fechaFinal, primer_nombre, primer_apellido
         return false;
     }
     return true;
-}
+})}
