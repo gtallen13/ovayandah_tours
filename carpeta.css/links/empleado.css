@@ -31,7 +31,7 @@ body{
   }
   
   .contenido-central-top{
-    width: 800px;
+    width: 100%;
     height: 16.2vh;
     background-color: rgb(9,79,174);;
     border-bottom: 2px solid #efb810;
@@ -40,10 +40,10 @@ body{
  
 
   .contenido-lateral{
-    width: 100vw;
+    width: 700px;
     height: 101vh;
     max-width: 400px;
-    background-color: #fff;
+    background-color: rgb(9,79,174);
     border: 2px solid #efb810;
     overflow: hidden;
   }
@@ -51,6 +51,7 @@ body{
 .info-emp,.info-emp1,.info-emp2,.info-emp3,.info-emp4,.info-emp5{
   margin-top: 5px;
   margin-left: 5px;
+  width: 400px;
 }
 .info-emp p,.info-emp1 p,.info-emp2 p,.info-emp3 p,.info-emp4 p,.info-emp5 p{
   margin: 0;
@@ -107,7 +108,7 @@ body{
 
   .contenido-central .informacion{
     margin-top: 5px;
-    height: 50%;
+    height: 100%;
     overflow: hidden;
     
   }
@@ -136,7 +137,7 @@ body{
     cursor: pointer;
   
     padding: 7px 5px 7px 5px;
-    margin-top: 5px;
+    margin-top: 20px;
    border-top-right-radius: 10px;
   
    border-bottom-left-radius: 10px;
@@ -145,70 +146,64 @@ body{
   }
   .contenido-lateral .mejores .Tema{
     margin: 0 auto;
-    margin-top: 7px;
-    width: 109%;
-    height: 11.2vh;
+  
+    width: 100%;
+    height: 16.2vh;
     border-bottom: 2px solid #efb810;
-    background-color: #fff;
+    background-color: rgb(9,79,174);
   }
 .contenido-lateral .mejores .Tema h1{
-  margin:0;
-  margin-top: 30px;
-  margin-left: 37%;
-
+    text-align: center;
+    color: rgb(255,255,255);
+    padding-top: 40px;
 
 }
   .contenido-lateral .mejores .empleado1{
-    width: 100%;
+    
     height: 40%;
-    margin-top: 52px;
     background-color: #fff;
-    border-bottom: 2px solid #efb810;
+    border-bottom: 3px solid #efb810;
     display: flex;
-
+    margin: 40px 30px 0 20px;
     
   }
   .contenido-lateral .mejores .empleado2{
-    width: 100%;
     height: 40%;
-    margin-top: 20px;
     background-color: #fff;
-    border-bottom: 2px solid #efb810;
+    border-bottom: 3px solid #efb810;
     display: flex;
+    margin: 15px 30px 0 20px;
   }
 
   .contenido-lateral .mejores .empleado3{
-    width: 100%;
     height: 40%;
-    margin-top: 20px;
     background-color: #fff;
-    border-bottom: 2px solid #efb810;
+    border-bottom: 3px solid #efb810;
     display: flex;
+    margin: 15px 30px 0 20px;
   }
 
   .contenido-lateral .mejores .empleado4{
-    width: 100%;
     height: 40%;
-    margin-top: 20px;
     background-color: #fff;
-    border-bottom: 2px solid #efb810;
+    border-bottom: 3px solid #efb810;
     display: flex;
+    margin: 15px 30px 0 20px;
   }
 
   .contenido-lateral .mejores .empleado5{
-    width: 100%;
     height: 40%;
-    margin-top: 20px;
     background-color: #fff;
+    border-bottom: 3px solid #efb810;
     display: flex;
+    margin: 15px 30px 0 20px;
   }
 
 
   .contenido-lateral .mejores{
-      margin: 0;
-      margin-left: 8px;
-      background-color: #fff;
-      width: 87%;
+    
+      background-color:rgb(9,79,174);
+      width: 100%;
       height: 31%; 
   }
   
@@ -219,30 +214,14 @@ body{
     height: 70px;
   }
 
-  div#tabla-info.informacion table {
-    width: 80%;
-    height: 80%;
-    margin-top: 10px;
-    margin-left: 7%;
-    justify-content: center;
-
- }
  div#tabla-info.informacion td,th{
   text-align: center;
   margin-top: 100px;
-  font-size: 20px;
+  font-size: 16px;
   color: #fff;
 
  }
- div.parte-abajo{
-    width: 96%;
-    margin-left: 5px;
-    height: 80%;
-    background-color: rgb(9,79,174);
-    border-top: 2px solid #efb810;
-    overflow: hidden;
-    
- }
+
  
 div.contenido-central-top div.titulo h1{
 
@@ -299,12 +278,29 @@ div.caja4 .nombre-correo input[id="txt-email"]{
 div.caja4 .nombre-correo{
   display: flex;
 }
+/***/
+.contenido-central #tabla-info table{
+  width: 95%;
+  margin: 60px 20px 0 20px;
+  text-align: center;
+}
+
+.contenido-central #tabla-info table tr th{
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+  padding: 5px;
+}
+
+.contenido-central #tabla-info table tr td{
+  padding: 15px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+}
 
 
 /*Diseño de login*/
 
 div.contenedor-login{
-  margin-top: 50px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -336,6 +332,10 @@ div.contenedor-login input[type="button"]{
   color: white;
   font-size: 15px;
   cursor: pointer;
+ border-bottom-left-radius: 5px;
+ border-bottom-right-radius: 5px;
+ border-top-left-radius: 5px;
+ border-top-right-radius: 5px;
 }
 
 

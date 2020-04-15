@@ -68,7 +68,7 @@ btnLogin.addEventListener('click', function(e){
 
 //Encontrar los top 5 mejores empleados del mes dependiendo de la fecha del sistema
 function cargarTop(){
-    let consulta1 = `SELECT e.id,e.primer_nombre,e.primer_apellido,sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) as horas_trabajadas FROM tours_db.reservaciones as r inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id inner join toursdb.empleados as e on er.empleados_id=e.id where r.fecha_inicio_tour between concat(YEAR(Now()),'-',month((NOW() - INTERVAL 1 MONTH)),'-01') and DATE(LAST_DAY(NOW() - INTERVAL 1 MONTH)) group by e.id order by sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) desc limit 5`
+    let consulta1 = `SELECT e.id,e.primer_nombre,e.primer_apellido,sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) as horas_trabajadas FROM toursdb.reservaciones as r inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id inner join toursdb.empleados as e on er.empleados_id=e.id where r.fecha_inicio_tour between concat(YEAR(Now()),'-',month((NOW() - INTERVAL 1 MONTH)),'-01') and DATE(LAST_DAY(NOW() - INTERVAL 1 MONTH)) group by e.id order by sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) desc limit 5`
     conexion.query(consulta1,function(err,filas,campos){
         let cont = 0
         if (err){console.log('error')}else {
@@ -111,32 +111,32 @@ conexion.query(consulta2,[`${username.value}`],function(err,filas,campoes){
 })
 }
 
-// function cargarClientes(){
-//     //Cargar la informacion del cliente
-// let sql = `SELECT c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,c.email,c.telefono FROM toursdb.reservaciones as r
-// inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-// inner join toursdb.empleados as e on er.empleados_id=e.id
-// inner join tours as t on r.tours_id=t.id
-// inner join clientes as c on r.id_clientes = c.id
-// inner join tours_ubicaciones as tu on t.id=tu.id_tours
-// inner join ubicaciones  as u on tu.id_ubicaciones=u.id
-// where e.username = ? and r.fecha_inicio_tour >= CURDATE()
-// group by r.id order by r.fecha_inicio_tour asc limit 1
-// `
-// conexion.query(sql,[`${username.value}`],function(err,filas,campos){
-//     if (err){
-//         console.log('error')
-//     } else {
-//         for (let fila of filas){
-//             document.getElementById('txt-name').value = fila.Nombre_Cliente
-//             document.getElementById('txt-lastname').value = fila.Apellido_Cliente
-//             document.getElementById('txt-telphone').value = fila.telefono
-//             document.getElementById('txt-email').value = fila.email
-//         }
-//     }
-// })
+ function cargarClientes(){
+     //Cargar la informacion del cliente
+ let sql = `SELECT c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,c.email,c.telefono FROM toursdb.reservaciones as r
+ inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
+ inner join toursdb.empleados as e on er.empleados_id=e.id
+ inner join tours as t on r.tours_id=t.id
+ inner join clientes as c on r.id_clientes = c.id
+ inner join tours_ubicaciones as tu on t.id=tu.id_tours
+ inner join ubicaciones  as u on tu.id_ubicaciones=u.id
+ where e.username = ? and r.fecha_inicio_tour >= CURDATE()
+ group by r.id order by r.fecha_inicio_tour asc limit 1
+ `
+ conexion.query(sql,[`${username.value}`],function(err,filas,campos){
+     if (err){
+         console.log('error')
+     } else {
+         for (let fila of filas){
+             document.getElementById('txt-name').value = fila.Nombre_Cliente
+             document.getElementById('txt-lastname').value = fila.Apellido_Cliente
+             document.getElementById('txt-telphone').value = fila.telefono
+             document.getElementById('txt-email').value = fila.email
+         }
+     }
+ })
 
-// }
+ }
 
 
 function nombrar () {

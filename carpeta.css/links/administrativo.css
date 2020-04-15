@@ -162,6 +162,7 @@ opiedades para el menu al reducir el navegador a 600px*/
     .info-admin,.info-empuno,.info-empdos,.info-emptres,.info-empcuatro,.info-empcinco{
     margin-top: 5px;
     margin-left: 5px;
+   
   }
   .info-admin p,.info-empuno p,.info-empdos p,.info-emptresp p,.info-empcuatro p,.info-empcinco{
     margin: 0;
