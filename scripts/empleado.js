@@ -111,32 +111,32 @@ conexion.query(consulta2,[`${username.value}`],function(err,filas,campoes){
 })
 }
 
-// function cargarClientes(){
-//     //Cargar la informacion del cliente
-// let sql = `SELECT c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,c.email,c.telefono FROM toursdb.reservaciones as r
-// inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-// inner join toursdb.empleados as e on er.empleados_id=e.id
-// inner join tours as t on r.tours_id=t.id
-// inner join clientes as c on r.id_clientes = c.id
-// inner join tours_ubicaciones as tu on t.id=tu.id_tours
-// inner join ubicaciones  as u on tu.id_ubicaciones=u.id
-// where e.username = ? and r.fecha_inicio_tour >= CURDATE()
-// group by r.id order by r.fecha_inicio_tour asc limit 1
-// `
-// conexion.query(sql,[`${username.value}`],function(err,filas,campos){
-//     if (err){
-//         console.log('error')
-//     } else {
-//         for (let fila of filas){
-//             document.getElementById('txt-name').value = fila.Nombre_Cliente
-//             document.getElementById('txt-lastname').value = fila.Apellido_Cliente
-//             document.getElementById('txt-telphone').value = fila.telefono
-//             document.getElementById('txt-email').value = fila.email
-//         }
-//     }
-// })
+ function cargarClientes(){
+     //Cargar la informacion del cliente
+ let sql = `SELECT c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,c.email,c.telefono FROM toursdb.reservaciones as r
+ inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
+ inner join toursdb.empleados as e on er.empleados_id=e.id
+ inner join tours as t on r.tours_id=t.id
+ inner join clientes as c on r.id_clientes = c.id
+ inner join tours_ubicaciones as tu on t.id=tu.id_tours
+ inner join ubicaciones  as u on tu.id_ubicaciones=u.id
+ where e.username = ? and r.fecha_inicio_tour >= CURDATE()
+ group by r.id order by r.fecha_inicio_tour asc limit 1
+ `
+ conexion.query(sql,[`${username.value}`],function(err,filas,campos){
+     if (err){
+         console.log('error')
+     } else {
+         for (let fila of filas){
+             document.getElementById('txt-name').value = fila.Nombre_Cliente
+             document.getElementById('txt-lastname').value = fila.Apellido_Cliente
+             document.getElementById('txt-telphone').value = fila.telefono
+             document.getElementById('txt-email').value = fila.email
+         }
+     }
+ })
 
-// }
+ }
 
 
 function nombrar () {
