@@ -11,12 +11,46 @@ btnLogin.addEventListener('click', function(e){
     let consultasql = `select concat(primer_nombre, " ", primer_apellido) NombreEmpleado, username,contra,tipo_usuario_id as id from empleados where username = ? and contra = ? `
     conexion.query(consultasql,[`${username.value}`,`${password.value}`],function(err,filas,campos){
         if (err){
+            toastr.error('Cuenta o contraseña incorrectos', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        });
             console.log('error')
             return;
         } else {
             if (filas[0].id === 1) {
                 for (let hilo of filas) {
                     if (username.value === hilo.username & password.value === hilo.contra){
+                        toastr.success(`Bienvenido ${username.value}`, {
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        });
                         console.log('lo existe')
                         //Este desasparece el formulario login
                         document.getElementById('lolo').style.display = 'none'
@@ -27,13 +61,28 @@ btnLogin.addEventListener('click', function(e){
                         // cargarClientes()
                         cargarTop()
                         cargarPrimerInfo()
-                        //notificaion
+                        
                         //bienvenido [nombre del empleado]
                         
                     }else {
                         console.log ('no pudiste entrar')
-                        //notificaion
-                        //usuario o contrasenia malas
+                        toastr.error('Cuenta o contraseña incorrectos', {
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        });
                     }
                 }
             } else {
