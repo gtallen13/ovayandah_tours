@@ -164,23 +164,7 @@ btnReservar.addEventListener('click', function (e) {
         console.log('Revise bien el correo')
         //notificacion
         //correos incorrectos
-        toastr.error('El correo no cumple con los datos necesarios', {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-bottom-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-          });
+        
         console.log('Revise bien el correo');
     }
 })
@@ -650,24 +634,7 @@ function pdfGeneracion()
                 return
             }
             console.log("Se puedo guardar con exito");
-            toastr.success('La boleta ha sido enviada con exito!!', {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-              }
-        )
+            
         let direccion = __dirname; //obteniendo direccion desde la raiz a la carpeta del programa
         let file = 'boleta.html' // archivo de la plantilla de la boleta
 
@@ -688,11 +655,29 @@ function pdfGeneracion()
             await browser.close(); 
             sendMail(boleta_pdf);
         })();
-        //notificacion
+        toastr.success('La boleta ha sido enviada con exito!!', {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+              }
+        )
         //boleta creada exitosamente
     })
      //llamando la funcion para mandar el correo
-},
+})
+}
 
 
 //utilizada para seleccionar la opcion en plantilla_pdf
@@ -734,7 +719,7 @@ function selecTour(id)
             cbSwimmingDolphins += `checked`
             break
     }
-},
+}
 
 function validacionModal(fechaInicio, fechaFinal, primer_nombre, primer_apellido, correo, verificacion_correo,
     cantidad_personas, telefono)
@@ -746,59 +731,245 @@ function validacionModal(fechaInicio, fechaFinal, primer_nombre, primer_apellido
     //validando campos en el modal
     if (fechaInicio === "" && !fechaInicio.match(regex_fecha))
     {
+        toastr.error('Fecha inadecuada', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("Fecha de inicio no valido");
         return false;
     }
     else if (fechaFinal === "" && !fechaFinal.match(regex_fecha))
     {
+        toastr.error('Esta fecha es invalida', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("Fecha de finalizacion no valida");
         return false;
     }
     else if (primer_nombre === "")
     {
+        toastr.error('Complete el nombre por favor', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log('Primer nombre no valido');
         return false;
     }
     else if (hasNumber.test(primer_nombre))
     {
+        toastr.error('No se puede tener numeros en este campo', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("primer nombre no valido");
         return false;
     }
 
     else if (primer_apellido === "")
     {
+        toastr.error('Ponga el apellido del cliente', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log('Primer apellido no valido');
         return false;
     }
     else if (hasNumber.test(primer_apellido))
     {
+        toastr.error('No se puede tener numeros en este campo', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log ("Primer apellido no valido");
         return false;
     }
     else if (correo === "" && !correo.match(regex_correo))
     {
+        toastr.error('Correo No valido', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log ("Correo no valido");
         return false;
     }
     else if (verificacion_correo === "" && !verificacion_correo.match(regex_correo))
-    {
+    {toastr.error('Agrege los caracteres faltantes', {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+      });
         console.log("Verificacion de Correo no valido");
         return false;
     }
     else if (correo !== verificacion_correo)
     {
+        toastr.error('Los correos no son los mismos', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log ("Los correos no son los mismos");
         return false;
     }
     else if (cantidad_personas === "")
     {
+        toastr.error('Ingrese una cantidad de personas', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("No ha especificado la cantidad de personas");
         return false;
     }
     else if (telefono === "" && telefono.match(regex_telefono))
     {
+        toastr.error('Ingrese un numero de telefono', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("Telefono no valido");
         return false;
     }
     return true;
-})}
+}
