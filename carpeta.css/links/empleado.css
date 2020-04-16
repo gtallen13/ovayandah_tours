@@ -517,12 +517,12 @@ header nav ul li:hover{
 }
 
 .login-box .avatar {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   position: absolute;
-  top: -50px;
-  left: calc(50% - 50px);
+  top: -70px;
+  left: calc(50% - 70px);
 }
 .login-box .encabezado_login{
   height: 100px;
@@ -586,6 +586,13 @@ header nav ul li:hover{
 
 #login.pagina.esconder .login .fralogin{
   display: flex;
+}
+
+.formulario .login .fralogin .Frase_Login img{
+  width: 800px;
+  height: 200px;
+  float: right;
+  margin:190px 20px 0 0;
 }
 /******/
 

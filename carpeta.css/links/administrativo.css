@@ -167,6 +167,7 @@ opiedades para el menu al reducir el navegador a 600px*/
   .info-admin p,.info-empuno p,.info-empdos p,.info-emptresp p,.info-empcuatro p,.info-empcinco{
     margin-top: 5px;
     margin-left: 5px;
+    margin-bottom: 2px;
   }
   .info-admin{
     margin: 0;
@@ -176,10 +177,12 @@ opiedades para el menu al reducir el navegador a 600px*/
   }
   .info-admin a{
     color: #fff;
+    margin-top: 2px;
+    margin-left: 5px;
   }
     .notificacion .logos{
       width: 100%;
-      height: 16%;
+      height: 116px;
       background-color: rgb(9,79,174);
       border-bottom: 2px solid #efb810;
       display: flex;
@@ -410,7 +413,7 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
     font-family: sans-serif;
     width: 100%;
     flex-direction: column;
-    background-color: #508ab9;
+    background-color: rgb(9, 79, 174);
     padding-top: 30px;
     justify-content: center;
 }
@@ -464,7 +467,7 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
 
 div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones
 {
-    background-color: #295dac;
+    background-color: rgb(9, 79, 174);
     width: 100%;
     height: 50px;
     padding-top: 10px;
@@ -535,7 +538,7 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
 .caja3 .notificacion #info-busqueda-emp #btn_agregar_empleados{
   width: 150px;
   height: 40px;
-  margin:0 0 20px 40px;
+  margin:0 0 20px 45px;
 
 }
 .central .central-medio #esconder-empleado #tabla-empleado table{
