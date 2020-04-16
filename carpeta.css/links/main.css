@@ -38,79 +38,6 @@ h1#titulo_encabezado {
 }
 span { color:#fff }
 
-/**/
-
-/*----------------------------------------------------------------------------------*/
-/*Estilo de interfaz usuario*/
-
-/* .container {
-    max-width: 450px;
-    height: auto;
-    background-color: #efefef;
-    margin: 5% auto;
-    margin-bottom: 1rem;
-    flex-direction: column;
-}
-.form_top {
-    width: 100%;
-    text-align: center;
-    padding: 2rem 0 1 rem;
-    border-top: solid .4rem #f39b53;
-    margin-bottom: 1rem;
-}
-.form_top h2 {
-    font-weight: bold;
-    color: #cac8c8;
-   font-size: 18px;
-}
-h2 span{
-    color: #f39b53;
-}
-.form__reg {
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.btn__form {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
-}
-.inputs, .btn__submit, .btn__reset, .option{
-    background-color: #EFEFEF;
-    padding: .5rem;
-    margin: .5rem 0;
-    border: none;
-    border-bottom: solid #C8C8C8 .2rem;
-    transition: all .5s;
-   
-}
-
-.inputs:focus{
-    outline: none;
-    border-bottom: solid rgb(9,79,174) .2rem;
-}
-
-.btn__submit {
-    width: 40%;
-    border-bottom: none;
-    background-color: #31B1E5;
-    color: white;
-}
-.btn__submit:hover {
-    background-color: #4C9ED9;
-}
-
-
-.btn__reset:focus {
-    outline: none;
-    border-bottom:solid rgb(9,79,174) .2rem;
-} */
-
-
-
 
 /*Slider automático*/
 #inicio.pagina .slider{
@@ -164,19 +91,6 @@ h2 span{
     height: 35px;
 
 }
-
-/* .titulo {
-color:rgb(255, 255, 255);
-background-color: rgb(37, 165, 148);
-}
-
-form {
-    display: flex ;
-    flex-direction: row;
-} */
-/* .principal {
-text-align: center;
-} */
 
 .datos {
    text-align: center;

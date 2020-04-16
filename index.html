@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
     <link href="./carpeta.css/links/main.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./carpeta.css/links/tours.css" rel="stylesheet" type="text/css" >
+    <link href="./carpeta.css/links/tours.css" rel="stylesheet" type="text/css">
     <link href="./carpeta.css/links/empleado.css" rel="stylesheet" type="text/css">
     <link href="./carpeta.css/links/administrativo.css" rel="stylesheet" type="text/css">
     <link href="./carpeta.css/links/estilo.css" rel="stylesheet" type="text/css">
@@ -18,13 +18,13 @@
 <body>
     <Form>
         <!-- The Modal -->
-            <div id="myModal" class="modal" >
+        <div id="myModal" class="modal">
             <!-- Modal content  -->
-                <div class="modal-content" >
-                    <div class="modal-header">
-                        <span class="close">&times;</span>
-                        <img src="./carpeta.css/img/logot.png" >
-                    </div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <img src="./carpeta.css/img/logot.png">
+                </div>
                     <div class="modal-body">
                         <div class="contenedor"></div>
                             <div class="casilla">
@@ -64,9 +64,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-        </Form>   
+        </div>
+
+        </div>
+    </Form>
 
     <!--                             HTML MENÚ       -->
  
@@ -76,6 +78,7 @@
         
             <section class="textos-header">
                 <h1 id="titulo_encabezado"><span>Ovayandah</span>Tours</h1>
+                <h3>Vive la mejor experiencia en tu viaje con nuestra ayuda.</h3>
                 <div class="galeria-port">
                         
                     <div class="imagen-port">
@@ -83,7 +86,7 @@
                         <img src="./carpeta.css/img/1_.jpg" alt="">
                         <div class="hover-galeria">
                             
-                            <a href="#" class="item-menu" data-elemento="tours">Consulta,Cancela o haz un reservación</a>>
+                            <a href="#" class="item-menu" data-elemento="tours">Consulta,Cancela o haz un reservación</a>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -121,7 +124,7 @@
                     <p>Roatan</p>
                 </div>
             </div>
-            <h2 class="titulo-final">&copy; Thomas Allen | Gustavo Cano | Carlos Navarro | David Colindres</h2>
+            <h2 class="titulo-final">&copy; Thomas Allen | Gustavo Cano | Carlos Navarro | Jorge Paz | David Colindres</h2>
         </footer>
 </div>
 <!---->
@@ -153,12 +156,23 @@
                 </div>
             </div>  
             <div class="column_1" style="background-color:#508ab9;">
+                
                 <div id="caja"></div>
 
                 <div id="tours_info">
-
                 </div>
                 <button id="myBtn"><a href="#mymodal">Reservas</a></button>
+                <!--       Elegir Personal y Reservar        -->
+                <div class="elegir_personal">
+                    <h2>Elegir Personal</h2>
+                    <div class="elegir_personal_combox" >
+                        <div id="cb_tourguides">
+                        </div>
+                        <div id="cb_transportista">
+                        </div>
+                    </div>
+                </div>
+                <!--                                        -->
             </div>
         </div>
     </div>
@@ -179,7 +193,7 @@
         </div>
         <div class="cc_busqueda">
             <label>Ingrese el N° de Reservacion</label>
-            <input type="number" id="cc_txt_busqueda">
+            <input type="number" id="cc_txt_busqueda"><br>
             <label>Correo registrado en la Reservacion</label>
             <input type="text" id="cc_txt_correo"><br>
             <button id="cc_btn_buscar" onclick="reservacionBusqueda()">Bucar</button>
@@ -213,7 +227,7 @@
 
             
         
-            <!--  Pagina Empleado   -->
+               <!--  Pagina Empleado   -->
             
         <div id="login" class="pagina esconder">
             <div id='lolo3' class="caja3 esconder">
@@ -232,17 +246,9 @@
                         </div>
                         
                     </div>
-                    <div class="descripcion">
-                        <p>Working with a team?</p>
-                        <p>
-                            GitHub is built for collaboration. Set up an organization to improve the way your team works together, and get access to more features.
-                            
-                            </p>
-                        
-                    </div>
-                </div>
+                 </div>
                 
-                <div class="contenido-central">
+                 <div class="contenido-central">
                     <div class="contenido-central-top">
                         <div class="titulo">
                             <h1 for="">Informacion Del Tour</h1>
@@ -256,8 +262,8 @@
                         
                     </div>
                     
-                </div>
-                <div class="contenido-lateral">
+                 </div>
+                 <div class="contenido-lateral">
                     <div class="mejores">
                         <div class="Tema">
                             <h1>Top 5</h1>
@@ -289,12 +295,12 @@
                        </div>
                        <div class="empleado5">
                         <img src="./iconos/dummy.jpg" alt="">
-                        <div  id="emp5" class="info-emp5">
-                            
-                        </div>
+                            <div  id="emp5" class="info-emp5"> 
+                            </div>
                        </div>
+                    </div>
                     </div> 
-                </div> 
+                
         </div>
       
         <!--Página de Administrador-->
@@ -308,7 +314,7 @@
                     <nav class="navegacion">
                         <ul>
                             <li><a href="#" class="item5" data-elemento="info-busqueda-reserva"><img src="iconos/reservacion.ico"></span>Reservacion</a></li>
-                            <li><a href="#" class="item5" data-elemento="info-busqueda-emp"><img src="iconos/empleado.ico">Empleados</a></li>
+                            <li><a href="#" class="item5" data-elemento="info-busqueda-emp" onclick = "limpiarFormEmpleados()"><img src="iconos/empleado.ico">Empleados</a></li>
                             <li><a href="#" class="item5" data-elemento="graficos-tours" ><img src="iconos/estadistica.ico">Estadistica</a></li>
                         </ul>
                     </nav>
@@ -324,9 +330,9 @@
                         </div>
                     </div>
                     <div id="graficos-tours" class="pagina-admin Graficos-1">
-                        <input type="button" value="Chart1"  class="item3" data-elemento="chartU">
-                        <input type="button" value="Chart2"  class="item3" data-elemento="chartT">
-                        <input type="button" value="Chart3"  class="item3" data-elemento="chartA">
+                        <input type="button" value="Ubicaciones mas reservadas"  class="item3" data-elemento="chartU">
+                        <input type="button" value="Tours mas reservados"  class="item3" data-elemento="chartT">
+                        <input type="button" value="Actividades mas populares"  class="item3" data-elemento="chartA">
                     </div>
                     <div id="info-busqueda-emp" class="pagina-admin esconder .info-buscar-empleado">
                         <!--    Boton para agregar empleados    -->
@@ -346,23 +352,23 @@
                         <div class="busqueda">
                             <input type="text" id=busqueda_reservaciones > 
                             <input type="button" value="Buscar" id="buscar">
-                            <input type="button" value="Restablecer informacion anterior" id="restablecer">
+                            <img src="carpeta.css/img/reset.ico" alt=""  id="restablecer">
                         </div> 
                     </div>
                     <div  class="central-medio">
                        
                             <div  id="esconder-graficos" class="graficos-5">
                                 <div id="chartU"  class="container  ">
-                                    <canvas id="chart_ubicaciones" width="300" height="250" style="background-color: rgb(9,79,174);">
+                                    <canvas id="chart_ubicaciones" width="300" height="200" style="background-color: rgb(9,79,174);">
                                     </canvas>
                                 </div>  
                                 <div id="chartT" class="container esconder">
-                                    <canvas  id="chart_tours" width="300" height="250" style="background-color: rgb(9,79,174);"></canvas>
+                                    <canvas  id="chart_tours" width="300" height="200" style="background-color: rgb(9,79,174);"></canvas>
                             
                                     </canvas>
                                 </div>
                                 <div id="chartA" class="container esconder">
-                                    <canvas id="chart_actividades" width="300" height="250" style="background-color: rgb(9,79,174);">
+                                    <canvas id="chart_actividades" width="300" height="200" style="background-color: rgb(9,79,174);">
                                     </canvas>
                                 </div> 
                             </div>
@@ -370,23 +376,25 @@
                         
                             <div id="esconder-empleado" class="esconder">
                                 <div  id="tabla-empleado">
-    
+                                        
                                 </div>
                             </div>
                         
                             
                                 <div id="esconder-reservacion" class="esconder">
+                             
                                     <div id="tabla-reservacion">
-    
+                                            
                                     </div>
+                              
                                 </div>
                                 <!---       Formulario para registro y actualizacion de Empleados   -->
                                 <div class="form_empleados" id="form_empleados" style="display: none;">
                                     <form>
                                       <h2>Registro de Empleado</h2>
                                       <input type="text" id="fe_usuario" placeholder="Nombre de Usuario">
-                                      <input type="text" id = "fe_contrasenia" placeholder="Contreseña"><br>
-                                      <input type="text" id="fe_verificar_contrasenia" placeholder="Verifique Contraseña">
+                                      <input type="password" id = "fe_contrasenia" placeholder="Contreseña"><br>
+                                      <input type="password" id="fe_verificar_contrasenia" placeholder="Verifique Contraseña">
                                       <input type="text" id = "fe_primer_nombre" placeholder="Primer Nombre"><br>
                                       <input type="text" id = "fe_primer_apellido" placeholder="Primer Apellido">
                                       <input type="text" id = "fe_telefono" placeholder="9988-7766"><br>
@@ -394,7 +402,7 @@
                                       <div class = "seccion_cb">
                                         <label for="cb_posiciones">Posicion</label>
                                         <select id = "cb_posiciones">
-                                            <option value=""> </option>
+                                            <option value="" ></option>
                                             <option value = "1">Administrativo</option>
                                             <option value = "2">Tour Guide</option>
                                             <option value="3">Transportista</option>
@@ -481,17 +489,12 @@
                         </div>
                         <input type="text" name="username" id="username" placeholder="&#128100; Username">
             
-                        <input type="text" name="password" id="password" placeholder="&#128272; Password">
+                        <input type="password" name="password" id="password" placeholder="&#128272; Password">
                         
                         <input type="button" value="Ingresar" id="btn-guardar">
                     </div>               
                 </form>
             </div> 
-             <!--                    Seccion para graficos       -->
-    
-
-    <!--                                                        -->
-
         </div>
 
 

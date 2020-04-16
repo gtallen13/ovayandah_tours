@@ -1,9 +1,9 @@
+
+
 /*Esta parte del codigo sirve para controlar el cambio de pagina de Reservacion,Empleado,Estadisticas */
 const enlaces1= document.getElementsByClassName('item5');
 const txtBusqueda = document.getElementById("busqueda_reservaciones")
 const btnBuscar = document.getElementById('buscar')
-
-
 /*         Variables del formulario para agregar empleados  */
 let fe_txtUsuario = document.getElementById('fe_usuario');
 let fe_txtContrasenia = document.getElementById('fe_contrasenia');
@@ -105,7 +105,7 @@ function mostrarReservaciones(){
     inner join empleados as e on er.empleados_id=e.id 
     inner join tours as t on r.tours_id=t.id 
     where r.fecha_inicio_tour >= CURDATE() 
-    group by r.id order by r.fecha_inicio_tour asc limit 20`
+    group by r.id order by r.fecha_inicio_tour asc limit 12`
     conexion.query(consulta1,function(err,filas,campos){
         for (let fila of filas){
 
@@ -164,17 +164,20 @@ function buscarEmpleado(){
     btnBuscar.addEventListener('click',function(evt){
         evt.preventDefault()
         console.log(evt.code)
-        
+        if (txtBusqueda.value === ""){
+            console.log("Busqueda Vacia")
+            return;
+        }
             let sql = `select * from empleados where (primer_nombre like ? or primer_apellido like ? or id = ? ) and tipo_usuario_id=2`
             conexion.query(sql,[`${txtBusqueda.value}%`,`${txtBusqueda.value}%`, `${txtBusqueda.value}`],function(err,fields,campos){
-                if (err) {console.log('Error')} else{
+                if (err) throw err; else{
                     for (let fila of fields){
                         document.getElementById('info-busqueda-emp').innerHTML = `<input type="button" value="${fila.primer_nombre} ${fila.primer_apellido}"  class="item4" id=${fila.id}>`
                         consulta = `select * from  empleados where id = ${fila.id} and tipo_usuario_id = 2 `
                         conexion.query(consulta,function(err,filas,campoes){
-                            if (err){
-                                console.log('error')
-                            } else {
+                            if (err) throw err;
+                                
+                             else {
                                 let html = '<table>'
                                 for(let row of filas){
                                     html += `<tr><th>Nombre</th></tr><tr><td>${row.primer_nombre}</td></tr>`
@@ -193,6 +196,7 @@ function buscarEmpleado(){
             })
         
     
+            
     }) 
 }
 

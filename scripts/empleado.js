@@ -12,55 +12,59 @@ btnLogin.addEventListener('click', function(e){
     conexion.query(consultasql,[`${username.value}`,`${password.value}`],function(err,filas,campos){
         if (err){
             console.log('error')
-            return;
         } else {
-            if (filas[0].id === 1) {
-                for (let hilo of filas) {
-                    if (username.value === hilo.username & password.value === hilo.contra){
-                        console.log('lo existe')
-                        //Este desasparece el formulario login
-                        document.getElementById('lolo').style.display = 'none'
-                        //Este aparece la pagina de Administrador
-                        document.getElementById('lolo4').classList.remove('esconder')
-                        cargarNombreEmpleado()
-                        nombrar()
-                        // cargarClientes()
-                        cargarTop()
-                        cargarPrimerInfo()
-                        //notificaion
-                        //bienvenido [nombre del empleado]
-                        
-                    }else {
-                        console.log ('no pudiste entrar')
-                        //notificaion
-                        //usuario o contrasenia malas
+            for (let fil of filas) {
+                if (fil.id === 1) {
+                    for (let hilo of filas) {
+                        if (username.value === hilo.username & password.value === hilo.contra){
+                            console.log('lo existe')
+                            //Este desasparece el formulario login
+                            document.getElementById('lolo').style.display = 'none'
+                            //Este aparece la pagina de Administrador
+                            document.getElementById('lolo4').classList.remove('esconder')
+                            cargarNombreEmpleado()
+                            nombrar()
+                            // cargarClientes()
+                            cargarTop()
+                            cargarPrimerInfo()
+                            //notificaion
+                            //bienvenido [nombre del empleado]
+                            
+                        }else {
+                            console.log ('no pudiste entrar')
+                            //notificaion
+                            //usuario o contrasenia malas
+                        }
                     }
-                }
-            } else {
-                for (let hilo of filas) {
-                    if (username.value === hilo.username & password.value === hilo.contra){
-                        console.log('lo existe')
-                        //Este desasparece el formulario login
-                        document.getElementById('lolo').style.display = 'none'
-                        //Este aparece la pagina el formulario Empleado
-                        document.getElementById('lolo3').classList.remove('esconder')
-                        cargarNombreEmpleado()
-                        nombrar()
-                        // cargarClientes()
-                        cargarTop()
-                        cargarPrimerInfo()
-                        //notificaion
-                        //bienvenido [nombre del empleado]
-                        
-                    }else {
-                        console.log ('no pudiste entrar')
-                        //notificaion
-                        //usuario o contrasenia malas
+                } else if (fil.id === 2) {
+                    for (let hilo of filas) {
+                        if (username.value === hilo.username & password.value === hilo.contra){
+                            console.log('lo existe')
+                            //Este desasparece el formulario login
+                            document.getElementById('lolo').style.display = 'none'
+                            //Este aparece la pagina el formulario Empleado
+                            document.getElementById('lolo3').classList.remove('esconder')
+                            cargarNombreEmpleado()
+                            nombrar()
+                            // cargarClientes()
+                            cargarTop()
+                            cargarPrimerInfo()
+                            //notificaion
+                            //bienvenido [nombre del empleado]
+                            
+                        }else {
+                            console.log ('no pudiste entrar')
+                            //notificaion
+                            //usuario o contrasenia malas
+                        }
                     }
+                    
+                } else {
+                    console.log('error toro')
                 }
                 
+    
             }
-            
         }
     })
 })
@@ -81,9 +85,9 @@ function cargarTop(){
 }
 
 
-function cargarPrimerInfo(){
+function cargarPrimerInfo() {
     //Cargar la primer informacion de la reservacion
-let consulta2 = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones FROM toursdb.reservaciones as r
+    let consulta2 = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones FROM toursdb.reservaciones as r
 inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
 inner join toursdb.empleados as e on er.empleados_id=e.id
 inner join tours as t on r.tours_id=t.id
@@ -92,51 +96,78 @@ inner join tours_ubicaciones as tu on t.id=tu.id_tours
 inner join ubicaciones  as u on tu.id_ubicaciones=u.id
 where e.username = ? and r.fecha_inicio_tour >= CURDATE()
 group by r.id order by r.fecha_inicio_tour asc limit 1 `
-conexion.query(consulta2,[`${username.value}`],function(err,filas,campoes){
-    if (err){
-        console.log('error')
-    } else {
-        let html = '<table>'
-        for(let row of filas){
-            html += `<tr><th>Fecha de Inicio</th></tr><tr><td>${row.fecha_inicio_tour}</td></tr>`
-            html += `<tr><th>Fecha final</th></tr><tr><td>${row.fecha_final_tour}</td></tr>`
-            html += `<tr><th>Cantidad de personas</th></tr><tr><td>${row.cantidad_turistas}</td></tr>`
-            html += `<tr><th>Ubicaciones</th></tr><tr><td>${row.Ubicaciones}</td></tr>`
-            html += `<tr><th>Nombre Del Cliente</th></tr><tr><td>${row.Nombre_Cliente} ${row.Apellido_Cliente}</td></tr>`
+    conexion.query(consulta2, [`${username.value}`], function (err, filas, campoes) {
+        if (err) {
+            console.log('error')
+        } else {
+            let html = '<table>'
+            for (let row of filas) {
+                html += `<tr><th>Fecha de Inicio</th></tr><tr><td>${row.fecha_inicio_tour}</td></tr>`
+                html += `<tr><th>Fecha final</th></tr><tr><td>${row.fecha_final_tour}</td></tr>`
+                html += `<tr><th>Cantidad de personas</th></tr><tr><td>${row.cantidad_turistas}</td></tr>`
+                html += `<tr><th>Ubicaciones</th></tr><tr><td>${row.Ubicaciones}</td></tr>`
+                html += `<tr><th>Nombre Del Cliente</th></tr><tr><td>${row.Nombre_Cliente} ${row.Apellido_Cliente}</td></tr>`
+            }
+            html += '</table>'
+            document.getElementById('tabla-info').innerHTML = html
         }
-        html += '</table>'
-        document.getElementById('tabla-info').innerHTML = html
-    }
-    
-})
+
+    })
 }
 
-// function cargarClientes(){
-//     //Cargar la informacion del cliente
-// let sql = `SELECT c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,c.email,c.telefono FROM toursdb.reservaciones as r
-// inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-// inner join toursdb.empleados as e on er.empleados_id=e.id
-// inner join tours as t on r.tours_id=t.id
-// inner join clientes as c on r.id_clientes = c.id
-// inner join tours_ubicaciones as tu on t.id=tu.id_tours
-// inner join ubicaciones  as u on tu.id_ubicaciones=u.id
-// where e.username = ? and r.fecha_inicio_tour >= CURDATE()
-// group by r.id order by r.fecha_inicio_tour asc limit 1
-// `
-// conexion.query(sql,[`${username.value}`],function(err,filas,campos){
-//     if (err){
-//         console.log('error')
-//     } else {
-//         for (let fila of filas){
-//             document.getElementById('txt-name').value = fila.Nombre_Cliente
-//             document.getElementById('txt-lastname').value = fila.Apellido_Cliente
-//             document.getElementById('txt-telphone').value = fila.telefono
-//             document.getElementById('txt-email').value = fila.email
-//         }
-//     }
-// })
+function cargarClientes() {
+    //Cargar la informacion del cliente
+    let sql = `SELECT c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,c.email,c.telefono FROM toursdb.reservaciones as r
+inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
+inner join toursdb.empleados as e on er.empleados_id=e.id
+inner join tours as t on r.tours_id=t.id
+inner join clientes as c on r.id_clientes = c.id
+inner join tours_ubicaciones as tu on t.id=tu.id_tours
+inner join ubicaciones  as u on tu.id_ubicaciones=u.id
+where e.username = ? and r.fecha_inicio_tour >= CURDATE()
+group by r.id order by r.fecha_inicio_tour asc limit 1
+`
+    conexion.query(sql, [`${username.value}`], function (err, filas, campos) {
+        if (err) {
+            console.log('error')
+        } else {
+            for (let fila of filas) {
+                document.getElementById('txt-name').value = fila.Nombre_Cliente
+                document.getElementById('txt-lastname').value = fila.Apellido_Cliente
+                document.getElementById('txt-telphone').value = fila.telefono
+                document.getElementById('txt-email').value = fila.email
+            }
+        }
+    })
 
-// }
+}
+
+ function cargarClientes(){
+     //Cargar la informacion del cliente
+ let sql = `SELECT c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,c.email,c.telefono FROM toursdb.reservaciones as r
+ inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
+ inner join toursdb.empleados as e on er.empleados_id=e.id
+ inner join tours as t on r.tours_id=t.id
+ inner join clientes as c on r.id_clientes = c.id
+ inner join tours_ubicaciones as tu on t.id=tu.id_tours
+ inner join ubicaciones  as u on tu.id_ubicaciones=u.id
+ where e.username = ? and r.fecha_inicio_tour >= CURDATE()
+ group by r.id order by r.fecha_inicio_tour asc limit 1
+ `
+ conexion.query(sql,[`${username.value}`],function(err,filas,campos){
+     if (err){
+         console.log('error')
+     } else {
+         for (let fila of filas){
+             document.getElementById('txt-name').value = fila.Nombre_Cliente
+             document.getElementById('txt-lastname').value = fila.Apellido_Cliente
+             document.getElementById('txt-telphone').value = fila.telefono
+             document.getElementById('txt-email').value = fila.email
+         }
+     }
+ })
+
+ }
 
 
 function nombrar () {
@@ -144,18 +175,18 @@ function nombrar () {
 
     let consulta = 'SELECT r.id As id_reserva,r.fecha_inicio_tour,e.primer_nombre,e.primer_apellido,t.nombre FROM reservaciones as r inner join empleados_reservaciones AS er ON r.id=er.reservacion_id inner join empleados as e on er.empleados_id=e.id inner join tours as t on r.tours_id=t.id where e.username = ? and r.fecha_inicio_tour >= CURDATE() order by r.fecha_inicio_tour asc limit 10'
     let cont = 0
-    conexion.query(consulta,[`${username.value}`],function(err,filas,campos){
-        for (let fila of filas){
+    conexion.query(consulta, [`${username.value}`], function (err, filas, campos) {
+        for (let fila of filas) {
             cont = cont + 1
             document.getElementById('boleta1').innerHTML += `<input type="button" value="Reservacion#${fila.id_reserva}/${fila.nombre}" id=${fila.id_reserva} class="item">`
         }
         const enlaces = document.getElementsByClassName('item')
-    for (let i = 0; i < enlaces.length; i++) {
-        enlaces[i].addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log('hola')
-        const idElemento = e.currentTarget.getAttribute('id');
-        let sql = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones,c.email,c.telefono FROM toursdb.reservaciones as r
+        for (let i = 0; i < enlaces.length; i++) {
+            enlaces[i].addEventListener('click', function (e) {
+                e.preventDefault();
+                console.log('hola')
+                const idElemento = e.currentTarget.getAttribute('id');
+                let sql = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones,c.email,c.telefono FROM toursdb.reservaciones as r
         inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
         inner join toursdb.empleados as e on er.empleados_id=e.id
         inner join tours as t on r.tours_id=t.id
@@ -200,8 +231,8 @@ function cargarNombreEmpleado(){
                 document.getElementById('usuario-emp').innerHTML = `<p>${fila.primer_nombre} ${fila.primer_apellido}</p><p>${fila.nombre}</p><a href="" class="item-menu" data-elemento="inicio">Cerrar Sesion</a>`
                 document.getElementById('administrativo-emp').innerHTML = `<p>${fila.primer_nombre} ${fila.primer_apellido}</p><p>${fila.nombre}</p><a href="" class="item-menu" data-elemento="inicio">Cerrar Sesion</a>`
             }
-    
+
         }
-        
+
     })
 }
