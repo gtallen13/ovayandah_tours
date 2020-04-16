@@ -69,7 +69,12 @@ div#tours.pagina div.row div.column_1 button[id="myBtn"] {
     margin-top: 40px;
     height: 35px;
     width: 12%;
+    cursor: pointer;
     float: right;
+}
+div#tours.pagina div.row div.column_1 button[id="myBtn"] a
+{
+    text-decoration: none;
 }
 
 /*  Style the lista   */

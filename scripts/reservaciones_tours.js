@@ -131,7 +131,7 @@ function selecEmpleadosTG()
     let select_tourguides = document.getElementById('cb_tourguides')
     let query_tourguides = `select id,concat(primer_nombre, " ", primer_apellido) NombreCompleto, id_posicion from empleados
     where id_posicion = 2;`
-    let html_tourguides = `<select class="combox"><option value="" disabled selected hidden>Tour Guides</option>`
+    let html_tourguides = `<select class="combox" id="cd-empleado-tg"><option value="" disabled selected hidden>Tour Guides</option>`
     conexion.query(query_tourguides,function(err, resultados,campor)
     {
         if (err) throw err;
@@ -150,7 +150,7 @@ function selecEmpleadosTransportista()
     let select_transportista = document.getElementById('cb_transportista')
     let query_transportista = `select id,concat(primer_nombre, " ", primer_apellido) NombreCompleto, id_posicion from empleados
     where id_posicion = 3;`
-    let html_transportista = `<select class="combox"><option value="" disabled selected hidden>Transportista</option>`
+    let html_transportista = `<select class="combox" id = "cd-empleado-t"><option value="" disabled selected hidden>Transportista</option>`
     conexion.query(query_transportista,function(err, resultados,campor)
     {
         if (err) throw err;
@@ -165,22 +165,110 @@ function selecEmpleadosTransportista()
 selecEmpleadosTG();
 selecEmpleadosTransportista();
 
+
 btnReservar.addEventListener('click', function (e) {
     e.preventDefault()
+    
+    
     //validando el modal
     if (validacionModal(txtFechaInicio.value, txtFechaFinal.value, txtPrimerNombre.value,
         txtPrimerApellido.value, txtCorreo.value,txtVerificacionCorreo.value, 
         txtPersonas.value, telefono.value))
     {
-        insertarClientes()    
-        encontrarIdCliente(arr[arr.length - 1]);   
-    }
-    else
-    {
-        console.log("No se pudo realizar la reservaciones");
+        insertarClientes()
+        encontrarIdCliente(arr[arr.length - 1])
+        setTimeout(insertarEmpleadosReservaciones,2000)     
+    } else {
+        console.log('Revise bien el correo')
+        //notificacion
+        //correos incorrectos
+        toastr.error('El correo no cumple con los datos necesarios', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
+        console.log('Revise bien el correo');
     }
 })
-
+function insertarEmpleadosReservaciones()
+{
+    const cbEmpleadoT = document.getElementById('cd-empleado-t');
+    const cbEmpleadoTG = document.getElementById('cd-empleado-tg');
+    let sql = `select id from reservaciones order by id desc limit 1`
+        conexion.query(sql,function(err,fils,campos){
+            if (err) throw err
+            console.log(fils);
+            for (let fault of fils) {
+                let sqlInsertar = `insert into empleados_reservaciones(reservacion_id,empleados_id) values(${fault.id},${cbEmpleadoT.value})`
+                conexion.query(sqlInsertar,function(err,fils,campos){
+                    if (err)
+                    {
+                        console.log(err);
+                        toastr.warning("No ha seleccionado los empleados",{
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-bottom-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                          });
+                          return; 
+                    }
+                    
+                    let sqlInsertar2 = `insert into empleados_reservaciones(reservacion_id,empleados_id) values(${fault.id},${cbEmpleadoTG.value})`
+                    conexion.query(sqlInsertar2,function(er,fils,campos){
+                        if (er)
+                        {
+                            console.log(er);
+                            toastr.warning("No ha seleccionado los empleados",{
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-bottom-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            });
+                            return; 
+                        }
+                        console.log('ya se agrego sus empleado que lo acompañaran en el tour')
+                    })
+                })
+            }
+        })
+        console.log(cbEmpleadoT.value);
+        console.log(cbEmpleadoTG.value);
+        pdfGeneracion();
+}
 
 
 function sendMail(boleta_pdf1)
@@ -189,7 +277,6 @@ function sendMail(boleta_pdf1)
     let mailOptions = {
     from: 'ovayandah.tours2020@gmail.com',
     to: `${txtCorreo.value}`,
-    to: 'gtallenpadi13@gmail.com',
     subject: 'Boleta de Reservacion',
     text: 'Disfrute de su tour y gracias por elegir Ovayandah Tours por nosotros te llevamos ovayandah :)',
     attachments:[{
@@ -265,42 +352,6 @@ function insertarClientes() {
     let sql = 'insert into clientes(email,primer_nombre,primer_apellido,telefono)values(?,?,?,?)'
     conexion.query(sql,[`${txtCorreo.value}`,`${txtPrimerNombre.value}`,`${txtPrimerApellido.value}`,`${telefono.value}`],
     function(err,filas,campos){
-        // if ((err) ) {
-        //     toastr.error('El Correo ya existe', {
-        //         "closeButton": false,
-        //         "debug": false,
-        //         "newestOnTop": false,
-        //         "progressBar": false,
-        //         "positionClass": "toast-top-right",
-        //         "preventDuplicates": false,
-        //         "onclick": null,
-        //         "showDuration": "300",
-        //         "hideDuration": "1000",
-        //         "timeOut": "5000",
-        //         "extendedTimeOut": "1000",
-        //         "showEasing": "swing",
-        //         "hideEasing": "linear",
-        //         "showMethod": "fadeIn",
-        //         "hideMethod": "fadeOut"
-        //       });
-        // }
-        toastr.success('Los datos se guardaron correctamente',{
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        });
         console.log('Se almacenaron los clientes correctamente')
     })  
 }
@@ -355,7 +406,7 @@ function encontrarIdCliente(tour_id) {
                             console.log('Error'); return;} else {
                             console.log('se pudo campeon')
                             
-                            pdfGeneracion()
+                            
                         }
                     })
                 
@@ -369,8 +420,10 @@ function encontrarIdCliente(tour_id) {
 // Generacion del PDF
 function pdfGeneracion()
 {
-    let sql_boleta = 
-    `select r.id ID, concat(c.primer_nombre, " ", c.primer_apellido) NombreCompleto, r.cantidad_turistas CantPersonas,
+    conexion.query('select id from reservaciones order by id desc limit 1;',function(err, fields, campos)
+    {
+        let sql_boleta = 
+    `select r.id ID, concat(c.primer_nombre, " ", c.primer_apellido) NombreCompleto, r.cantidad_turistas CantPersonas, r.precio_total PrecioTotal,
     r.fecha_inicio_tour FechaInicio, r.fecha_final_tour FechaFinal, r.fecha_creacion FechaCreacion, r.tours_id IDTours, concat(e.primer_nombre," ", e.primer_apellido) NombreEmpleado
     from clientes c
     join reservaciones r
@@ -379,10 +432,11 @@ function pdfGeneracion()
 		on r.id = re.reservacion_id
 	join empleados e
 		on re.empleados_id = e.id
-	where r.id in (select id from reservaciones order by r.id desc)
-    and c.email = '${txtCorreo.value}'
+	where r.id = (select id from reservaciones order by id desc limit 1)
+    or c.email = '${txtCorreo.value}'
     group by r.id,e.id
-    order by r.id desc;`
+    order by r.id desc
+    limit 2;`
     let dir_boleta = './boletas/boleta.html'
     
     
@@ -560,6 +614,12 @@ function pdfGeneracion()
                             
                         </div>
                         <br>
+                        <div class="can">
+                            <label>Cantidad de Clientes:</label>
+                            <p>${resultados[0].PrecioTotal}</p>
+                            
+                        </div>
+                        <br>
                         <div class="fecha">
                             <label>Fecha de reservación:  </label>
                             <p>${resultados[0].FechaInicio}</p>
@@ -661,7 +721,7 @@ function pdfGeneracion()
             await browser.close(); 
             sendMail(boleta_pdf);
         })();
-        toastr.success('La boleta ha sido enviada con exito!!', {
+        toastr.success('La boleta ha sido creada con exito!!', {
                 "closeButton": false,
                 "debug": false,
                 "newestOnTop": false,
@@ -680,9 +740,11 @@ function pdfGeneracion()
               }
         )
         //boleta creada exitosamente
-    })
+        })
      //llamando la funcion para mandar el correo
+    })
 })
+    
 }
 
 
