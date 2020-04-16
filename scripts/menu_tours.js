@@ -32,11 +32,13 @@ function reservacionBusqueda()
     if (cc_txtBusqueda.value === "")
     {
         console.log ("Ingrese el numero de la reservacion");
+        toastr.error("No ha ingresado el numero de la reservacion");
         return;
     }
     else if (cc_txtCorreo.value === "")
     {
         console.log ("Ingreso su correo para mas seguridad");
+        toastr.error("No ha ingresado el numero de la reservacion");
     }
     let sql_busqueda = `select concat(c.primer_nombre, " ", c.primer_apellido) NombreCliente, c.email Correo,
     date_format(r.fecha_inicio_tour, '%Y-%m-%d %H:%i:%s')  FechaInicio, date_format(r.fecha_final_tour, '%Y-%m-%d %H:%i:%s')  FechaFinal, r.cantidad_turistas CantidadTuristas, 
@@ -59,6 +61,7 @@ function reservacionBusqueda()
         if (resultados[0].Correo !== cc_txtCorreo.value)
         {
             console.log ("El correo no concuerda");
+            toastr.error("El correo no es el mismo al que esta en la reservacion"); 
             return;
         }
         cc_Empleado1.value = resultados[0].NombreEmpleado; 
