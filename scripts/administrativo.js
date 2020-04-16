@@ -1,10 +1,4 @@
-const mysql = require('mysql');
-const conexion = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'toursdb'
-});
+
 
 /*Esta parte del codigo sirve para controlar el cambio de pagina de Reservacion,Empleado,Estadisticas */
 const enlaces1= document.getElementsByClassName('item5');

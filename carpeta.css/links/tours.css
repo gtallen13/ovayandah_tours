@@ -30,8 +30,10 @@ div#tours.pagina div.row div.column_1 {
 float: left;
 width: 80%;
 padding: 10px;
-height: 500px;
+padding-bottom: 0;
+height: 550px;
 position: relative;
+margin-bottom: 0;
 /* Should be removed. Only for demonstration */
 }
 
@@ -63,11 +65,11 @@ div#tours.pagina div.row div.column_1 button[id="myBtn"] {
     border-radius: 5px;
     outline: none;
     border: 0;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    position: relative;
+    margin-left: 10px;
     height: 50px;
-    width: 100px;
+    width: 15%;
+    float: rights;
 }
 
 /*  Style the lista   */
@@ -255,7 +257,6 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actuali
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:hover
 {   
     background-color: #1860d4;
-    /* background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);} */
 }
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:focus
 {
@@ -284,52 +285,35 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancela
     border: 2.5px solid rgb(240, 165, 45);
     outline: none;
 }
-=======
+
 /* ELEGIR PERSONAL */
-
-/*the container must be positioned relative:*/
-.combo-box {
-position: relative;
-font-family: Arial;
+div#tours.pagina div.row div.column_1 div.elegir_personal
+{
+    font-family: sans-serif;
+    position: relative;
+    bottom: -280px;
+    text-align: center;
+    margin-right: 50px;
+}
+div#tours.pagina div.row div.column_1 div.elegir_personal div.elegir_personal_combox 
+{
+    display:flex;
+    justify-content: center;
+    position: relative;
 }
 
-.principal {
-    display: flex;
-    padding-top: 20px;
+div#tours.pagina div.row div.column_1 div.elegir_personal div.elegir_personal_combox select.combox {
+    color: #fff;
+    background-color: rgb(38, 59, 179);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 35%;
 }
 
-.combo-box select {
-display: none;
-/*hide original SELECT element:*/
-}
-
-.select-selected .combox_0 {
-color: #fff;
-background-color: rgb(38, 59, 179);
-padding: 16px;
-font-size: 16px;
-border: none;
+div#tours.pagina div.row div.column_1 div.elegir_personal div.elegir_personal_combox select:focus {
 outline: none;
 }
 
-.combox_1 {
-margin-left: 10px;
-color: #fff;
-background-color: rgb(38, 59, 179);
-padding: 16px;
-font-size: 16px;
-border: none;
-outline: none;
-}
-
-.cuadro_superior {
-display: none;
-position: absolute;
-background-color: #fff;
-min-width: 160px;
-z-index: 1;
-}
-
-select:focus {
-outline: none;
-}

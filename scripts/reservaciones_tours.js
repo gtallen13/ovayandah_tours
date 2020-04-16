@@ -1,7 +1,6 @@
-
-const mysql = require('mysql');
 const pup = require('puppeteer');
-
+const nodemailer = require('nodemailer');
+const mysql = require('mysql');
 const conexion = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',

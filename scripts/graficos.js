@@ -9,13 +9,7 @@ let arrCantReservaciones_tours = []
 let arrActividades = []
 let arrCantReservaciones_actividades = []
 
-const mysql = require('mysql');
-const conexion = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'toursdb'
-});
+
 //haciendo el background de las barras
 var purple_orange_gradient = chartActividades.createLinearGradient(0, 0,0, 600);
 purple_orange_gradient.addColorStop(0, 'gold');
