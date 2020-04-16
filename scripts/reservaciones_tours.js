@@ -444,8 +444,8 @@ function pdfGeneracion()
     conexion.query(sql_boleta, function(err, resultados, campos)
     {
         if(err) throw err;
-        selecTour(parseInt(resultados[1].IDTours))
-        console.log(parseInt(resultados[1].IDTours))
+        selecTour(parseInt(resultados[0].IDTours))
+        console.log(parseInt(resultados[0].IDTours))
         console.log(resultados)
         let arhivo_boleta = `
         
@@ -615,7 +615,7 @@ function pdfGeneracion()
                         </div>
                         <br>
                         <div class="can">
-                            <label>Cantidad de Clientes:</label>
+                            <label>Precio Total:</label>
                             <p>${resultados[0].PrecioTotal}</p>
                             
                         </div>
