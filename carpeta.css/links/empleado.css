@@ -32,7 +32,7 @@ body{
   
   .contenido-central-top{
     width: 100%;
-    height: 16.2vh;
+    height: 121px;
     background-color: rgb(9,79,174);;
     border-bottom: 2px solid #efb810;
     overflow: hidden;
@@ -68,7 +68,7 @@ body{
 }
   .notificaciones .logo{
     width: 250px;
-    height: 16.2vh;
+    height: 121px;
     background-color: rgb(9,79,174);
     border-bottom: 2px solid #efb810;
     display: flex;
@@ -146,9 +146,8 @@ body{
   }
   .contenido-lateral .mejores .Tema{
     margin: 0 auto;
-  
     width: 100%;
-    height: 16.2vh;
+    height: 121px;
     border-bottom: 2px solid #efb810;
     background-color: rgb(9,79,174);
   }
