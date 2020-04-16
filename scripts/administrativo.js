@@ -75,6 +75,23 @@ function mostrarEmpleado(){
                 consulta = `select * from  empleados where id = ${idElemento} and tipo_usuario_id = 2 `
                 conexion.query(consulta,function(err,filas,campoes){
                     if (err){
+                        toastr.error('ERROR A CARGAR LOS EMPLEADOS', {
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-bottom-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                          });
                         console.log('error')
                     } else {
                         let html = '<table>'
@@ -129,13 +146,53 @@ function mostrarReservaciones(){
                         inner join ubicaciones  as u on tu.id_ubicaciones=u.id
                         where r.id = ${idElemento} and r.fecha_inicio_tour >= CURDATE()`
                         conexion.query(consulta5,function(err,filaUbicacion,campos){
-                            if (err) {console.log('Error al cargar las ubicaciones')} else {
+                            if (err) 
+                            {
+                                toastr.error('Error a cargar las ubicaciones', {
+                                    "closeButton": false,
+                                    "debug": false,
+                                    "newestOnTop": false,
+                                    "progressBar": false,
+                                    "positionClass": "toast-bottom-right",
+                                    "preventDuplicates": false,
+                                    "onclick": null,
+                                    "showDuration": "300",
+                                    "hideDuration": "1000",
+                                    "timeOut": "5000",
+                                    "extendedTimeOut": "1000",
+                                    "showEasing": "swing",
+                                    "hideEasing": "linear",
+                                    "showMethod": "fadeIn",
+                                    "hideMethod": "fadeOut"
+                                  });
+                                console.log('Error al cargar las ubicaciones')
+                            } else {
                                 let consulta6 = `SELECT r.fecha_inicio_tour,r.fecha_final_tour,r.cantidad_turistas FROM toursdb.reservaciones as r
                                 inner join tours as t on r.tours_id=t.id
                                 inner join clientes as c on r.id_clientes = c.id
                                 where r.id = ${idElemento} and r.fecha_inicio_tour >= CURDATE()`
                                 conexion.query(consulta6,function(err,filas,campos){
-                                    if (err) {console.log('Error al cargar la reservacion')} else {
+                                    if (err) 
+                                    {
+                                        toastr.error('Error a cargar la reservacion', {
+                                            "closeButton": false,
+                                            "debug": false,
+                                            "newestOnTop": false,
+                                            "progressBar": false,
+                                            "positionClass": "toast-bottom-right",
+                                            "preventDuplicates": false,
+                                            "onclick": null,
+                                            "showDuration": "300",
+                                            "hideDuration": "1000",
+                                            "timeOut": "5000",
+                                            "extendedTimeOut": "1000",
+                                            "showEasing": "swing",
+                                            "hideEasing": "linear",
+                                            "showMethod": "fadeIn",
+                                            "hideMethod": "fadeOut"
+                                          });
+                                        console.log('Error al cargar la reservacion')
+                                    } else {
                                         let html = '<table>'
                                         for(let row of filas){
                                             html += `<tr><th>Fecha de Inicio</th></tr><tr><td>${row.fecha_inicio_tour}</td></tr>`
@@ -165,6 +222,23 @@ function buscarEmpleado(){
         evt.preventDefault()
         console.log(evt.code)
         if (txtBusqueda.value === ""){
+            toastr.warning('Busqueda vacia', {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+              });
             console.log("Busqueda Vacia")
             return;
         }
@@ -216,13 +290,53 @@ function buscarReservacion(){
                 inner join ubicaciones  as u on tu.id_ubicaciones=u.id
                 where r.id= ? and r.fecha_inicio_tour >= CURDATE()`
                 conexion.query(consulta5,[`${txtBusqueda.value}`],function(err,filaUbicacion,campos){
-                    if (err) {console.log('Error al cargar las ubicaciones')} else {
+                    if (err) 
+                        {
+                            toastr.error('Error a cargar las ubicaciones', {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-bottom-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                              });
+                            console.log('Error al cargar las ubicaciones')
+                        } else {
                         let consulta6 = `SELECT r.fecha_inicio_tour,r.fecha_final_tour,r.cantidad_turistas FROM toursdb.reservaciones as r
                         inner join tours as t on r.tours_id=t.id
                         inner join clientes as c on r.id_clientes = c.id
                         where r.id= ? and r.fecha_inicio_tour >= CURDATE()`
                         conexion.query(consulta6,[`${txtBusqueda.value}`],function(err,filas,campos){
-                            if (err) {console.log('Error al cargar la reservacion')} else {
+                            if (err) 
+                                {
+                                    toastr.error('Error a cargar la boleta', {
+                                        "closeButton": false,
+                                        "debug": false,
+                                        "newestOnTop": false,
+                                        "progressBar": false,
+                                        "positionClass": "toast-bottom-right",
+                                        "preventDuplicates": false,
+                                        "onclick": null,
+                                        "showDuration": "300",
+                                        "hideDuration": "1000",
+                                        "timeOut": "5000",
+                                        "extendedTimeOut": "1000",
+                                        "showEasing": "swing",
+                                        "hideEasing": "linear",
+                                        "showMethod": "fadeIn",
+                                        "hideMethod": "fadeOut"
+                                      });
+                                    console.log('Error al cargar la reservacion')
+                                } else {
                                 let html = '<table>'
                                 for(let row of filas){
                                     html += `<tr><th>Fecha de Inicio</th></tr><tr><td>${row.fecha_inicio_tour}</td></tr>`
@@ -249,13 +363,32 @@ function buscarReservacion(){
 let consultaTop = `SELECT e.id,e.primer_nombre,e.primer_apellido,sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) as horas_trabajadas FROM toursdb.reservaciones as r inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id inner join toursdb.empleados as e on er.empleados_id=e.id where r.fecha_inicio_tour between concat(YEAR(Now()),'-',month((NOW() - INTERVAL 1 MONTH)),'-01') and DATE(LAST_DAY(NOW() - INTERVAL 1 MONTH)) group by e.id order by sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) desc limit 5`
 conexion.query(consultaTop,function(err,filas,campos){
     let bandera = 0
-    if (err){console.log('error')}else {
-        for (let fila of filas){
-            bandera = bandera + 1
-            document.getElementById(`admin${bandera}`).innerHTML += `<p>${fila.primer_nombre} ${fila.primer_apellido}</p><p>Empleado</p><p>${bandera}-Mejor Empleado del mes</p>`
+    if (err){
+        toastr.error('Error en la base de datos', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
+        console.log('error')}else {
+            for (let fila of filas){
+                bandera = bandera + 1
+                document.getElementById(`admin${bandera}`).innerHTML += `<p>${fila.primer_nombre} ${fila.primer_apellido}</p><p>Empleado</p><p>${bandera}-Mejor Empleado del mes</p>`
+            }
         }
     }
-})
+)
 
 // Esta parte del codigo controla para restablecer la informacion principal de la aplicacion
 
@@ -303,8 +436,46 @@ function agregarEmpleados()
                 ('${fe_txtUsuario.value}', '${fe_txtContrasenia.value}','${fe_txtPrimerNombre.value}', '${fe_txtPrimerApellido.value}', '${fe_txtTelefono.value}', '${fe_txtCorreo.value}', ${fe_cbPosicion.value}, ${fe_cbTipoUsuario.value});`
                 conexion.query(sql_agregar_empleado, function(err, resultados, campos)
                 {
-                if (err) throw err;
-                console.log ("Guardado exitosamente");                
+                if (err){
+                    toastr.error('No se puede Ingresar Empleado', {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-bottom-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                      });
+                }
+                else{
+                    toastr.success('Empleado Ingresado correctamente', {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-bottom-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                      });
+                    console.log ("Guardado exitosamente");     
+                }
+                            
                 })
             }
             else
@@ -325,64 +496,268 @@ function validacionEmpleados(usuario, contresenia, verif_contrasenia, primer_nom
     const regex_telefono = /^\(?([0-9]{4})\)?[-. ]?([0-9]{4})$/;
     if (usuario === "")
     {
+        toastr.error('El usuario es invalido', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("No ha ingresado un usuario");
         return false;
     }
     
     else if (contresenia === "")
     {
+        toastr.error('Ingrese una contraseña', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("No ha ingresado una contrasenia");
         return false;
     }
     else if (verif_contrasenia === "")
     {
+        toastr.error('Valide su contraseña', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log('No ha ingresado la verificacion de la contresenia');
         return false;
     }
     else if (contresenia !== verif_contrasenia)
     {
+        toastr.error('Las contraseña no son iguales', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("Las contrasenia no son las mismas");
         return false;
     }
 
-    else if (primer_apellido === "")
+    else if (primer_nombre === "")
     {
+        toastr.error('Ingrese un nombre', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log('Primer apellido no valido');
         return false;
     }
     else if (hasNumber.test(primer_nombre))
     {
+        toastr.error('El campo primer nombre no puede tener numeros', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("Primer nombre no valido");
         return false;   
     }
     else if (primer_apellido === "")
     {
+        toastr.error('Ingrese un apellido', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("No ha ingresado el primer apellido");
         return false;
     }
     else if (hasNumber.test(primer_apellido))
     {
+        toastr.error('El campo de apellido no puede tener numeros', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log ("Primer apellido no valido");
         return false;
     }
     else if (telefono === "" && telefono.match(regex_telefono))
     {
+        toastr.error('Ingrese el numero de telefono', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("Telefono no valido");
         return false;
     }
     else if (correo === "" && !correo.match(regex_correo))
     {
+        toastr.error('El correo no cumple con los datos necesarios', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log ("Correo no valido");
         return false;
     }
     
     else if (posicion === "")
     {
+        toastr.error('La posicion esta vacia o es invalida revise', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log("No ha elegido la posicion");
         return false;
     }
     else if (tipo_usuario === "")
     {
+        toastr.error('El tipo de usuario es invalido o esta vacia', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          });
         console.log ("No ha elegido el tipo de usuario");
         return false;
     }
