@@ -191,14 +191,17 @@
                 </div>
             </header>
         </div>
-        <div class="cc_busqueda">
-            <label>Ingrese el N° de Reservación</label>
-            <input type="number" id="cc_txt_busqueda"><br>
-            <label>Correo registrado en la Reservación</label>
-            <input type="text" id="cc_txt_correo"><br>
-            <button id="cc_btn_buscar" onclick="reservacionBusqueda()">Bucar</button>
-        </div>
+  
+            <div class="busquedaboleta">
+                <label>Ingrese el N° de Reservación</label>
+                <input type="number" id="cc_txt_busqueda"><br>
+                <label>Correo registrado en la Reservación</label>
+                <input type="text" id="cc_txt_correo"><br>
+                <button id="cc_btn_buscar" onclick="reservacionBusqueda()">Bucar</button>
+            </div>
+      
         <div class="formulario">
+            <div class="formdatos">
             <h2>Informacion de la Reservación</h2>
             <label>Nombre Completo</label>
             <input type="text" placeholder="Nombre" id="cc_nombre_completo" readonly><br>
@@ -210,6 +213,7 @@
             <input type="text" id="cc_fecha_final" placeholder="mm/dd/YYYY HH:MM:SS"><br>
             <label>Nombre del Tour</label>
             <input type="text" id="cc_nombre_tour" readonly><br>
+            </div>
             <div class="seccion_empleados">
                 <h2>Personal Encargado</h2>
                 <input type="text" id="cc_empleado" readonly><br>

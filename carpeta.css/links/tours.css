@@ -183,7 +183,7 @@ div#tours.pagina div.row div.column_1 div#tours_info h2 + p
 
 
 
-div#consultar_cancelar.pagina div.cc_busqueda
+div#consultar_cancelar.pagina div.busquedaboleta
 {
     font-family: sans-serif;
     padding-top: 20px;
@@ -197,7 +197,7 @@ div#consultar_cancelar.pagina div.cc_busqueda
     flex-direction: column;
 
 }
-div#consultar_cancelar.pagina div.cc_busqueda button#cc_btn_buscar
+div#consultar_cancelar.pagina div.busquedaboleta button#cc_btn_buscar
 {
     background-color: rgb(38, 59, 179);
     transition: 1s all;
@@ -208,24 +208,44 @@ div#consultar_cancelar.pagina div.cc_busqueda button#cc_btn_buscar
     color: oldlace;
     margin-top: 10px;
     border-radius: 3px;
-    margin-left: 135px;
+    margin-left: 190px;
     border-bottom: 2.5px solid whitesmoke;
 }
-div#consultar_cancelar.pagina .cc_busqueda label
+div#consultar_cancelar.pagina .busquedaboleta label
 {
     margin-bottom: 15px;
     margin-left: 0 !important;
 }
-div#consultar_cancelar.pagina .cc_busqueda input
+div#consultar_cancelar.pagina .busquedaboleta #cc_txt_busqueda
 {
     margin-bottom: 15px;
     margin-left: 15px;
     width: 30%;
-    border: 1px solid rgb(240, 165, 45)
+    border: 1px solid rgb(240, 165, 45);
+    position: relative;
+    left: 63px;
 }
 
+#consultar_cancelar.pagina #cc_btn_buscar{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 50px;
+}
+div#consultar_cancelar.pagina .busquedaboleta #cc_txt_correo
+{
+    margin-bottom: 15px;
+    margin-left: 15px;
+    width: 30%;
+    border: 1px solid rgb(240, 165, 45);
+    position: relative;
+    left: 13px;
+}
+#consultar_cancelar.pagina .busquedaboleta{
+    border-bottom: 2px solid rgb(240, 165, 45);
+}
 
-div#consultar_cancelar.pagina .cc_busqueda button#cc_btn_buscar:hover
+div#consultar_cancelar.pagina .busquedaboleta button#cc_btn_buscar:hover
 {
     border-bottom: 3px solid black;
     width: 30%;
@@ -400,3 +420,14 @@ div#tours.pagina div.row div.column_1 div.elegir_personal div.elegir_personal_co
     
 }
 
+#consultar_cancelar .formdatos{
+    position: relative;
+    left: 33px;
+ 
+}
+
+#consultar_cancelar .busquedaboleta label input{
+    position: relative;
+    left: 30px;
+    font-size: 20px;
+}

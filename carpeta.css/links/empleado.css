@@ -501,7 +501,7 @@ header nav ul li:hover{
   background: rgb(255,255,255);
   color: #000;
   top: 50%;
-  left: 30%;
+  left: 400px;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
@@ -590,8 +590,10 @@ header nav ul li:hover{
 .formulario .login .fralogin .Frase_Login img{
   width: 800px;
   height: 200px;
-  float: right;
+  
   margin:190px 20px 0 0;
+  position: relative;
+  left: 650px;
 }
 /******/
 footer{
