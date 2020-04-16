@@ -9,8 +9,10 @@ btnLogin.addEventListener('click', function(e){
     e.preventDefault()
     console.log(username.value)
     let consultasql = `select concat(primer_nombre, " ", primer_apellido) NombreEmpleado, username,contra,tipo_usuario_id as id from empleados where username = ? and contra = ? `
-    conexion.query(consultasql,[`${username.value}`,`${password.value}`],function(err,filas,campos){
-        if (err){
+    conexion.query(consultasql,[`${username.value}`,`${password.value}`],function(err,filas,campos)
+    {
+        if (err)
+        {
             toastr.error('Cuenta o contraseña incorrectos', {
             "closeButton": false,
             "debug": false,
@@ -28,33 +30,13 @@ btnLogin.addEventListener('click', function(e){
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         });
-            console.log('error')
-        } else {
-<<<<<<< HEAD
-            for (let fil of filas) {
-                if (fil.id === 1) {
-                    for (let hilo of filas) {
-                        if (username.value === hilo.username & password.value === hilo.contra){
-                            console.log('lo existe')
-                            //Este desasparece el formulario login
-                            document.getElementById('lolo').style.display = 'none'
-                            //Este aparece la pagina de Administrador
-                            document.getElementById('lolo4').classList.remove('esconder')
-                            cargarNombreEmpleado()
-                            nombrar()
-                            // cargarClientes()
-                            cargarTop()
-                            cargarPrimerInfo()
-                            //notificaion
-                            //bienvenido [nombre del empleado]
-                            
-                        }else {
-                            console.log ('no pudiste entrar')
-                            //notificaion
-                            //usuario o contrasenia malas
-                        }
-=======
-            if (filas[0].id === 1) {
+        console.log(err);
+        return;
+        
+        } else 
+            {
+            if (filas[0].id === 1) 
+            {
                 for (let hilo of filas) {
                     if (username.value === hilo.username & password.value === hilo.contra){
                         toastr.success(`Bienvenido ${username.value}`, {
@@ -74,6 +56,7 @@ btnLogin.addEventListener('click', function(e){
                             "showMethod": "fadeIn",
                             "hideMethod": "fadeOut"
                         });
+                
                         console.log('lo existe')
                         //Este desasparece el formulario login
                         document.getElementById('lolo').style.display = 'none'
@@ -84,10 +67,8 @@ btnLogin.addEventListener('click', function(e){
                         // cargarClientes()
                         cargarTop()
                         cargarPrimerInfo()
-                        
-                        //bienvenido [nombre del empleado]
-                        
-                    }else {
+                    }
+                    else {
                         console.log ('no pudiste entrar')
                         toastr.error('Cuenta o contraseña incorrectos', {
                             "closeButton": false,
@@ -106,9 +87,11 @@ btnLogin.addEventListener('click', function(e){
                             "showMethod": "fadeIn",
                             "hideMethod": "fadeOut"
                         });
->>>>>>> 4f922652de32e059fd74b72ef372517045b61279
                     }
-                } else if (fil.id === 2) {
+                }   
+                
+            } else if (fil.id === 2) 
+                {   
                     for (let hilo of filas) {
                         if (username.value === hilo.username & password.value === hilo.contra){
                             console.log('lo existe')
@@ -130,16 +113,11 @@ btnLogin.addEventListener('click', function(e){
                             //usuario o contrasenia malas
                         }
                     }
-                    
-                } else {
-                    console.log('error toro')
                 }
-                
     
             }
-        }
-    })
-})
+    });
+});
 
 
 //Encontrar los top 5 mejores empleados del mes dependiendo de la fecha del sistema
