@@ -1,4 +1,5 @@
 const pup = require('puppeteer');
+const fs = require('fs');
 const nodemailer = require('nodemailer');
 const mysql = require('mysql');
 const conexion = mysql.createConnection({
@@ -191,7 +192,7 @@ function sendMail(boleta_pdf1)
     //Correo que se enviara: destinario y archivos adjuntados
     let mailOptions = {
     from: 'ovayandah.tours2020@gmail.com',
-    // to: `${txtCorreo.value}`,
+    to: `${txtCorreo.value}`,
     to: 'gtallenpadi13@gmail.com',
     subject: 'Boleta de Reservacion',
     text: 'Disfrute de su tour y gracias por elegir Ovayandah Tours por nosotros te llevamos ovayandah :)',
@@ -380,12 +381,18 @@ function pdfGeneracion()
 {
     let sql_boleta = 
     `select r.id ID, concat(c.primer_nombre, " ", c.primer_apellido) NombreCompleto, r.cantidad_turistas CantPersonas,
-    r.fecha_inicio_tour FechaInicio, r.fecha_final_tour FechaFinal, r.fecha_creacion FechaCreacion, r.tours_id
+    r.fecha_inicio_tour FechaInicio, r.fecha_final_tour FechaFinal, r.fecha_creacion FechaCreacion, r.tours_id ID, concat(e.primer_nombre," ", e.primer_apellido) NombreEmpleado
     from clientes c
     join reservaciones r
         on c.id = r.id_clientes
+	join empleados_reservaciones re 	
+		on r.id = re.reservacion_id
+	join empleados e
+		on re.empleados_id = e.id
+	where r.id in (select id from reservaciones order by r.id desc)
+    group by r.id,e.id
     order by r.id desc
-    limit 1;`
+    limit 2;`
     let dir_boleta = './boletas/boleta.html'
     
     
@@ -601,16 +608,16 @@ function pdfGeneracion()
                         <br>
                         <div class="parteinf">
                             <div class="enc">
-                                <input type="text" value = "">
-                                <span>Tourguide</span>
+                                <input type="text" value = "${resultados[1].NombreEmpleado}">
+                                <span>Empleado Encargado</span>
                             </div>
                             <div class="enc">
-                                <input type="text">
-                                <span>Transportista</span>
+                                <input type="text" values = "${resultados[0].NombreEmpleado}">
+                                <span>Empledo Encargado</span>
                             </div>
                             <div class="enc">
-                                <input type="text">
-                                <span>${resultados[0].FechaCreacion}</span>
+                                <input type="text" value="${resultados[0].FechaCreacion}">
+                                <span>Fecha Creacion</span>
                             </div>
                         </div>
                         <br>
