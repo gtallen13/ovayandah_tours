@@ -108,10 +108,46 @@ function cambioTours(evt, id_tour) {
         toursinfo.innerHTML = html_info;
         tours_imagen.style.backgroundImage = `url("./carpeta.css/img/tour${id_tour}.jpg")`;
     });
-
-
-
 }
+//cargar los tours guides al combo box
+function selecEmpleadosTG()
+{
+    let select_tourguides = document.getElementById('cb_tourguides')
+    let query_tourguides = `select id,concat(primer_nombre, " ", primer_apellido) NombreCompleto, id_posicion from empleados
+    where id_posicion = 2;`
+    let html_tourguides = `<select class="combox"><option value="" disabled selected hidden>Tour Guides</option>`
+    conexion.query(query_tourguides,function(err, resultados,campor)
+    {
+        if (err) throw err;
+        for (let r of resultados)
+        {
+            html_tourguides += `<option value="${r.id}">${r.NombreCompleto}</option>`
+        }
+        html_tourguides += `</select><br>`
+        select_tourguides.innerHTML = html_tourguides;
+    })
+}
+
+
+function selecEmpleadosTransportista()
+{
+    let select_transportista = document.getElementById('cb_transportista')
+    let query_transportista = `select id,concat(primer_nombre, " ", primer_apellido) NombreCompleto, id_posicion from empleados
+    where id_posicion = 3;`
+    let html_transportista = `<select class="combox"><option value="" disabled selected hidden>Transportista</option>`
+    conexion.query(query_transportista,function(err, resultados,campor)
+    {
+        if (err) throw err;
+        for (let r of resultados)
+        {
+            html_transportista += `<option value="${r.id}">${r.NombreCompleto}</option>`
+        }
+        html_transportista += `</select><br>`
+        select_transportista.innerHTML = html_transportista;
+    })
+}
+selecEmpleadosTG();
+selecEmpleadosTransportista();
 
 btnReservar.addEventListener('click', function (e) {
     e.preventDefault()
