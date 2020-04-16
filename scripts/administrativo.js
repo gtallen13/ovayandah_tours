@@ -35,7 +35,7 @@ for (let x = 0; x < enlaces1.length; x++)
             document.getElementById("esconder-empleado").classList.remove('esconder')
             document.getElementById("esconder-graficos").classList.add('esconder')
            //Aqui se llama la funcion de buscar empleado dependiendo de su nombre o apellido o su id.
-            buscarEmpleado()
+            //buscarEmpleado()
 
         } else {
             limpiarFormEmpleados();
@@ -217,62 +217,61 @@ function mostrarReservaciones(){
 }
 
 //Con esta vamos a buscar por primer nombre, primer apellido o por numero de empleado
-function buscarEmpleado(){
-    btnBuscar.addEventListener('click',function(evt){
-        evt.preventDefault()
-        console.log(evt.code)
-        if (txtBusqueda.value === ""){
-            toastr.warning('Busqueda vacia', {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-bottom-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-              });
-            console.log("Busqueda Vacia")
-            return;
-        }
-            let sql = `select * from empleados where (primer_nombre like ? or primer_apellido like ? or id = ? ) and tipo_usuario_id=2`
-            conexion.query(sql,[`${txtBusqueda.value}%`,`${txtBusqueda.value}%`, `${txtBusqueda.value}`],function(err,fields,campos){
-                if (err) throw err; else{
-                    for (let fila of fields){
-                        document.getElementById('info-busqueda-emp').innerHTML = `<input type="button" value="${fila.primer_nombre} ${fila.primer_apellido}"  class="item4" id=${fila.id}>`
-                        consulta = `select * from  empleados where id = ${fila.id} and tipo_usuario_id = 2 `
-                        conexion.query(consulta,function(err,filas,campoes){
-                            if (err) throw err;
-                                
-                             else {
-                                let html = '<table>'
-                                for(let row of filas){
-                                    html += `<tr><th>Nombre</th></tr><tr><td>${row.primer_nombre}</td></tr>`
-                                    html += `<tr><th>Apellido</th></tr><tr><td>${row.primer_apellido}</td></tr>`
-                                    html += `<tr><th>Telefono</th></tr><tr><td>${row.telefono}</td></tr>`
-                                    html += `<tr><th>Email</th></tr><tr><td>${row.email}</td></tr>`
-                                }
-                                html += '</table>'
-                                document.getElementById('tabla-empleado').innerHTML = html
-                            }
+btnBuscar.addEventListener('click',function(evt){
+    evt.preventDefault()
+    console.log(evt.code)
+    if (txtBusqueda.value === ""){
+        toastr.warning('Busqueda vacia', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            });
+        console.log("Busqueda Vacia")
+        return;
+    }
+        let sql = `select * from empleados where (primer_nombre like ? or primer_apellido like ? or id = ? ) and tipo_usuario_id=2`
+        conexion.query(sql,[`${txtBusqueda.value}%`,`${txtBusqueda.value}%`, `${txtBusqueda.value}`],function(err,fields,campos){
+            if (err) throw err; else{
+                for (let fila of fields){
+                    document.getElementById('info-busqueda-emp').innerHTML = `<input type="button" value="${fila.primer_nombre} ${fila.primer_apellido}"  class="item4" id=${fila.id}>`
+                    consulta = `select * from  empleados where id = ${fila.id} and tipo_usuario_id = 2 `
+                    conexion.query(consulta,function(err,filas,campoes){
+                        if (err) throw err;
                             
-                        })
+                            else {
+                            let html = '<table>'
+                            for(let row of filas){
+                                html += `<tr><th>Nombre</th></tr><tr><td>${row.primer_nombre}</td></tr>`
+                                html += `<tr><th>Apellido</th></tr><tr><td>${row.primer_apellido}</td></tr>`
+                                html += `<tr><th>Telefono</th></tr><tr><td>${row.telefono}</td></tr>`
+                                html += `<tr><th>Email</th></tr><tr><td>${row.email}</td></tr>`
+                            }
+                            html += '</table>'
+                            document.getElementById('tabla-empleado').innerHTML = html
+                        }
                         
-                    }
+                    })
+                    
                 }
-            })
-        
+            }
+        })
     
-            
-    }) 
-}
+
+        
+}) 
+
 
 // Con esta funcion vamos a poder buscar las boletas dependiendo el numero de reservacion
 function buscarReservacion(){

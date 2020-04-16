@@ -202,7 +202,7 @@ function nombrar () {
                     html += `<tr><th>Ubicaciones</th></tr><tr><td>${row.Ubicaciones}</td></tr>`
                 }
                 html += '</table>'
-                document.getElementById('tabla-reservacion').innerHTML = html
+                document.getElementById('tabla-info').innerHTML = html
             }
             
         })
