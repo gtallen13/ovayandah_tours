@@ -105,7 +105,7 @@ function mostrarReservaciones(){
     inner join empleados as e on er.empleados_id=e.id 
     inner join tours as t on r.tours_id=t.id 
     where r.fecha_inicio_tour >= CURDATE() 
-    group by r.id order by r.fecha_inicio_tour asc limit 20`
+    group by r.id order by r.fecha_inicio_tour asc limit 12`
     conexion.query(consulta1,function(err,filas,campos){
         for (let fila of filas){
 

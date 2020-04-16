@@ -144,7 +144,7 @@ div#tours.pagina div.row div.column_1 div#tours_info p + p
     position: relative;
     color: whitesmoke;
     width: 450px;
-    
+    padding-left: 10px;
 }
 /* Precio del Tour */
 div#tours.pagina div.row div.column_1 div#tours_info h2 + p
@@ -331,3 +331,7 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancela
     border: 2.5px solid rgb(240, 165, 45);
     outline: none;
 }
+
+
+
+

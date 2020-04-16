@@ -1,7 +1,7 @@
 
 body{
   margin: 0;
-  background-color:  rgb(7, 61, 137);
+  
 }
   .caja3{
     width: 100vw;
@@ -16,7 +16,7 @@ body{
     width: 50vw;
     height: 101vh;
     max-width: 250px;
-    background-color: rgb(9,79,174);;
+    background-color: rgb(9,79,174);
     border: 2px solid #efb810;
     overflow: hidden;
   }
@@ -100,7 +100,7 @@ body{
     background-color: rgb(9,79,174);
     width: 100%;
     height: 50%;
-    margin-top: 5px;
+    margin-top: 25px;
     max-width: 100%;
     padding: 5px;
   }
@@ -137,7 +137,7 @@ body{
     cursor: pointer;
   
     padding: 7px 5px 7px 5px;
-    margin-top: 20px;
+    margin-top: 5px;
    border-top-right-radius: 10px;
   
    border-bottom-left-radius: 10px;
@@ -160,7 +160,7 @@ body{
 }
   .contenido-lateral .mejores .empleado1{
     
-    height: 40%;
+    height: 90px;
     background-color: #fff;
     border-bottom: 3px solid #efb810;
     display: flex;
@@ -168,7 +168,7 @@ body{
     
   }
   .contenido-lateral .mejores .empleado2{
-    height: 40%;
+    height: 90px;
     background-color: #fff;
     border-bottom: 3px solid #efb810;
     display: flex;
@@ -176,7 +176,7 @@ body{
   }
 
   .contenido-lateral .mejores .empleado3{
-    height: 40%;
+    height: 90px;
     background-color: #fff;
     border-bottom: 3px solid #efb810;
     display: flex;
@@ -184,7 +184,7 @@ body{
   }
 
   .contenido-lateral .mejores .empleado4{
-    height: 40%;
+    height: 90px;
     background-color: #fff;
     border-bottom: 3px solid #efb810;
     display: flex;
@@ -192,7 +192,7 @@ body{
   }
 
   .contenido-lateral .mejores .empleado5{
-    height: 40%;
+    height: 90px;
     background-color: #fff;
     border-bottom: 3px solid #efb810;
     display: flex;
@@ -299,16 +299,15 @@ div.caja4 .nombre-correo{
 
 /*Diseño de login*/
 
-div.contenedor-login{
+div.contenedor-login .probando{
   margin-top: 100px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
   height: 400px;
-  width: 300px;
-  margin-left: 37.5%;
+  width: 350px;
+  margin-left: 30.5%;
   border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
 
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
@@ -317,13 +316,13 @@ div.contenedor-login{
 
 
 
-div.contenedor-login input{
+div.contenedor-login .probando input{
   margin: auto;
   margin-top: 10px;
 }
 
 
-div.contenedor-login input[type="button"]{
+div.contenedor-login .probando input[type="button"]{
   margin-top: 0;
   margin-bottom: center;
   width: 250px;
@@ -343,33 +342,30 @@ div.contenedor-login input[type="button"]{
   display: none;
 }
 
-.formulario form .contenedor-login .login_encabezado{
+.formulario form  .contenedor-login .probando .login_encabezado{
   background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
  width: 100%;
  height: 80px;
  color: #fff;
-
-  border-top-right-radius: 15px;
 }
 
-.formulario form .contenedor-login .login_encabezado h2{
+.formulario form .contenedor-login .probando .login_encabezado h2{
 font-size: 25px;
 margin-top: 30px;
 text-align: center;
 }
 
-.formulario form .contenedor-login #username{
+.formulario form .contenedor-login .probando #username{
   width: 250px;
   border-bottom: 1px solid #c0c0c0;
   border-top: 0;
   border-left: 0;
   border-right: 0;
   outline: none;
-  margin-top: 50px;
-  margin-bottom: 35px;
+  margin: 50px 0 35px 20px;
 }
 
-.formulario form .contenedor-login #password{
+.formulario form .contenedor-login .probando #password{
   width: 250px;
   border-bottom: 1px solid #c0c0c0;
   border-top: 0;
@@ -377,4 +373,336 @@ text-align: center;
   border-right: 0;
   outline: none;
   margin-top: 40px;
+  margin-left: 20px;
 }
+
+ .formulario .login {
+  width: 100%;
+  height: 100vh;
+  background: #bc4e9c;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, hsla(251, 67%, 43%, 0.459), hsla(317, 45%, 52%, 0.664)), url(../img/playa1.jpg);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, hsla(251, 64%, 60%, 0.459), hsla(229, 59%, 48%, 0.664)), url(../img/playa1.jpg);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/**/
+.formulario .login form .contenedor-login .imagen{
+  width: 200px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+
+  border-left: 3px solid #efb810;
+  margin-top: 100px;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.formulario .login form .contenedor-login .imagen img{
+  width: 100px;
+  height: 100px;
+  align-items: center;
+
+}
+
+.formulario .login .contenedor-login{
+  display: flex;
+}
+
+
+
+/*/***********************************/
+
+.esconder
+{
+    display: none;
+}
+
+#cajamenus header{
+    
+    
+    width: 100%;
+    
+}
+
+/*Altura y Ancho de los iconos del menú*/
+#cajamenus header li a img{
+    width: 20px;
+    height: 20px;
+    padding-right: 5px;
+    
+}
+
+
+
+/*Estilo al encabezado*/
+
+
+span { color:#fff }
+
+/**/
+
+#cajamenus header .wrappers input#btn-menu[type="checkbox"]{
+    display: none;
+}
+header label{
+    display: none;
+    width: 30px;
+    height: 50px;
+    padding: 10px;
+    padding-bottom: 0%;
+    border-right: 1px solid #ffffff;
+    
+}
+
+header label img{
+    width: 30px;
+    height: 30px;
+}
+header label:hover{
+    cursor:pointer;
+    
+   
+}
+header nav ul li:hover{
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+    border-radius: 20px;
+}
+
+#cajamenus header .wrappers .navegacions ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    line-height: normal;
+    
+}
+
+#cajamenus header .wrappers .navegacions li a{
+    display: inline-block;
+    font-size: 25px;
+    padding: 25px 10px;
+    color: #fff;
+    text-decoration: none;
+    
+    -o-webkit-transition:all 500ms eas;  
+    -o-transition: all 500ms eas;
+    transition:all 500ms eas;
+    
+}
+
+.login-box {
+  width: 340px;
+  height: 400px;
+  background: rgb(255,255,255);
+  color: #000;
+  top: 50%;
+  left: 30%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  margin-top: 20px;
+
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
+}
+
+.login-box .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+.login-box .encabezado_login{
+  height: 100px;
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.login-box .encabezado_login h1 {
+ 
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 60px;
+  color: rgb(255, 255, 255);
+}
+
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="text"], .login-box input[type="password"] {
+  width: 250px;
+  border-bottom: 1px solid #c0c0c0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  outline: none;
+  margin: 50px 0 35px 40px;
+}
+
+.login-box input[type="button"] {
+  margin-top: 0;
+  margin-bottom: center;
+  width: 250px;
+  height: 50px;
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+ border-bottom-left-radius: 5px;
+ border-bottom-right-radius: 5px;
+ border-top-left-radius: 5px;
+ border-top-right-radius: 5px;
+ margin-left: 40px;
+}
+
+.login .fralogin .Frase_Login h2{
+  color: white;
+  display: flex;
+  justify-content: right;
+  margin-top: 220px;
+  float: right;
+  padding-right: 60px;
+  font-size: 30px;
+ 
+}
+
+#login.pagina.esconder .login .fralogin{
+  display: flex;
+}
+/******/
+
+footer{
+  background: rgb(255,255,255);
+  padding: 60px 0 30px 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.contenedor-footer{
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+  margin: auto;
+  padding-bottom: 50px;
+  border-bottom: 3px solid rgb(229,161,50);
+}
+
+.content-foo{
+  text-align: center;
+}
+
+.content-foo h4{
+
+  border-bottom: 3px solid rgb(229,161,50);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.titulo-final{
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0 0 0;
+ 
+}
+
+@media screen and (max-width:900px){
+  .fondo-playa{
+      background-position: center;
+  }
+
+  .contenedor-sobre-nosotros{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .sobre-nosotros .contenido-textos{
+      width: 90%;
+  }
+
+  .imagen-about-us{
+      width: 90%;
+  }
+
+  /* Galeria */
+
+  .imagen-port{
+      width: 44%;
+      
+      
+  }
+
+  
+}
+
+@media screen and (max-width:500px){
+  nav{
+      text-align: center;
+      padding: 30px 0 0 0;
+  }
+
+  nav > a{
+      margin-right: 5px;
+  }
+
+  .textos-header h1{
+      font-size: 35px;
+  }
+
+  .textos-header h2{
+      font-size: 20px;
+  }
+
+  
+
+  /* Galeria */
+
+  .imagen-port{
+      width: 44%;
+  
+  }
+
+  
+
+  /* Footer */
+
+  .contenedor-footer{
+      flex-direction: column;
+      border: none;
+  }
+
+  .content-foo{
+      margin-bottom: 60px;
+      text-align: center;
+  }
+
+  .content-foo h4{
+      border: none;
+  }
+
+  .content-foo p{
+      color: #fff;
+      border-bottom: 1px solid #f2f2f2;
+      padding-bottom: 20px;
+  }
+
+}
+
