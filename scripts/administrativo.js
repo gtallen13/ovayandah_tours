@@ -1,9 +1,9 @@
+
+
 /*Esta parte del codigo sirve para controlar el cambio de pagina de Reservacion,Empleado,Estadisticas */
 const enlaces1= document.getElementsByClassName('item5');
 const txtBusqueda = document.getElementById("busqueda_reservaciones")
 const btnBuscar = document.getElementById('buscar')
-
-
 /*         Variables del formulario para agregar empleados  */
 let fe_txtUsuario = document.getElementById('fe_usuario');
 let fe_txtContrasenia = document.getElementById('fe_contrasenia');

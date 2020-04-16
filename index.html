@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
     <link href="./carpeta.css/links/main.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./carpeta.css/links/tours.css" rel="stylesheet" type="text/css" >
+    <link href="./carpeta.css/links/tours.css" rel="stylesheet" type="text/css">
     <link href="./carpeta.css/links/empleado.css" rel="stylesheet" type="text/css">
     <link href="./carpeta.css/links/administrativo.css" rel="stylesheet" type="text/css">
     <link href="./carpeta.css/links/estilo.css" rel="stylesheet" type="text/css">
@@ -18,12 +18,21 @@
 <body>
     <Form>
         <!-- The Modal -->
-            <div id="myModal" class="modal" >
+        <div id="myModal" class="modal">
             <!-- Modal content  -->
-                <div class="modal-content" >
-                    <div class="modal-header">
-                        <span class="close">&times;</span>
-                        <img src="./carpeta.css/img/logot.png" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <img src="./carpeta.css/img/logot.png">
+                </div>
+                <div class="modal-body">
+                    <div class="contenedor"></div>
+                    <div class="casilla">
+                        <Label id="cal">Días a reservar</Label>
+                        <span>Fecha de inicio</span>
+                        <input type="datetime-local" name="fecha" id="fecha">
+                        <span>Fecha final</span>
+                        <input type="datetime-local" name="fecha" id="fecha2">
                     </div>
                     <div class="modal-body">
                         <div class="contenedor"></div>
@@ -64,9 +73,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-        </Form>   
+        </div>
+
+        </div>
+    </Form>
 
     <!--                             HTML MENÚ       -->
  
@@ -154,36 +165,22 @@
                 </div>
             </div>  
             <div class="column_1" style="background-color:#508ab9;">
+                
                 <div id="caja"></div>
 
                 <div id="tours_info">
-
                 </div>
                 <button id="myBtn"><a href="#mymodal">Reservas</a></button>
-
-
-                <!--Elegir Personal de los Tours-->
-                <h2>Elegir Peronal</h2>
-
-                <div class="principal">
-                    <div class="combo-box" style="width:200px;">
-                        <select>
-                            <option value="0">Tours Guide</option>
-                            <option value="1">Roger Colindres</option>
-                            <option value="2">Juan Carlos Mejia</option>
-                            <option value="3">Mario Hernandez</option>
-                        </select>
-                    </div>
-                    <div class="combo-box_1" style="width:200px;">
-                        <select>
-                            <option value="0">Transportista</option>
-                            <option value="1">David Colindres</option>
-                            <option value="2">Fernando Martinez</option>
-                            <option value="3">Pedro Salinas</option>
-                        </select>
+                <!--       Elegir Personal y Reservar        -->
+                <div class="elegir_personal">
+                    <h2>Elegir Personal</h2>
+                    <div class="elegir_personal_combox" >
+                        <div id="cb_tourguides">
+                        </div>
+                        <div id="cb_transportista">
+                        </div>
                     </div>
                 </div>
-
                 <!--                                        -->
             </div>
         </div>
@@ -248,13 +245,30 @@
                         <img src="./iconos/dummy.jpg" alt="">
                         <div id="usuario-emp" class="info-emp">
                             
+                <button id="myBtn"><a href="#mymodal">Reservar</a></button>
+            </div>
+        </div>
+
+
+            </div>
+            <!--  Pagina Empleado   -->
+
+            <div id="login" class="pagina esconder">
+                <div id='lolo3' class="caja3 esconder">
+                    <div class="notificaciones">
+                        <div class="logo">
+                            <img src="./iconos/dummy.jpg" alt="">
+                            <div id="usuario-emp" class="info-emp">
+
+                            </div>
                         </div>
-                    </div>
-                
-                    <div class="reservas" name="formulario1">
-                      
-                        <div id="boleta1" class="info">
-                        
+
+                        <div class="reservas" name="formulario1">
+
+                            <div id="boleta1" class="info">
+
+                            </div>
+
                         </div>
                         
                     </div>
@@ -277,9 +291,6 @@
                             <h1 for="">Informacion Del Tour</h1>
                         </div>
                     </div>
-                    <div id="tabla-info" class="informacion">
-        
-                    </div>
                     <div class="parte-abajo">
                         
                         
@@ -300,23 +311,85 @@
                        </div>
                        <div class="empleado2">
                            <img src="./iconos/dummy.jpg" alt="">
-                           <div id="emp2" class="info-emp2">
-                            
+                           <div id="emp2" class="info-emp2"></div>
                         </div>
-                       </div>
-                       <div class="empleado3">
-                        <img src="./iconos/dummy.jpg" alt="">
-                        <div id="emp3" class="info-emp3">
-                            
+                    </div>
+
+                    <div class="contenido-central">
+                        <div class="contenido-central-top">
+                            <div class="titulo">
+                                <h1 for="">Informacion Del Tour</h1>
+                            </div>
                         </div>
-                       </div>
-                       <div class="empleado4">
-                        <img src="./iconos/dummy.jpg" alt="">
-                        <div id="emp4" class="info-emp4">
-                           
+                        <div id="tabla-info" class="informacion">
+
                         </div>
-                       </div>
-                       <div class="empleado5">
+                        <div class="parte-abajo">
+                            <div class="caja4 pagina">
+                                <h1>Informacion Del Cliente</h1>
+                                <div class="nombre-completo">
+
+                                    <label for="">First Name: </label>
+                                    <input type="text" id="txt-name" disabled>
+
+                                    <label for="">Last Name: </label>
+                                    <input type="text" id="txt-lastname" disabled>
+                                </div>
+
+                                <div class="nombre-correo">
+
+                                    <label for="">Telphone:</label>
+                                    <input type="text" id="txt-telphone" disabled>
+
+                                    <label for="" id="correo">User Email: </label>
+                                    <input type="text" id="txt-email" disabled>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="contenido-lateral">
+                        <div class="mejores">
+                            <div class="Tema">
+                                <h1>Top 5</h1>
+                            </div>
+                            <div class="empleado1">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp1" class="info-emp1">
+
+                                </div>
+                            </div>
+                            <div class="empleado2">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp2" class="info-emp2">
+
+                                </div>
+                            </div>
+                            <div class="empleado3">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp3" class="info-emp3">
+
+                                </div>
+                            </div>
+                            <div class="empleado4">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp4" class="info-emp4">
+
+                                </div>
+                            </div>
+                            <div class="empleado5">
+                                <img src="./iconos/dummy.jpg" alt="">
+                                <div id="emp4" class="info-emp5">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empleado5">
                         <img src="./iconos/dummy.jpg" alt="">
                             <div  id="emp5" class="info-emp5"> 
                             </div>

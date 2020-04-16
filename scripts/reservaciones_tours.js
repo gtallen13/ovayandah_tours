@@ -1,8 +1,6 @@
-const mysql = require ('mysql');
-const nodemailer = require('nodemailer');
-const fs = require ('fs');
 const pup = require('puppeteer');
-
+const nodemailer = require('nodemailer');
+const mysql = require('mysql');
 const conexion = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -75,24 +73,23 @@ let cbSwimmingDolphins = ``
 
 
 
-let sql = 'select id, nombre, precio, descripcion from tours' 
+let sql = 'select id, nombre, precio, descripcion from tours'
 let i = 1;
 let arr = [1]
 
 //consulta para mostrar el primer tour
-conexion.query (sql, 
-    function(err, filas, fields){
+conexion.query(sql,
+    function (err, filas, fields) {
         if (err) throw err;
         tours_imagen.style.backgroundImage = 'url("./carpeta.css/img/tour1.jpg")';
         html_info += `<h2>${filas[0].nombre}</h2>`
         html_info += `<p>$ ${filas[0].precio}</p>`
         html_info += `<p>${filas[0].descripcion}</p>`
-        
-        for (let fila of filas)
-        {
+
+        for (let fila of filas) {
             html_menu += `<button class = "tablinks" onclick = "cambioTours('click', ${i})"  >${fila.nombre}</a>`;
             i++;
-            if (i == 12) {break}
+            if (i == 12) { break }
         }
         html_menu += '</div></ul>';
         toursmenu.innerHTML = html_menu;
@@ -100,25 +97,59 @@ conexion.query (sql,
     });
 
 //utilizada para navegar entre los tours disponibles
-function cambioTours(evt, id_tour)
-{
+function cambioTours(evt, id_tour) {
     html_info = ''
     let sql = `select * from tours`
-    conexion.query (sql, function(err, resultados, campo)
-    {
+    conexion.query(sql, function (err, resultados, campo) {
         html_info += `<h2>${resultados[id_tour - 1].nombre}</h2>`
         html_info += `<p>$ ${resultados[id_tour - 1].precio}</p>`
         html_info += `<p>${resultados[id_tour - 1].descripcion}</p>`
         arr.push(id_tour)
-        toursinfo.innerHTML = html_info;  
+        toursinfo.innerHTML = html_info;
         tours_imagen.style.backgroundImage = `url("./carpeta.css/img/tour${id_tour}.jpg")`;
     });
-   
-
-    
+}
+//cargar los tours guides al combo box
+function selecEmpleadosTG()
+{
+    let select_tourguides = document.getElementById('cb_tourguides')
+    let query_tourguides = `select id,concat(primer_nombre, " ", primer_apellido) NombreCompleto, id_posicion from empleados
+    where id_posicion = 2;`
+    let html_tourguides = `<select class="combox"><option value="" disabled selected hidden>Tour Guides</option>`
+    conexion.query(query_tourguides,function(err, resultados,campor)
+    {
+        if (err) throw err;
+        for (let r of resultados)
+        {
+            html_tourguides += `<option value="${r.id}">${r.NombreCompleto}</option>`
+        }
+        html_tourguides += `</select><br>`
+        select_tourguides.innerHTML = html_tourguides;
+    })
 }
 
-btnReservar.addEventListener('click',function(e){
+
+function selecEmpleadosTransportista()
+{
+    let select_transportista = document.getElementById('cb_transportista')
+    let query_transportista = `select id,concat(primer_nombre, " ", primer_apellido) NombreCompleto, id_posicion from empleados
+    where id_posicion = 3;`
+    let html_transportista = `<select class="combox"><option value="" disabled selected hidden>Transportista</option>`
+    conexion.query(query_transportista,function(err, resultados,campor)
+    {
+        if (err) throw err;
+        for (let r of resultados)
+        {
+            html_transportista += `<option value="${r.id}">${r.NombreCompleto}</option>`
+        }
+        html_transportista += `</select><br>`
+        select_transportista.innerHTML = html_transportista;
+    })
+}
+selecEmpleadosTG();
+selecEmpleadosTransportista();
+
+btnReservar.addEventListener('click', function (e) {
     e.preventDefault()
     //validando el modal
     if (validacionModal(txtFechaInicio.value, txtFechaFinal.value, txtPrimerNombre.value,
@@ -127,7 +158,7 @@ btnReservar.addEventListener('click',function(e){
     {
         insertarClientes()
         encontrarIdCliente(arr[arr.length - 1])
-        
+
     } else {
         console.log('Revise bien el correo')
         //notificacion
@@ -235,7 +266,7 @@ for (let i = 0; i < enlaces3.length; i++) {
 
 
 
-function insertarClientes(){
+function insertarClientes() {
     let sql = 'insert into clientes(email,primer_nombre,primer_apellido,telefono)values(?,?,?,?)'
     conexion.query(sql,[`${txtCorreo.value}`,`${txtPrimerNombre.value}`,`${txtPrimerApellido.value}`,`${telefono.value}`],
     function(err,filas,campos){
@@ -283,7 +314,7 @@ function insertarClientes(){
     })
 }
 
-function encontrarIdCliente(tour_id){
+function encontrarIdCliente(tour_id) {
     let consultaCliente = 'select id from clientes order by id desc limit 1'
     conexion.query(consultaCliente,function(err,results,campoes){
         if (err) {console.log('Error')} else {
