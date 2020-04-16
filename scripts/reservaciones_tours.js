@@ -157,31 +157,12 @@ btnReservar.addEventListener('click', function (e) {
         txtPrimerApellido.value, txtCorreo.value,txtVerificacionCorreo.value, 
         txtPersonas.value, telefono.value))
     {
-        insertarClientes()
-        encontrarIdCliente(arr[arr.length - 1])
-
-    } else {
-        console.log('Revise bien el correo')
-        //notificacion
-        //correos incorrectos
-        toastr.error('El correo no cumple con los datos necesarios', {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-bottom-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-          });
-        console.log('Revise bien el correo');
+        insertarClientes()    
+        encontrarIdCliente(arr[arr.length - 1]);   
+    }
+    else
+    {
+        console.log("No se pudo realizar la reservaciones");
     }
 })
 
@@ -265,58 +246,52 @@ for (let i = 0; i < enlaces3.length; i++) {
     })   
 }
 
-
-
 function insertarClientes() {
     let sql = 'insert into clientes(email,primer_nombre,primer_apellido,telefono)values(?,?,?,?)'
     conexion.query(sql,[`${txtCorreo.value}`,`${txtPrimerNombre.value}`,`${txtPrimerApellido.value}`,`${telefono.value}`],
     function(err,filas,campos){
-        if (err) {
-            toastr.error('El llenado ha fallado por favor reviselo', {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-              });
-            console.log('error')
-            return;
-        } 
-        else {
-            toastr.success('Los datos se guardaron correctamente',{
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            });
-            console.log('Se almacenaron los clientes correctamente')
-        }
-    })
+        // if ((err) ) {
+        //     toastr.error('El Correo ya existe', {
+        //         "closeButton": false,
+        //         "debug": false,
+        //         "newestOnTop": false,
+        //         "progressBar": false,
+        //         "positionClass": "toast-top-right",
+        //         "preventDuplicates": false,
+        //         "onclick": null,
+        //         "showDuration": "300",
+        //         "hideDuration": "1000",
+        //         "timeOut": "5000",
+        //         "extendedTimeOut": "1000",
+        //         "showEasing": "swing",
+        //         "hideEasing": "linear",
+        //         "showMethod": "fadeIn",
+        //         "hideMethod": "fadeOut"
+        //       });
+        // }
+        toastr.success('Los datos se guardaron correctamente',{
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        });
+        console.log('Se almacenaron los clientes correctamente')
+    })  
 }
 
 function encontrarIdCliente(tour_id) {
-    let consultaCliente = 'select id from clientes order by id desc limit 1'
+    let consultaCliente = `select id from clientes where email = "${txtCorreo.value}"`
     conexion.query(consultaCliente,function(err,results,campoes){
         if (err) {console.log('Error')} else {
                 let consultaId = `select ID,precio from tours where ID = ${tour_id} limit 1`
@@ -381,7 +356,7 @@ function pdfGeneracion()
 {
     let sql_boleta = 
     `select r.id ID, concat(c.primer_nombre, " ", c.primer_apellido) NombreCompleto, r.cantidad_turistas CantPersonas,
-    r.fecha_inicio_tour FechaInicio, r.fecha_final_tour FechaFinal, r.fecha_creacion FechaCreacion, r.tours_id ID, concat(e.primer_nombre," ", e.primer_apellido) NombreEmpleado
+    r.fecha_inicio_tour FechaInicio, r.fecha_final_tour FechaFinal, r.fecha_creacion FechaCreacion, r.tours_id IDTours, concat(e.primer_nombre," ", e.primer_apellido) NombreEmpleado
     from clientes c
     join reservaciones r
         on c.id = r.id_clientes
@@ -390,18 +365,18 @@ function pdfGeneracion()
 	join empleados e
 		on re.empleados_id = e.id
 	where r.id in (select id from reservaciones order by r.id desc)
+    and c.email = '${txtCorreo.value}'
     group by r.id,e.id
-    order by r.id desc
-    limit 2;`
+    order by r.id desc;`
     let dir_boleta = './boletas/boleta.html'
     
     
 
     conexion.query(sql_boleta, function(err, resultados, campos)
     {
-        
-        selecTour(parseInt(resultados[0].tours_id))
-        console.log(parseInt(resultados[0].tours_id))
+        if(err) throw err;
+        selecTour(parseInt(resultados[1].IDTours))
+        console.log(parseInt(resultados[1].IDTours))
         console.log(resultados)
         let arhivo_boleta = `
         
@@ -612,7 +587,7 @@ function pdfGeneracion()
                                 <span>Empleado Encargado</span>
                             </div>
                             <div class="enc">
-                                <input type="text" values = "${resultados[0].NombreEmpleado}">
+                                <input type="text" value = "${resultados[0].NombreEmpleado}">
                                 <span>Empledo Encargado</span>
                             </div>
                             <div class="enc">
