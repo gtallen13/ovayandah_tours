@@ -6,7 +6,7 @@ const db_user = process.env.DB_USER
 const db_database = process.env.DB_DATABASE
 const db_password = process.env.DB_PASSWORD
 
-
+console.log(__dirname + '/carpeta.ccs/img/ovaicn.icns')
 /**Configuracion de Librerias a utilizar*/
 const Chart = require('chart.js');
 const pup = require('puppeteer');

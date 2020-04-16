@@ -14,7 +14,6 @@ function createWindow() {
     center: true,
     webPreferences: {
       nodeIntegration: true
-    
     }
   })
 
