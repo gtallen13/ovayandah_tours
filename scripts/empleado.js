@@ -122,7 +122,7 @@ btnLogin.addEventListener('click', function(e){
 
 //Encontrar los top 5 mejores empleados del mes dependiendo de la fecha del sistema
 function cargarTop(){
-    let consulta1 = `SELECT e.id,e.primer_nombre,e.primer_apellido,sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) as horas_trabajadas FROM toursdb.reservaciones as r inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id inner join toursdb.empleados as e on er.empleados_id=e.id where r.fecha_inicio_tour between concat(YEAR(Now()),'-',month((NOW() - INTERVAL 1 MONTH)),'-01') and DATE(LAST_DAY(NOW() - INTERVAL 1 MONTH)) group by e.id order by sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) desc limit 5`
+    let consulta1 = `SELECT e.id,e.primer_nombre,e.primer_apellido,sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) as horas_trabajadas FROM reservaciones as r inner join empleados_reservaciones AS er ON r.id=er.reservacion_id inner join empleados as e on er.empleados_id=e.id where r.fecha_inicio_tour between concat(YEAR(Now()),'-',month((NOW() - INTERVAL 1 MONTH)),'-01') and DATE(LAST_DAY(NOW() - INTERVAL 1 MONTH)) group by e.id order by sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) desc limit 5`
     conexion.query(consulta1,function(err,filas,campos){
         let cont = 0
         if (err){console.log('error')}else {
@@ -137,9 +137,9 @@ function cargarTop(){
 
 function cargarPrimerInfo() {
     //Cargar la primer informacion de la reservacion
-    let consulta2 = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones FROM toursdb.reservaciones as r
-inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-inner join toursdb.empleados as e on er.empleados_id=e.id
+    let consulta2 = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones FROM reservaciones as r
+inner join empleados_reservaciones AS er ON r.id=er.reservacion_id
+inner join empleados as e on er.empleados_id=e.id
 inner join tours as t on r.tours_id=t.id
 inner join clientes as c on r.id_clientes = c.id
 inner join tours_ubicaciones as tu on t.id=tu.id_tours
@@ -181,9 +181,9 @@ function nombrar () {
                 e.preventDefault();
                 console.log('hola')
                 const idElemento = e.currentTarget.getAttribute('id');
-                let sql = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones,c.email,c.telefono FROM toursdb.reservaciones as r
-        inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-        inner join toursdb.empleados as e on er.empleados_id=e.id
+                let sql = `SELECT r.id,r.fecha_inicio_tour,fecha_final_tour,e.primer_nombre,e.primer_apellido,t.nombre,c.primer_nombre as Nombre_Cliente,c.primer_apellido as Apellido_Cliente,u.nombre, r.cantidad_turistas,group_concat(u.nombre) as Ubicaciones,c.email,c.telefono FROM reservaciones as r
+        inner join empleados_reservaciones AS er ON r.id=er.reservacion_id
+        inner join empleados as e on er.empleados_id=e.id
         inner join tours as t on r.tours_id=t.id
         inner join clientes as c on r.id_clientes = c.id
         inner join tours_ubicaciones as tu on t.id=tu.id_tours

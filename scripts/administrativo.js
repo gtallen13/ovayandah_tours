@@ -134,13 +134,13 @@ function mostrarReservaciones(){
                 e.preventDefault();
                 console.log('hola')
                 const idElemento = e.currentTarget.getAttribute('id');
-                let consulta4 = `SELECT group_concat(e.primer_nombre," ",e.primer_apellido) as empleados FROM toursdb.reservaciones as r
-                inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-                inner join toursdb.empleados as e on er.empleados_id=e.id
+                let consulta4 = `SELECT group_concat(e.primer_nombre," ",e.primer_apellido) as empleados FROM reservaciones as r
+                inner join empleados_reservaciones AS er ON r.id=er.reservacion_id
+                inner join empleados as e on er.empleados_id=e.id
                 where r.id = ${idElemento} and r.fecha_inicio_tour >= CURDATE()`
                 conexion.query(consulta4,function(err,filaEmpleado,campos){
                     if (err) {console.log('Error al cargar los empleados')} else {
-                        let consulta5 = `SELECT distinct group_concat(u.nombre) as nombres FROM toursdb.reservaciones as r
+                        let consulta5 = `SELECT distinct group_concat(u.nombre) as nombres FROM reservaciones as r
                         inner join tours as t on r.tours_id=t.id
                         inner join tours_ubicaciones as tu on t.id=tu.id_tours
                         inner join ubicaciones  as u on tu.id_ubicaciones=u.id
@@ -167,7 +167,7 @@ function mostrarReservaciones(){
                                   });
                                 console.log('Error al cargar las ubicaciones')
                             } else {
-                                let consulta6 = `SELECT r.fecha_inicio_tour,r.fecha_final_tour,r.cantidad_turistas FROM toursdb.reservaciones as r
+                                let consulta6 = `SELECT r.fecha_inicio_tour,r.fecha_final_tour,r.cantidad_turistas FROM reservaciones as r
                                 inner join tours as t on r.tours_id=t.id
                                 inner join clientes as c on r.id_clientes = c.id
                                 where r.id = ${idElemento} and r.fecha_inicio_tour >= CURDATE()`
@@ -277,13 +277,13 @@ btnBuscar.addEventListener('click',function(evt){
 function buscarReservacion(){
     btnBuscar.addEventListener('click',function(e){
         e.preventDefault()
-        let consulta4 = `SELECT group_concat(e.primer_nombre," ",e.primer_apellido) as empleados FROM toursdb.reservaciones as r
-        inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id
-        inner join toursdb.empleados as e on er.empleados_id=e.id
+        let consulta4 = `SELECT group_concat(e.primer_nombre," ",e.primer_apellido) as empleados FROM reservaciones as r
+        inner join empleados_reservaciones AS er ON r.id=er.reservacion_id
+        inner join empleados as e on er.empleados_id=e.id
         where  r.id= ? and r.fecha_inicio_tour >= CURDATE()`
         conexion.query(consulta4,[`${txtBusqueda.value}`],function(err,filaEmpleado,campos){
             if (err) {console.log('Error al cargar los empleados')} else {
-                let consulta5 = `SELECT distinct group_concat(u.nombre) as nombres FROM toursdb.reservaciones as r
+                let consulta5 = `SELECT distinct group_concat(u.nombre) as nombres FROM reservaciones as r
                 inner join tours as t on r.tours_id=t.id
                 inner join tours_ubicaciones as tu on t.id=tu.id_tours
                 inner join ubicaciones  as u on tu.id_ubicaciones=u.id
@@ -310,7 +310,7 @@ function buscarReservacion(){
                               });
                             console.log('Error al cargar las ubicaciones')
                         } else {
-                        let consulta6 = `SELECT r.fecha_inicio_tour,r.fecha_final_tour,r.cantidad_turistas FROM toursdb.reservaciones as r
+                        let consulta6 = `SELECT r.fecha_inicio_tour,r.fecha_final_tour,r.cantidad_turistas FROM reservaciones as r
                         inner join tours as t on r.tours_id=t.id
                         inner join clientes as c on r.id_clientes = c.id
                         where r.id= ? and r.fecha_inicio_tour >= CURDATE()`
@@ -359,7 +359,7 @@ function buscarReservacion(){
 
 // Esta parte del codigo se carga los top 5 empleados del mes anterior
 
-let consultaTop = `SELECT e.id,e.primer_nombre,e.primer_apellido,sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) as horas_trabajadas FROM toursdb.reservaciones as r inner join toursdb.empleados_reservaciones AS er ON r.id=er.reservacion_id inner join toursdb.empleados as e on er.empleados_id=e.id where r.fecha_inicio_tour between concat(YEAR(Now()),'-',month((NOW() - INTERVAL 1 MONTH)),'-01') and DATE(LAST_DAY(NOW() - INTERVAL 1 MONTH)) group by e.id order by sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) desc limit 5`
+let consultaTop = `SELECT e.id,e.primer_nombre,e.primer_apellido,sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) as horas_trabajadas FROM reservaciones as r inner join empleados_reservaciones AS er ON r.id=er.reservacion_id inner join empleados as e on er.empleados_id=e.id where r.fecha_inicio_tour between concat(YEAR(Now()),'-',month((NOW() - INTERVAL 1 MONTH)),'-01') and DATE(LAST_DAY(NOW() - INTERVAL 1 MONTH)) group by e.id order by sum(timediff(r.fecha_final_tour,r.fecha_inicio_tour)) desc limit 5`
 conexion.query(consultaTop,function(err,filas,campos){
     let bandera = 0
     if (err){
