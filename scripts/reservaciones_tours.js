@@ -1,23 +1,9 @@
-const pup = require('puppeteer');
-const fs = require('fs');
-const nodemailer = require('nodemailer');
-const mysql = require('mysql');
 const conexion = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'toursdb'
+    host: db_host,
+    user: db_user,
+    password: db_password,
+    database: db_database
 });
-const toastr = require('toastr')
-// correo de donde se enviara
-let email = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'ovayandah.tours2020@gmail.com',
-        pass: 'ThomasCarlosGustavoDavidJorge'
-    }
-});
-
 conexion.connect(function(err)
 {
     if (err){
@@ -60,7 +46,15 @@ conexion.connect(function(err)
         });
     }
     
-})
+});
+// correo de donde se enviara
+let email = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: email_user,
+        pass: email_password
+    }
+});
 const toursinfo = document.getElementById('tours_info'); //div donde se mostrara la informacion del tour
 const toursmenu = document.getElementById('tours_menu'); //div donde se mostrara el menu de tours
 const tours_imagen = document.getElementById('caja'); //div donde se mostrara la imagen

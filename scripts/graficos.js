@@ -1,4 +1,4 @@
-const Chart = require('chart.js');
+
 let chartUbicaciones = document.getElementById('chart_ubicaciones').getContext('2d');
 let chartTours = document.getElementById('chart_tours').getContext('2d');
 let chartActividades = document.getElementById('chart_actividades').getContext('2d');
