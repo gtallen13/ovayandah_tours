@@ -136,7 +136,7 @@ div#tours.pagina div.row div.column_1 div#tours_info p + p
     position: relative;
     color: whitesmoke;
     width: 450px;
-    
+    padding-left: 10px;
 }
 /* Precio del Tour */
 div#tours.pagina div.row div.column_1 div#tours_info h2 + p

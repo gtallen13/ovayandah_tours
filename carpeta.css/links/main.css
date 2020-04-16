@@ -2,12 +2,13 @@
 .esconder
 {
     display: none;
+   
 }
 body{
     margin:0;
     font-family: sans-serif;
     padding:0;
-    
+    background-color: rgb(9,79,174);
 }   
 
 #contenedor header{
