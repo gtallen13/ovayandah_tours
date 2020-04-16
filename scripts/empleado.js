@@ -11,8 +11,26 @@ btnLogin.addEventListener('click', function(e){
     let consultasql = `select concat(primer_nombre, " ", primer_apellido) NombreEmpleado, username,contra,tipo_usuario_id as id from empleados where username = ? and contra = ? `
     conexion.query(consultasql,[`${username.value}`,`${password.value}`],function(err,filas,campos){
         if (err){
+            toastr.error('Cuenta o contraseña incorrectos', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        });
             console.log('error')
         } else {
+<<<<<<< HEAD
             for (let fil of filas) {
                 if (fil.id === 1) {
                     for (let hilo of filas) {
@@ -35,6 +53,60 @@ btnLogin.addEventListener('click', function(e){
                             //notificaion
                             //usuario o contrasenia malas
                         }
+=======
+            if (filas[0].id === 1) {
+                for (let hilo of filas) {
+                    if (username.value === hilo.username & password.value === hilo.contra){
+                        toastr.success(`Bienvenido ${username.value}`, {
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        });
+                        console.log('lo existe')
+                        //Este desasparece el formulario login
+                        document.getElementById('lolo').style.display = 'none'
+                        //Este aparece la pagina de Administrador
+                        document.getElementById('lolo4').classList.remove('esconder')
+                        cargarNombreEmpleado()
+                        nombrar()
+                        // cargarClientes()
+                        cargarTop()
+                        cargarPrimerInfo()
+                        
+                        //bienvenido [nombre del empleado]
+                        
+                    }else {
+                        console.log ('no pudiste entrar')
+                        toastr.error('Cuenta o contraseña incorrectos', {
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        });
+>>>>>>> 4f922652de32e059fd74b72ef372517045b61279
                     }
                 } else if (fil.id === 2) {
                     for (let hilo of filas) {
