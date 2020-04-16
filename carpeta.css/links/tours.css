@@ -64,7 +64,7 @@ div#tours.pagina div.row div.column_1 div#caja {
     margin-left: 10px;
     padding-right: 5px;
     margin-top: 100px;
-
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -221,6 +221,7 @@ div#consultar_cancelar.pagina .cc_busqueda input
     margin-bottom: 15px;
     margin-left: 15px;
     width: 30%;
+    border: 1px solid rgb(240, 165, 45)
 }
 
 
@@ -263,26 +264,31 @@ div#consultar_cancelar.pagina .formulario input#cc_nombre_completo
 {
     margin-left: 40px;
     width: 45%;
+    border: 1px solid rgb(240, 165, 45)
 }
 
 div#consultar_cancelar.pagina .formulario input#cc_fecha_inicio
 {
     width: 45%;
     margin-left: 60px;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario input#cc_fecha_final
 {
     width: 45%;
     margin-left: 85px;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario input#cc_cant_personas
 {
     width: 45.2%;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario input#cc_nombre_tour
 {
     margin-left: 50px;
     width: 45%;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario .seccion_empleados
 {
@@ -294,6 +300,7 @@ div#consultar_cancelar.pagina .formulario .seccion_empleados
 div#consultar_cancelar.pagina .formulario .seccion_empleados input
 {
     width: 45%;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario .seccion_empleados h2
 {
@@ -321,7 +328,7 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actuali
 }
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:hover
 {   
-    background-color: #1860d4;
+    background: linear-gradient(to right, hsla(234, 100%, 70%, 0.459), hsla(212, 100%, 76%, 0.664));
 }
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:focus
 {
@@ -343,7 +350,8 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancela
 }
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancelar:hover
 {
-    background-color: #ff4e00;
+    background: linear-gradient(to right, hsla(54, 89%, 72%, 0.459), hsla(37, 95%, 48%, 0.664));
+
 }
 
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancelar:focus

@@ -1,8 +1,8 @@
 const conexion = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'toursdb'
+    host: db_host,
+    user: db_user,
+    password: db_password,
+    database: db_database
 });
 conexion.connect(function(err)
 {
