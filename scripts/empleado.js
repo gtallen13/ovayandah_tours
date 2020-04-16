@@ -90,7 +90,7 @@ btnLogin.addEventListener('click', function(e){
                     }
                 }   
                 
-            } else if (fil.id === 2) 
+            } else
                 {   
                     for (let hilo of filas) {
                         if (username.value === hilo.username & password.value === hilo.contra){

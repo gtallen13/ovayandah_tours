@@ -69,6 +69,7 @@ overflow-x: hidden;
   color: white;
   text-align: center;
   background: linear-gradient(to right, #0060af 0%, rgb(9, 79, 174)100%);
+  border-bottom: 2px solid rgb(240, 165, 45);
 }
 
 .modal-header img{

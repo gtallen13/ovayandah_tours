@@ -9,11 +9,13 @@ color: #fff;
 }
 
 div#tours.pagina div.row div.column h2 {
-    margin: 0 auto;
-    padding-bottom: 0%;
+  
+    padding-bottom: 10px;
     text-align: center;
     color: rgb(229,161,50);
-    height: 30px;
+    height: 60px;
+    font-size: 30px;
+    border-bottom: 2px solid rgb(240, 165, 45);
 }
 div#tours.pagina div.row div.column h2 + span { color:#fff }
 
@@ -24,6 +26,12 @@ float: left;
 width: 20%;
 padding: 10px;
 height: 550px;
+margin-top: 50px;
+border-bottom:2px solid rgb(240, 165, 45);
+border-top: 2px solid rgb(240, 165, 45);
+border-left: 2px solid rgb(240, 165, 45);
+border-right: 2px solid rgb(240, 165, 45);
+
 /* Should be removed. Only for demonstration */
 }
 div#tours.pagina div.row div.column_1 {
@@ -34,6 +42,7 @@ padding-bottom: 0;
 height: 550px;
 position: relative;
 margin-bottom: 0;
+margin-top: 50px;
 /* Should be removed. Only for demonstration */
 }
 
@@ -55,6 +64,11 @@ div#tours.pagina div.row div.column_1 div#caja {
     margin-left: 10px;
     padding-right: 5px;
     margin-top: 100px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 div#tours.pagina div.row div.column_1 button[id="myBtn"] {
@@ -89,18 +103,31 @@ height: 70%;
 /* Style the buttons inside the tab */
 #tours.pagina .row .column #tours_menu .lista button {
 display: block;
-background-color: inherit;
-color: #f1f1f1;
-margin-bottom: 3px;
-width: 100%;
-padding: 5px;
-border: none;
-outline: none;
-text-align: left;
-cursor: pointer;
-transition: 0.3s;
-font-size: 17px;
 
+
+
+
+
+outline: none;
+
+transition: 0.3s;
+
+
+
+
+background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
+font-size: 12px;
+text-align: center;
+color: rgb(255,255,255);
+cursor: pointer;
+
+padding: 7px 5px 7px 5px;
+margin-top: 5px;
+border-top-right-radius: 10px;
+
+border-bottom-left-radius: 10px;
+
+width: 100%;
 }
 /* Change background color of buttons on hover */
 #tours.pagina .row .column #tours_menu .lista button:hover {
@@ -126,11 +153,11 @@ div#tours.pagina div.row div.column_1 div#tours_info
     flex-direction: column;
 }
 div#tours.pagina div.row div.column_1 div#tours_info h2
-{
+{   width: 500px;
     padding-top: 5%;
     height: 100px;
     font-size: 40px;
-    position: relative;
+    text-align: center;
     color:whitesmoke
     
 }
@@ -141,7 +168,7 @@ div#tours.pagina div.row div.column_1 div#tours_info p + p
     position: relative;
     color: whitesmoke;
     width: 450px;
-    padding-left: 10px;
+    padding-left: 40px;
 }
 /* Precio del Tour */
 div#tours.pagina div.row div.column_1 div#tours_info h2 + p
@@ -161,7 +188,7 @@ div#tours.pagina div.row div.column_1 div#tours_info h2 + p
 
 
 
-div#consultar_cancelar.pagina div.cc_busqueda
+div#consultar_cancelar.pagina div.busquedaboleta
 {
     font-family: sans-serif;
     padding-top: 20px;
@@ -175,7 +202,7 @@ div#consultar_cancelar.pagina div.cc_busqueda
     flex-direction: column;
 
 }
-div#consultar_cancelar.pagina div.cc_busqueda button#cc_btn_buscar
+div#consultar_cancelar.pagina div.busquedaboleta button#cc_btn_buscar
 {
     background-color: rgb(38, 59, 179);
     transition: 1s all;
@@ -186,23 +213,44 @@ div#consultar_cancelar.pagina div.cc_busqueda button#cc_btn_buscar
     color: oldlace;
     margin-top: 10px;
     border-radius: 3px;
-    margin-left: 135px;
+    margin-left: 190px;
     border-bottom: 2.5px solid whitesmoke;
 }
-div#consultar_cancelar.pagina .cc_busqueda label
+div#consultar_cancelar.pagina .busquedaboleta label
 {
     margin-bottom: 15px;
     margin-left: 0 !important;
 }
-div#consultar_cancelar.pagina .cc_busqueda input
+div#consultar_cancelar.pagina .busquedaboleta #cc_txt_busqueda
 {
     margin-bottom: 15px;
     margin-left: 15px;
     width: 30%;
+    border: 1px solid rgb(240, 165, 45);
+    position: relative;
+    left: 63px;
 }
 
+#consultar_cancelar.pagina #cc_btn_buscar{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 50px;
+}
+div#consultar_cancelar.pagina .busquedaboleta #cc_txt_correo
+{
+    margin-bottom: 15px;
+    margin-left: 15px;
+    width: 30%;
+    border: 1px solid rgb(240, 165, 45);
+    position: relative;
+    left: 13px;
+}
+#consultar_cancelar.pagina .busquedaboleta{
+    border-bottom: 2px solid rgb(240, 165, 45);
+}
 
-div#consultar_cancelar.pagina .cc_busqueda button#cc_btn_buscar:hover
+div#consultar_cancelar.pagina .busquedaboleta button#cc_btn_buscar:hover
 {
     border-bottom: 3px solid black;
     width: 30%;
@@ -241,26 +289,31 @@ div#consultar_cancelar.pagina .formulario input#cc_nombre_completo
 {
     margin-left: 40px;
     width: 45%;
+    border: 1px solid rgb(240, 165, 45)
 }
 
 div#consultar_cancelar.pagina .formulario input#cc_fecha_inicio
 {
     width: 45%;
     margin-left: 60px;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario input#cc_fecha_final
 {
     width: 45%;
     margin-left: 85px;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario input#cc_cant_personas
 {
     width: 45.2%;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario input#cc_nombre_tour
 {
     margin-left: 50px;
     width: 45%;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario .seccion_empleados
 {
@@ -272,6 +325,7 @@ div#consultar_cancelar.pagina .formulario .seccion_empleados
 div#consultar_cancelar.pagina .formulario .seccion_empleados input
 {
     width: 45%;
+    border: 1px solid rgb(240, 165, 45)
 }
 div#consultar_cancelar.pagina .formulario .seccion_empleados h2
 {
@@ -299,7 +353,7 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actuali
 }
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:hover
 {   
-    background-color: #1860d4;
+    background: linear-gradient(to right, hsla(234, 100%, 70%, 0.459), hsla(212, 100%, 76%, 0.664));
 }
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_actualizar:focus
 {
@@ -321,7 +375,8 @@ div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancela
 }
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancelar:hover
 {
-    background-color: #ff4e00;
+    background: linear-gradient(to right, hsla(54, 89%, 72%, 0.459), hsla(37, 95%, 48%, 0.664));
+
 }
 
 div#consultar_cancelar.pagina .formulario .seccion_botones button#cc_btn_cancelar:focus
@@ -370,3 +425,14 @@ div#tours.pagina div.row div.column_1 div.elegir_personal div.elegir_personal_co
     
 }
 
+#consultar_cancelar .formdatos{
+    position: relative;
+    left: 33px;
+ 
+}
+
+#consultar_cancelar .busquedaboleta label input{
+    position: relative;
+    left: 30px;
+    font-size: 20px;
+}

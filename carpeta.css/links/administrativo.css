@@ -167,6 +167,7 @@ opiedades para el menu al reducir el navegador a 600px*/
   .info-admin p,.info-empuno p,.info-empdos p,.info-emptresp p,.info-empcuatro p,.info-empcinco{
     margin-top: 5px;
     margin-left: 5px;
+    margin-bottom: 2px;
   }
   .info-admin{
     margin: 0;
@@ -176,10 +177,12 @@ opiedades para el menu al reducir el navegador a 600px*/
   }
   .info-admin a{
     color: #fff;
+    margin-top: 2px;
+    margin-left: 5px;
   }
     .notificacion .logos{
       width: 100%;
-      height: 16%;
+      height: 116px;
       background-color: rgb(9,79,174);
       border-bottom: 2px solid #efb810;
       display: flex;
@@ -252,17 +255,17 @@ opiedades para el menu al reducir el navegador a 600px*/
   }
     .lateral .mejor .empleado1{
     
-      height: 90px;
+      height: 100px;
       background-color: #fff;
       border-bottom: 3px solid #efb810;
       display: flex;
      
-      margin: 30px 30px 0 20px
+      margin: 20px 30px 0 20px
       
     }
     .lateral .mejor .empleado2{
 
-      height: 90px;
+      height: 100px;
       
       background-color: #fff;
       border-bottom: 3px solid #efb810;
@@ -272,7 +275,7 @@ opiedades para el menu al reducir el navegador a 600px*/
   
     .lateral .mejor .empleado3{
   
-      height: 90px;
+      height: 100px;
       
       background-color: #fff;
       border-bottom: 3px solid #efb810;
@@ -281,8 +284,7 @@ opiedades para el menu al reducir el navegador a 600px*/
     }
   
     .lateral .mejor .empleado4{
-    
-      height: 90px;
+      height: 100px;
      
       background-color: #fff;
       border-bottom: 3px solid #efb810;
@@ -292,7 +294,7 @@ opiedades para el menu al reducir el navegador a 600px*/
   
     .lateral .mejor .empleado5{
     
-      height: 90px;
+      height: 100px;
     
       background-color: #fff;
       display: flex;
@@ -410,13 +412,16 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
     font-family: sans-serif;
     width: 100%;
     flex-direction: column;
-    background-color: #508ab9;
+    background-color: rgb(9, 79, 174);
     padding-top: 30px;
     justify-content: center;
+    margin-left: 30px;
 }
 div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados h2
 {
     text-align: center;
+    padding: 20px 0 20px 0;
+    font-size: 30px;
 
 }
 div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados input
@@ -424,7 +429,7 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
     margin: 10px 0 0 20px;
     padding: 0 10px 0 10px;
     height: 25px;
-    width: 38%;
+    width: 43%;
     border: none;
     border-bottom: 3px solid #000000;
     transition: .5s all ;
@@ -437,12 +442,15 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
 }
 div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados input[type="email"]
 {
-    width: 80%;
+    width: 89%;
 }
 div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .seccion_cb
 {
     color: whitesmoke;
     padding: 20px 0 10px 10px;
+    position: relative;
+    left: 150px;
+    width: 600px;
 }
 div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .seccion_cb label,select
 {
@@ -454,6 +462,7 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
     border-radius: 3px;
     transition: .5s all;
     cursor: pointer;
+    position: relative;
 }
 
 div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .seccion_cb select:focus
@@ -464,7 +473,7 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
 
 div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones
 {
-    background-color: #295dac;
+    background-color: rgb(9, 79, 174);
     width: 100%;
     height: 50px;
     padding-top: 10px;
@@ -474,16 +483,21 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
 
 div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones button.fe_btn
 {
-    background-color: #009ffd;
+  background: linear-gradient(to right, rgb(22, 98, 191) 0%, rgb(9,79,164) 100%);
     border: none;
     margin-left: 10px;
     width: 30%;
-    height: 30px;
+    height: 50px;
     color: whitesmoke;
     font-size: 15px;
     cursor: pointer;
+    border-bottom: 2px solid #efb810;
+    border-right: 2px solid #efb810;
 }
+div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empleados.form_empleados .fe_botones button.fe_btn:hover{
+  background: linear-gradient(to right, hsla(251, 64%, 60%, 0.459), hsla(229, 59%, 48%, 0.664));
 
+}
 
 
 /*********/
@@ -535,7 +549,7 @@ div#login.pagina div#lolo4 div.caja3 div.central div.central-medio div#form_empl
 .caja3 .notificacion #info-busqueda-emp #btn_agregar_empleados{
   width: 150px;
   height: 40px;
-  margin:0 0 20px 40px;
+  margin:0 0 20px 45px;
 
 }
 .central .central-medio #esconder-empleado #tabla-empleado table{

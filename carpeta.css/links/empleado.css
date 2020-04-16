@@ -32,7 +32,7 @@ body{
   
   .contenido-central-top{
     width: 100%;
-    height: 16.2vh;
+    height: 121px;
     background-color: rgb(9,79,174);;
     border-bottom: 2px solid #efb810;
     overflow: hidden;
@@ -68,7 +68,7 @@ body{
 }
   .notificaciones .logo{
     width: 250px;
-    height: 16.2vh;
+    height: 121px;
     background-color: rgb(9,79,174);
     border-bottom: 2px solid #efb810;
     display: flex;
@@ -146,9 +146,8 @@ body{
   }
   .contenido-lateral .mejores .Tema{
     margin: 0 auto;
-  
     width: 100%;
-    height: 16.2vh;
+    height: 121px;
     border-bottom: 2px solid #efb810;
     background-color: rgb(9,79,174);
   }
@@ -502,7 +501,7 @@ header nav ul li:hover{
   background: rgb(255,255,255);
   color: #000;
   top: 50%;
-  left: 30%;
+  left: 400px;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
@@ -517,12 +516,12 @@ header nav ul li:hover{
 }
 
 .login-box .avatar {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   position: absolute;
-  top: -50px;
-  left: calc(50% - 50px);
+  top: -70px;
+  left: calc(50% - 70px);
 }
 .login-box .encabezado_login{
   height: 100px;
@@ -587,8 +586,16 @@ header nav ul li:hover{
 #login.pagina.esconder .login .fralogin{
   display: flex;
 }
-/******/
 
+.formulario .login .fralogin .Frase_Login img{
+  width: 800px;
+  height: 200px;
+  
+  margin:190px 20px 0 0;
+  position: relative;
+  left: 650px;
+}
+/******/
 footer{
   background: rgb(255,255,255);
   padding: 60px 0 30px 0;
