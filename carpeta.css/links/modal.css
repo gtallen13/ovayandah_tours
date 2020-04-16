@@ -35,6 +35,7 @@ overflow-x: hidden;
   animation-name: animatetop;
   animation-duration: 0.4s;
   text-align: center;
+  outline: rgb(240,110,50);
 }
 
 /* Add Animation */
@@ -67,7 +68,7 @@ overflow-x: hidden;
   padding: 10px;
   color: white;
   text-align: center;
-  background-color: mediumblue;
+  background: linear-gradient(to right, #0060af 0%, rgb(9, 79, 174)100%);
 }
 
 .modal-header img{
@@ -79,7 +80,7 @@ overflow-x: hidden;
   padding: 2px 16px;
   display: inline-block;
   justify-content: center;
-
+  
 }
 
 
@@ -130,13 +131,13 @@ body::-webkit-scrollbar-track {
  
 /* Handle */
 body::-webkit-scrollbar-thumb {
-  background: rgb(120, 156, 255); 
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 body::-webkit-scrollbar-thumb:hover {
-  background: rgb(120, 156, 255); 
+  background: linear-gradient(to right, rgb(229,161,50) 0%, rgb(240,110,50) 100%);
 }
 .modal::-webkit-scrollbar {
   width: 0px;
