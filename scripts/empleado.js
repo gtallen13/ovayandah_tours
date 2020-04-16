@@ -12,55 +12,59 @@ btnLogin.addEventListener('click', function(e){
     conexion.query(consultasql,[`${username.value}`,`${password.value}`],function(err,filas,campos){
         if (err){
             console.log('error')
-            return;
         } else {
-            if (filas[0].id === 1) {
-                for (let hilo of filas) {
-                    if (username.value === hilo.username & password.value === hilo.contra){
-                        console.log('lo existe')
-                        //Este desasparece el formulario login
-                        document.getElementById('lolo').style.display = 'none'
-                        //Este aparece la pagina de Administrador
-                        document.getElementById('lolo4').classList.remove('esconder')
-                        cargarNombreEmpleado()
-                        nombrar()
-                        // cargarClientes()
-                        cargarTop()
-                        cargarPrimerInfo()
-                        //notificaion
-                        //bienvenido [nombre del empleado]
-                        
-                    }else {
-                        console.log ('no pudiste entrar')
-                        //notificaion
-                        //usuario o contrasenia malas
+            for (let fil of filas) {
+                if (fil.id === 1) {
+                    for (let hilo of filas) {
+                        if (username.value === hilo.username & password.value === hilo.contra){
+                            console.log('lo existe')
+                            //Este desasparece el formulario login
+                            document.getElementById('lolo').style.display = 'none'
+                            //Este aparece la pagina de Administrador
+                            document.getElementById('lolo4').classList.remove('esconder')
+                            cargarNombreEmpleado()
+                            nombrar()
+                            // cargarClientes()
+                            cargarTop()
+                            cargarPrimerInfo()
+                            //notificaion
+                            //bienvenido [nombre del empleado]
+                            
+                        }else {
+                            console.log ('no pudiste entrar')
+                            //notificaion
+                            //usuario o contrasenia malas
+                        }
                     }
-                }
-            } else {
-                for (let hilo of filas) {
-                    if (username.value === hilo.username & password.value === hilo.contra){
-                        console.log('lo existe')
-                        //Este desasparece el formulario login
-                        document.getElementById('lolo').style.display = 'none'
-                        //Este aparece la pagina el formulario Empleado
-                        document.getElementById('lolo3').classList.remove('esconder')
-                        cargarNombreEmpleado()
-                        nombrar()
-                        // cargarClientes()
-                        cargarTop()
-                        cargarPrimerInfo()
-                        //notificaion
-                        //bienvenido [nombre del empleado]
-                        
-                    }else {
-                        console.log ('no pudiste entrar')
-                        //notificaion
-                        //usuario o contrasenia malas
+                } else if (fil.id === 2) {
+                    for (let hilo of filas) {
+                        if (username.value === hilo.username & password.value === hilo.contra){
+                            console.log('lo existe')
+                            //Este desasparece el formulario login
+                            document.getElementById('lolo').style.display = 'none'
+                            //Este aparece la pagina el formulario Empleado
+                            document.getElementById('lolo3').classList.remove('esconder')
+                            cargarNombreEmpleado()
+                            nombrar()
+                            // cargarClientes()
+                            cargarTop()
+                            cargarPrimerInfo()
+                            //notificaion
+                            //bienvenido [nombre del empleado]
+                            
+                        }else {
+                            console.log ('no pudiste entrar')
+                            //notificaion
+                            //usuario o contrasenia malas
+                        }
                     }
+                    
+                } else {
+                    console.log('error toro')
                 }
                 
+    
             }
-            
         }
     })
 })

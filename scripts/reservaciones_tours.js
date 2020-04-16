@@ -57,6 +57,7 @@ const txtVerificacionCorreo = document.getElementById('txt_ver_correo');
 const telefono = document.getElementById('txt-telefono')
 const txtPersonas = document.getElementById('txt_cantidad_personas');
 
+
 //variables para controlar estado de radiobuttons (selecTour)
 let cbSnorkelScubba = ``
 let cbParaSki = ``
@@ -115,7 +116,7 @@ function selecEmpleadosTG()
     let select_tourguides = document.getElementById('cb_tourguides')
     let query_tourguides = `select id,concat(primer_nombre, " ", primer_apellido) NombreCompleto, id_posicion from empleados
     where id_posicion = 2;`
-    let html_tourguides = `<select class="combox"><option value="" disabled selected hidden>Tour Guides</option>`
+    let html_tourguides = `<select id="cd-empleado-t" class="combox"><option value="" disabled selected hidden>Tour Guides</option>`
     conexion.query(query_tourguides,function(err, resultados,campor)
     {
         if (err) throw err;
@@ -134,7 +135,7 @@ function selecEmpleadosTransportista()
     let select_transportista = document.getElementById('cb_transportista')
     let query_transportista = `select id,concat(primer_nombre, " ", primer_apellido) NombreCompleto, id_posicion from empleados
     where id_posicion = 3;`
-    let html_transportista = `<select class="combox"><option value="" disabled selected hidden>Transportista</option>`
+    let html_transportista = `<select id="cd-empleado-tg" class="combox"><option value="" disabled selected hidden>Transportista</option>`
     conexion.query(query_transportista,function(err, resultados,campor)
     {
         if (err) throw err;
@@ -149,8 +150,12 @@ function selecEmpleadosTransportista()
 selecEmpleadosTG();
 selecEmpleadosTransportista();
 
+
+
 btnReservar.addEventListener('click', function (e) {
     e.preventDefault()
+    const cbEmpleadoT = document.getElementById('cd-empleado-t');
+    const cbEmpleadoTG = document.getElementById('cd-empleado-tg');
     //validando el modal
     if (validacionModal(txtFechaInicio.value, txtFechaFinal.value, txtPrimerNombre.value,
         txtPrimerApellido.value, txtCorreo.value,txtVerificacionCorreo.value, 
@@ -158,6 +163,24 @@ btnReservar.addEventListener('click', function (e) {
     {
         insertarClientes()
         encontrarIdCliente(arr[arr.length - 1])
+        let sql = `select id from reservaciones order by id desc limit 1`
+        conexion.query(sql,function(err,fils,campos){
+            if (err) throw err
+            for (let fault of fils) {
+                let sqlInsertar = `insert into empleados_reservaciones(reservacion_id,empleados_id) values(${fault.id},${cbEmpleadoT.value})`
+                conexion.query(sqlInsertar,function(err,fils,campos){
+                    if (err) throw err
+                    let sqlInsertar2 = `insert into empleados_reservaciones(reservacion_id,empleados_id) values(${fault.id},${cbEmpleadoTG.value})`
+                    conexion.query(sqlInsertar2,function(err,fils,campos){
+                        if (err) throw err
+                        console.log('ya se agrego sus empleado que lo acompañaran en el tour')
+                    })
+                })
+            }
+        })
+        
+        console.log(cbEmpleadoT.value)
+        console.log(cbEmpleadoTG.value)
 
     } else {
         console.log('Revise bien el correo')
